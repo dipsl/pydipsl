@@ -1,9 +1,8 @@
 Installation
 ============
 
-Source code of this project is available in a `DIP GitHub repository <https://github.com/vrtulka23/dip>`_.
-Conde can be used directly by including its source code into a python path.
-In the close future DIP will be also available on PyPi as a module "diplang".
+Source code of this project is available in a `DIP GitHub repository <https://github.com/dipsl/dippy>`_.
+
 
 .. code-block:: bash
 		

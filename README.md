@@ -1,4 +1,6 @@
-# DIPSL (Dimensional Initial Parameters Serialization Language)
+# Welcome to DIP(SL)
+
+Dimensional Initial Parameters (Serialization Language)
 
 ![DIP](https://raw.githubusercontent.com/dipsl/dippy/main/docs/source/_static/logo/dip_logo_128.png)
 
