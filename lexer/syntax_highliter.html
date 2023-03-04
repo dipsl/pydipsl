@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syntax highliter &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Schema highliter" href="schema_highliter.html" />
+    <link rel="prev" title="Pygments lexer" href="../lexer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syntax.html">Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../lexer.html">Pygments lexer</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Syntax highliter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schema_highliter.html">Schema highliter</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../lexer.html">Pygments lexer</a></li>
+      <li class="breadcrumb-item active">Syntax highliter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lexer/syntax_highliter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="syntax-highliter">
+<h1>Syntax highliter<a class="headerlink" href="#syntax-highliter" title="Permalink to this heading"></a></h1>
+<p>DIP language shares many commong programing concepts with other languages like Python and C.
+It’s syntax is, however, different enough to cause problem for generic highliters.
+Therefore, DIP comes with its own <a class="reference external" href="https://pygments.org">pygments</a> lexer in <cite>lexer/DIP_Lexer_Syntax.py</cite> and styles in <cite>lexer/DIP_Lexer_Style.py</cite>.
+Below is an overview of all its highlighting capabilities:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All starting curly brackets in expressions are interpreted as references.
+In order to interpret starting curly bracket as a plain text one has to escape them with a slash sign.
+The slash sign will be automatically omitted by the lexer in the highlighted text.</p>
+</div>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="c"># group nodes</span>
+
+<span class="n">name</span>
+<span class="n">hierarchy.path</span>  <span class="c"># comment</span>
+<span class="n">name-with.more_words.and.stuff34</span>
+
+<span class="c"># modifications</span>
+
+<span class="n">name</span> = <span class="m">1</span>
+<span class="n">name</span> = <span class="s">foo</span>
+<span class="n">name</span> = <span class="s">&quot;foo bar&quot;</span>       <span class="c"># comment</span>
+<span class="n">name</span> = <span class="s">&#39;foo bar&#39;</span>
+<span class="n">name</span> = <span class="s">&quot;&quot;&quot;</span>
+<span class="s">foo bar</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">name</span> = <span class=" -Reference">{source?query}</span>
+
+<span class="c"># declarations</span>
+
+<span class="n">name</span> <span class=" -Type">bool</span>
+<span class="n">name</span> <span class=" -Type">int</span>
+<span class="n">name</span> <span class=" -Type">str</span>
+<span class="n">name</span> <span class=" -Type">float</span>
+<span class="n">name</span> <span class=" -Type">float</span>             <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">table</span>
+
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">:1</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">:1</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span>       <span class="c"># comment</span>
+
+<span class="c"># scalar definitions</span>
+
+<span class="n">name</span> <span class=" -Type">bool</span> = <span class=" -Boolean">true</span>
+<span class="n">name</span> <span class=" -Type">bool</span> = <span class=" -Boolean">false</span>      <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">bool</span> = <span class=" -Reference">{source?query}</span>
+<span class="n">name</span> <span class=" -Type">bool</span> = (<span class=" -Expression">&#39;(</span><span class=" -Reference">{?a}</span><span class=" -Expression"> == 23.43 cm&#39;</span>)
+<span class="n">name</span> <span class=" -Type">bool</span> = (<span class=" -Expression">&quot;(</span><span class=" -Reference">{?a}</span><span class=" -Expression"> == 23.43 cm &amp;&amp; true&quot;</span>)  <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">bool</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">false || (</span><span class=" -Reference">{?a}</span><span class=" -Expression"> == 23.43 cm || ~</span><span class=" -Reference">{?b}</span><span class=" -Expression">) &amp;&amp; </span><span class=" -Reference">{?c}</span><span class=" -Expression"> || ~!</span><span class=" -Reference">{?d}</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)
+
+<span class="n">name</span> <span class=" -Type">int</span> = <span class="m">12</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class="m">12</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class="m">12.3</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class="m">12.3e23</span>   <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class="m">12.3e-23</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class="m">-12.3e23</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class=" -Reference">{source?query}</span>
+<span class="n">name</span> <span class=" -Type">float</span> = (<span class=" -Expression">&#39;2 kg * pow(</span><span class=" -Reference">{?const.c}</span><span class=" -Expression">,2)&#39;</span>)
+<span class="n">name</span> <span class=" -Type">float</span> = (<span class=" -Expression">&quot;2 kg * pow(</span><span class=" -Reference">{?const.c}</span><span class=" -Expression">,2)&quot;</span>)  <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">2 kg * pow(</span><span class=" -Reference">{?const.c}</span><span class=" -Expression">,2)</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)
+
+<span class="n">name</span> <span class=" -Type">str</span> = <span class="s">foo</span>
+<span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&quot;foo bar&quot;</span>   <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&#39;foo bar&#39;</span>
+<span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&quot;&quot;&quot;</span>
+<span class="s">foo bar &quot; &quot;&quot; &#39;</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">name</span> <span class=" -Type">str</span> = <span class=" -Reference">{source?query}</span>  <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">str</span> = (<span class=" -Expression">&#39;ID: </span><span class=" -Reference">{{?id}:</span><span class=" -Slice">05d</span><span class=" -Reference">}</span><span class=" -Expression">&#39;</span>)
+<span class="n">name</span> <span class=" -Type">str</span> = (<span class=" -Expression">&quot;ID: </span><span class=" -Reference">{{?id}:</span><span class=" -Slice">05d</span><span class=" -Reference">}</span><span class=" -Expression">&quot;</span>) <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">str</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">ID:      </span><span class=" -Reference">{{?id}:</span><span class=" -Slice">05d</span><span class=" -Reference">}</span>
+<span class=" -Expression">Name:    </span><span class=" -Reference">{{?name}}</span>
+<span class=" -Expression">Surname:  </span><span class=" -Reference">{{?name}[</span><span class=" -Slice">5:</span><span class=" -Reference">]}</span>
+<span class=" -Expression">Scalar:   </span><span class=" -Reference">{{?widths}[</span><span class=" -Slice">1</span><span class=" -Reference">,</span><span class=" -Slice">1</span><span class=" -Reference">]:</span><span class=" -Slice">.2e</span><span class=" -Reference">}</span>
+<span class=" -Expression">Array:</span>
+<span class=" -Reference">{{?widths}[</span><span class=" -Slice">:</span><span class=" -Reference">,</span><span class=" -Slice">1:</span><span class=" -Reference">]}</span>
+<span class=" -Expression">{no-reference}   &lt;-  starting curly bracket was escaped</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)
+
+<span class="c"># array definitions</span>
+
+<span class="n">name</span> <span class=" -Type">bool[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = [[<span class=" -Boolean">true</span>,<span class=" -Boolean">false</span>],[<span class=" -Boolean">false</span>,<span class=" -Boolean">true</span>]]
+<span class="n">name</span> <span class=" -Type">bool[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class="s">&quot;[[true, false], [false, true]]&quot;</span>
+<span class="n">name</span> <span class=" -Type">bool[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class="s">&#39;[[true, false], [false, true]]&#39;</span>
+<span class="n">name</span> <span class=" -Type">bool[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class="s">&quot;&quot;&quot;</span>
+<span class="s">[[true, false], [false, true]]</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">name</span> <span class=" -Type">bool[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class=" -Reference">{source?query}[</span><span class=" -Slice">:2</span><span class=" -Reference">,</span><span class=" -Slice">:2</span><span class=" -Reference">]</span>
+
+<span class="n">name</span> <span class=" -Type">int[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [[<span class="m">1</span>,<span class="m">2</span>,<span class="m">3</span>],[<span class="m">4</span>,<span class="m">5</span>,<span class="m">6</span>]]
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [[<span class="m">1</span>,<span class="m">2</span>,<span class="m">3</span>],[<span class="m">4</span>,<span class="m">5</span>,<span class="m">6</span>]]<span class=" -Unit">                </span><span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&quot;[[1, 2, 3], [4, 5, 6]]&quot;</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&#39;[[1, 2, 3], [4, 5, 6]]&#39;</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&quot;&quot;&quot;</span>
+<span class="s">[[1, 2, 3], [4, 5, 6]]</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class=" -Reference">{source?query}[</span><span class=" -Slice">:2</span><span class=" -Reference">,</span><span class=" -Slice">:3</span><span class=" -Reference">]</span>
+
+<span class="n">name</span> <span class=" -Type">str[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = [[<span class="s">a,b],[c,d]]</span>
+<span class="n">name</span> <span class=" -Type">str[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = [[<span class="s">&#39;a&#39;</span>,<span class="s">&#39;b&#39;</span>],[<span class="s">&quot;c&quot;</span>,<span class="s">&quot;&quot;&quot;</span>
+<span class="s">foo bar</span>
+<span class="s">&quot;&quot;&quot;</span>]]<span class=" -Unit">                                              </span><span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">str[</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [<span class="s">&#39;John&#39;</span>,<span class="s">&#39;Peter&#39;</span>,<span class="s">&quot;Simon&quot;</span>]             <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">str[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class="s">&quot;[[&#39;a&#39;,&#39;b&#39;],[\&quot;c\&quot;,\&quot;d\&quot;]]&quot;</span>
+<span class="n">name</span> <span class=" -Type">str[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class="s">&#39;\[[\&#39;a\&#39;,\&#39;b\&#39;],[&quot;c&quot;,&quot;d&quot;]]&#39;</span>
+<span class="n">name</span> <span class=" -Type">str[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class="s">&quot;&quot;&quot;</span>
+<span class="s">[[&#39;a&#39;,&#39;b&#39;],[\&quot;c\&quot;,\&quot;d\&quot;]]</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">name</span> <span class=" -Type">str[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class=" -Reference">{source?query}[</span><span class=" -Slice">:2</span><span class=" -Reference">,</span><span class=" -Slice">:2</span><span class=" -Reference">]</span>              <span class="c"># comment</span>
+
+<span class="c"># units</span>
+
+<span class="n">name</span> = <span class="m">1</span><span class=" -Unit"> cm</span>
+<span class="n">name</span> = <span class="m">1</span><span class=" -Unit"> cm</span>            <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float</span><span class=" -Unit"> cm</span>
+<span class="n">name</span> <span class=" -Type">float</span><span class=" -Unit"> cm</span>          <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">:1</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span><span class=" -Unit"> cm</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">:1</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span><span class=" -Unit"> cm</span>    <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">int</span> = <span class="m">12</span><span class=" -Unit"> cm</span>
+<span class="n">name</span> <span class=" -Type">int</span> = <span class="m">12</span><span class=" -Unit"> cm</span>       <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class="m">12</span><span class=" -Unit"> cm</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class="m">12</span><span class=" -Unit"> cm</span>     <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float</span> = <span class=" -Reference">{source?query}</span><span class=" -Unit"> cm</span>                 <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [[<span class="m">1</span>,<span class="m">2</span>,<span class="m">3</span>],[<span class="m">4</span>,<span class="m">5</span>,<span class="m">6</span>]]<span class=" -Unit"> cm</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [[<span class="m">1</span>,<span class="m">2</span>,<span class="m">3</span>],[<span class="m">4</span>,<span class="m">5</span>,<span class="m">6</span>]]<span class=" -Unit"> cm</span>         <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&quot;[[1, 2, 3], [4, 5, 6]]&quot;</span><span class=" -Unit"> cm</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&quot;[[1, 2, 3], [4, 5, 6]]&quot;</span><span class=" -Unit"> cm</span>  <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&#39;[[1, 2, 3], [4, 5, 6]]&#39;</span><span class=" -Unit"> cm</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&#39;[[1, 2, 3], [4, 5, 6]]&#39;</span><span class=" -Unit"> cm</span>  <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&quot;&quot;&quot;</span>
+<span class="s">[[1, 2, 3], [4, 5, 6]]</span>
+<span class="s">&quot;&quot;&quot;</span><span class=" -Unit"> cm</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = <span class="s">&quot;&quot;&quot;</span>
+<span class="s">[[1, 2, 3], [4, 5, 6]]</span>
+<span class="s">&quot;&quot;&quot;</span><span class=" -Unit"> cm</span>                   <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class=" -Reference">{source?query}[</span><span class=" -Slice">:2</span><span class=" -Reference">,</span><span class=" -Slice">:2</span><span class=" -Reference">]</span><span class=" -Unit"> cm</span>     <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float</span> = (<span class=" -Expression">&#39;2 kg * pow(</span><span class=" -Reference">{?const.c}</span><span class=" -Expression">,2)&#39;</span>)<span class=" -Unit"> kg</span>
+<span class="n">name</span> <span class=" -Type">float</span> = (<span class=" -Expression">&quot;2 kg * pow(</span><span class=" -Reference">{?const.c}</span><span class=" -Expression">,2)&quot;</span>)<span class=" -Unit"> kg</span>   <span class="c"># comment</span>
+<span class="n">name</span> <span class=" -Type">float</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">2 kg * pow(</span><span class=" -Reference">{?const.c}</span><span class=" -Expression">,2)</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)<span class=" -Unit"> kg</span>
+
+<span class="c"># validation</span>
+
+<span class="n">weight</span> <span class=" -Type">float</span> = <span class="m">23.3</span><span class=" -Unit"> kg</span>
+  <span class="k">=</span> <span class="m">28</span><span class=" -Unit"> g</span>
+  <span class="k">=</span> <span class="m">23</span>
+  <span class="k">=</span> <span class="m">83</span><span class=" -Unit"> kg</span>   <span class="c"># comment</span>
+  <span class="k">=</span> <span class="m">23</span>      <span class="c"># comment</span>
+<span class="k">  !options</span> [<span class="m">28</span>,<span class="m">29</span>,<span class="m">30</span>]
+<span class="k">  !options</span> [<span class="m">28</span>,<span class="m">29</span>,<span class="m">30</span>]<span class=" -Unit">       </span><span class="c"># comment</span>
+<span class="k">  !options</span> [<span class="m">28</span>,<span class="m">29</span>,<span class="m">30</span>]<span class=" -Unit"> kg</span>
+<span class="k">  !options</span> [<span class="m">28</span>,<span class="m">29</span>,<span class="m">30</span>]<span class=" -Unit"> kg</span>    <span class="c"># comment</span>
+<span class="k">  !constant</span>
+<span class="k">  !constant</span>            <span class="c"># comment</span>
+<span class="k">  !format</span> <span class="s">&#39;[a-zA-Z]&#39;</span>
+<span class="k">  !format</span> <span class="s">&quot;[a-zA-Z]&quot;</span>
+<span class="k">  !format</span> <span class="s">&quot;[a-zA-Z]&quot;</span>   <span class="c"># comment</span>
+<span class="k">  !condition</span> (<span class=" -Expression">&#39;23 &lt; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &amp;&amp; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &lt; 26&#39;</span>)
+<span class="k">  !condition</span> (<span class=" -Expression">&quot;23 &lt; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &amp;&amp; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &lt; 26&quot;</span>)
+<span class="k">  !condition</span> (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">  23 &lt; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &amp;&amp; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &lt; 26</span>
+<span class=" -Expression">  &quot;&quot;&quot;</span>)
+
+<span class="c"># special nodes</span>
+
+<span class="k">$unit</span> <span class="n">length</span> = <span class="m">1</span><span class=" -Unit"> cm</span>          <span class="c"># comment</span>
+<span class="k">$source</span> <span class="n">file</span> = <span class="s">path</span>          <span class="c"># comment</span>
+<span class="k">$source</span> <span class=" -Reference">{init?*}</span>             <span class="c"># comment</span>
+<span class="k">$unit</span> <span class=" -Reference">{units?*}</span>              <span class="c"># comment</span>
+<span class="k">@case</span> (<span class=" -Expression">&quot;</span><span class=" -Reference">{?winner}</span><span class=" -Expression"> == 1&quot;</span>)     <span class="c"># comment</span>
+<span class="k">@else</span>                        <span class="c"># comment</span>
+<span class="k">@end</span>                         <span class="c"># comment</span>
+
+<span class="c"># hierarchy</span>
+
+<span class="n">family</span> <span class=" -Type">str</span> = <span class="s">Smith</span>
+  <span class="n">parents</span>
+    <span class="n">father</span> <span class=" -Type">str</span> = <span class="s">&#39;John&#39;</span>
+    <span class="n">mother</span> <span class=" -Type">str</span> = <span class="s">&#39;Mary&#39;</span>
+  <span class="n">children</span> <span class=" -Type">int</span> = <span class="m">1</span>
+    <span class="n">infant</span> <span class=" -Type">bool</span> = <span class=" -Boolean">true</span>  <span class="c"># comment</span>
+    <span class="n">weight</span> <span class=" -Type">float</span> = <span class="m">9</span><span class=" -Unit"> kg</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../lexer.html" class="btn btn-neutral float-left" title="Pygments lexer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="schema_highliter.html" class="btn btn-neutral float-right" title="Schema highliter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

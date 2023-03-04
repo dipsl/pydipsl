@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expressions &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Units" href="units.html" />
+    <link rel="prev" title="References" href="references.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../syntax.html">Syntax</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nodes.html">Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="values.html">Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#logical">Logical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#numerical">Numerical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditions.html">Conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../syntax.html">Syntax</a></li>
+      <li class="breadcrumb-item active">Expressions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/syntax/expressions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="expressions">
+<h1>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading"></a></h1>
+<p>Node values can be defined also indirectly using expressions.
+Notation of expression values is similar to the string notation wrapped in additional parentheses:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Expression schema</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class="c"># using double quotes</span>
+(<span class=" -Expression">&quot;&lt;expression&gt;&quot;</span>)
+
+<span class="c"># using single quotes</span>
+(<span class=" -Expression">&#39;&lt;expression&gt;&#39;</span>)
+
+<span class="c"># using block notation</span>
+(<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">&lt;expression&gt;</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)
+</pre></div>
+</div>
+</div>
+<p>There are 4 different types of expressions in DIP.
+Three of them (logical, numerical and textual, i.e. templates) are described below.
+Dimensional expressions, i.e. <a class="reference internal" href="units.html"><span class="doc">units</span></a>, are described in a separate chapter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All operators used in expressions must be separated from values with at least one empty space.</p>
+</div>
+<p>Possible input values used by expressions are summarized in the following table:</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Input values</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&lt;bool&gt;</p></td>
+<td><p>boolean</p></td>
+<td><p>true/false</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;num&gt;</p></td>
+<td><p>numerical</p></td>
+<td><p>24 cm</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt;ref&gt;</p></td>
+<td><p>reference</p></td>
+<td><p>{?energy}</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt;expr&gt;</p></td>
+<td><p>expression</p></td>
+<td><p>12 cm == {?width} &amp;&amp; true</p></td>
+</tr>
+</tbody>
+</table>
+<p>Operators summarized below are evaluated according to their priority from 1 to 4 and can be nested accordingly.</p>
+<section id="logical">
+<h2>Logical<a class="headerlink" href="#logical" title="Permalink to this heading"></a></h2>
+<p>Logical expressions are used to generate values for boolean nodes.
+The expressions can be composed of multiple nested logical operators that always return true or false value.</p>
+<p>Example of a logical expression is given below.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class=" -Type">bool</span> = <span class=" -Boolean">true</span>
+<span class="n">b</span> <span class=" -Type">float</span> = <span class="m">23.43</span><span class=" -Unit"> cm</span>
+<span class="n">c</span> <span class=" -Type">bool</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">false || (</span><span class=" -Reference">{?b}</span><span class=" -Expression"> == 23.43 cm || ~</span><span class=" -Reference">{?a}</span><span class=" -Expression">) &amp;&amp; </span><span class=" -Reference">{?a}</span><span class=" -Expression"> || ~!</span><span class=" -Reference">{?c}</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)
+
+<span class="c"># Node &#39;c&#39; will be evaluated as &#39;true&#39;</span>
+</pre></div>
+</div>
+<p>Expression operators evaluate only boolean values either given directly or as a result of a nested expression.</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Logical operators</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Priority</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A || B || C …</p></td>
+<td><p>4</p></td>
+<td><p>Logical OR operator returns true if at least one expression (<cite>A</cite>, <cite>B</cite>, <cite>C</cite>, …) is true</p></td>
+</tr>
+<tr class="row-odd"><td><p>A &amp;&amp; B &amp;&amp; C …</p></td>
+<td><p>3</p></td>
+<td><p>Logical AND operator returns true if all expressions (<cite>A</cite>, <cite>B</cite>, <cite>C</cite>, …) are true</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Parenthesis operator</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Priority</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(&lt;expr&gt;)</p></td>
+<td><p>2</p></td>
+<td><p>Parentheses operator evaluates expression <cite>A</cite> in a separate thread and returns its value</p></td>
+</tr>
+</tbody>
+</table>
+<p>Numerical values with dimensions compared using comparison operations are automatically converted into same units. Result of such comparison is always a boolean value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the moment it is possible to compare only scalar numerical values. Support for array comparison is planned to be provided in next versions of DIP.</p>
+</div>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Comparison operators</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Priority</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A == B</p></td>
+<td><p>1</p></td>
+<td><p>Equality operator returns true if <cite>A</cite> and <cite>B</cite> have same dimensions and numeraical value up to EQUAL_PRECISION</p></td>
+</tr>
+<tr class="row-odd"><td><p>A != B</p></td>
+<td><p>1</p></td>
+<td><p>Inequality operator returns true if <cite>A</cite> and <cite>B</cite> do not have same dimension or numerical value up to EQUAL_PRECISION</p></td>
+</tr>
+<tr class="row-even"><td><p>A &gt;= B</p></td>
+<td><p>1</p></td>
+<td><p>Greater or equal operator returns true if <cite>A</cite> is greater or equal (up to EQUAL_PRECISION) than <cite>B</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p>A &lt;= B</p></td>
+<td><p>1</p></td>
+<td><p>Smaller or equal operator returns true if <cite>A</cite> is smaller or equal (up to EQUAL_PRECISION) than <cite>B</cite></p></td>
+</tr>
+<tr class="row-even"><td><p>A &gt; B</p></td>
+<td><p>1</p></td>
+<td><p>Greather than operator returns true if <cite>A</cite> is greater than <cite>B</cite></p></td>
+</tr>
+<tr class="row-odd"><td><p>A &lt; B</p></td>
+<td><p>1</p></td>
+<td><p>Smaller than operator returns true if <cite>A</cite> is smaller than <cite>B</cite></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Single value operators</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Priority</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>~&lt;bool&gt;</p></td>
+<td><p>1</p></td>
+<td><p>Negation operator returns true if value <cite>A</cite> is false</p></td>
+</tr>
+<tr class="row-odd"><td><p>!&lt;ref&gt;</p></td>
+<td><p>1</p></td>
+<td><p>Definition operator returns true if &lt;reference&gt; node exists</p></td>
+</tr>
+<tr class="row-even"><td><p>~!&lt;ref&gt;</p></td>
+<td><p>1</p></td>
+<td><p>Non-definition operator returns true if &lt;reference&gt; node does not exist</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="numerical">
+<h2>Numerical<a class="headerlink" href="#numerical" title="Permalink to this heading"></a></h2>
+<p>Numerical expressions are used to generate values for numerical node types.
+If given, expression result is automatically converted into node units.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">const</span>
+   <span class="n">c</span> <span class=" -Type">float</span> = <span class="m">299792458</span><span class=" -Unit"> m/s</span>
+<span class="n">energy</span> <span class=" -Type">float</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">2 kg * pow(</span><span class=" -Reference">{?const.c}</span><span class=" -Expression">,2)</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)<span class=" -Unit"> eV</span>
+
+<span class="c"># Node &#39;energy&#39; will be parsed as 1.79751 eV</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DIP does not aim to substitue advanced numerical programming languages.
+Numerical expressions in DIP are supposed to give a quick tool for generation of input values that can be easily derived from other parameters.
+Therefore, it implements only most basic mathematical operations on scalar values.
+More advanced operations can be added in the future versions of DIP.</p>
+</div>
+<p>Operators used in numerical expressions are summarized below:</p>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Basic operations</span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Priority</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A + B</p></td>
+<td><p>3</p></td>
+<td><p>Addition of two values of a same dimension</p></td>
+</tr>
+<tr class="row-odd"><td><p>A - B</p></td>
+<td><p>3</p></td>
+<td><p>Substraction of two values of a same dimension</p></td>
+</tr>
+<tr class="row-even"><td><p>A * B</p></td>
+<td><p>2</p></td>
+<td><p>Multiplication of two values</p></td>
+</tr>
+<tr class="row-odd"><td><p>A / B</p></td>
+<td><p>2</p></td>
+<td><p>Division of two values</p></td>
+</tr>
+</tbody>
+</table>
+<p>Parentheses operators evaluate expressions in a separate thread and return its final value.
+Most of the following operators require, that the final value has no dimensions.</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Parentheses operators</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Priority</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(&lt;expr&gt;)</p></td>
+<td><p>1</p></td>
+<td><p>Standard parenthesis operator</p></td>
+</tr>
+<tr class="row-odd"><td><p>exp(&lt;expr&gt;)</p></td>
+<td><p>1</p></td>
+<td><p>Returns exponential value of a dimensionless expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>pow(&lt;expr&gt;,&lt;expr&gt;)</p></td>
+<td><p>1</p></td>
+<td><p>Returns first expression risen on a power of second dimensionless expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ln(&lt;expr&gt;)</p></td>
+<td><p>1</p></td>
+<td><p>Returns natural logarithmic value of a dimensionless expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>log10(&lt;expr&gt;)</p></td>
+<td><p>1</p></td>
+<td><p>Returns common logarithmic value of a dimmensionless expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sin(&lt;expr&gt;)</p></td>
+<td><p>1</p></td>
+<td><p>Returns sine value of a dimensionless expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>cos(&lt;expr&gt;)</p></td>
+<td><p>1</p></td>
+<td><p>Returns cosine value of a dimensionless expression.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this heading"></a></h2>
+<p>Templates are used to parse node values into a text form.
+All value types can be parsed into text using standard python formatting notation.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">id</span> <span class=" -Type">int</span> = <span class="m">345</span>
+<span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&#39;Tina&#39;</span>
+<span class="n">body</span>
+  <span class="n">weight</span> <span class=" -Type">float</span> = <span class="m">62.3</span><span class=" -Unit"> kg</span>
+  <span class="n">height</span> <span class=" -Type">float</span> = <span class="m">177</span><span class=" -Unit"> cm</span>
+<span class="n">married</span> <span class=" -Type">bool</span> = <span class=" -Boolean">true</span>
+
+<span class="n">person</span> <span class=" -Type">str</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">ID:      </span><span class=" -Reference">{{?id}:</span><span class=" -Slice">05d</span><span class=" -Reference">}</span>
+<span class=" -Expression">Name:    </span><span class=" -Reference">{{?name}}</span>
+<span class=" -Expression">Weight:  </span><span class=" -Reference">{{?body.weight}:</span><span class=" -Slice">.3e</span><span class=" -Reference">}</span>
+<span class=" -Expression">Height:  </span><span class=" -Reference">{{?body.height}:</span><span class=" -Slice">.2f</span><span class=" -Reference">}</span>
+<span class=" -Expression">Married: </span><span class=" -Reference">{{?married}}</span>
+<span class=" -Expression">{not a  reference}</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)
+
+<span class="c"># Node &#39;person&#39; will be parsed as:</span>
+<span class="c">#</span>
+<span class="c"># ID:      00345</span>
+<span class="c"># Name:    Tina</span>
+<span class="c"># Weight:  6.230e+01</span>
+<span class="c"># Height:  177.00</span>
+<span class="c"># Married: True</span>
+</pre></div>
+</div>
+<p>String expressions interpret starting double curly brackets always as a reference.
+Single curly brackets are interpreted as a plain test.</p>
+<p>Basic syntax of parsing operators is described below:</p>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">Parsing operators</span><a class="headerlink" href="#id9" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Syntax</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>{&lt;ref&gt;}</p></td>
+<td><p>Default reference of a node value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>{&lt;ref&gt;:&lt;format&gt;}</p></td>
+<td><p>Formated reference of a node value.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Arrays can be also parsed using templates, however without specifying a format.
+The format depends on the default Python string casting functions:</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&quot;Will Smith&quot;</span>
+<span class="n">widths</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [[<span class="m">23.4</span>,<span class="m">235.4</span>,<span class="m">34</span>],[<span class="m">1e10</span>,<span class="m">2e23</span>,<span class="m">5e20</span>]]
+
+<span class="n">preview</span> <span class=" -Type">str</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">Surname:  </span><span class=" -Reference">{{?name}[</span><span class=" -Slice">5:</span><span class=" -Reference">]}</span>
+<span class=" -Expression">Scalar:   </span><span class=" -Reference">{{?widths}[</span><span class=" -Slice">1</span><span class=" -Reference">,</span><span class=" -Slice">1</span><span class=" -Reference">]:</span><span class=" -Slice">.2e</span><span class=" -Reference">}</span>
+<span class=" -Expression">Array:</span>
+<span class=" -Reference">{{?widths}[</span><span class=" -Slice">:</span><span class=" -Reference">,</span><span class=" -Slice">1:</span><span class=" -Reference">]}</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)
+
+<span class="c"># Node &#39;preview&#39; will be parsed as:</span>
+<span class="c">#</span>
+<span class="c"># Surname:  Smith</span>
+<span class="c"># Scalar:   2.00e+23</span>
+<span class="c"># Array:</span>
+<span class="c"># [[2.354e+02 3.400e+01]</span>
+<span class="c">#  [2.000e+23 5.000e+20]]</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="references.html" class="btn btn-neutral float-left" title="References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="units.html" class="btn btn-neutral float-right" title="Units" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

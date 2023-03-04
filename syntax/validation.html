@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Validation &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Conditions" href="conditions.html" />
+    <link rel="prev" title="Units" href="units.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../syntax.html">Syntax</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nodes.html">Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="values.html">Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#condition">Condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#format">Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constants">Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conditions.html">Conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../syntax.html">Syntax</a></li>
+      <li class="breadcrumb-item active">Validation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/syntax/validation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="validation">
+<h1>Validation<a class="headerlink" href="#validation" title="Permalink to this heading"></a></h1>
+<p>Numerical codes usually require initial parameter values with a specific format.
+In this section we summarize validation tools that can be used in DIP to restrict node values.
+Each node validation directive is given on a new line immediatelly after node definitions, declarations or modification.
+All validation directives must have consistent indent, higher than their parent node.</p>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this heading"></a></h2>
+<p>Initial code parameters often accept only a small number of discrete input values, also called options.
+These can be explicitely described during node definition or declaration.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Schema of a node option</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span>= <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span>= <span class="s">&lt;value&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Node options can be specified for all datatypes except boolean.
+In case of boolean the two options (<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>) are implicitely set.
+Individual options are specified directly under particular nodes starting with equal sign.
+Options cannot be separated from nodes by an empty line.
+All options corresponding to the same node must have same indent, higher than the node.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class=" -Type">int</span> = <span class="m">1</span>
+  <span class="k">=</span> <span class="m">1</span>  <span class="c"># carthesian</span>
+  <span class="k">=</span> <span class="m">2</span>  <span class="c"># polar</span>
+  <span class="k">=</span> <span class="m">3</span>  <span class="c"># spherical</span>
+</pre></div>
+</div>
+<p>If node has other value than one of the options, DIP will throw an error message.</p>
+<p>Node definition and individual options can have different units, but they must have the same dimensionality. Final value of such modified node will be, however, converted into units specified in definition.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span> <span class=" -Type">str</span> = <span class="s">&#39;dog&#39;</span>
+  <span class="k">=</span> <span class="s">cat</span>
+  <span class="k">=</span> <span class="s">dog</span>
+  <span class="k">=</span> <span class="s">horse</span>
+
+<span class="n">energy</span> <span class=" -Type">float</span> = <span class="m">23</span><span class=" -Unit"> erg</span>   <span class="c"># definition</span>
+  <span class="k">=</span> <span class="m">43</span>                  <span class="c"># option in same units</span>
+  <span class="k">=</span> <span class="m">23</span><span class=" -Unit"> erg</span>              <span class="c"># option in same units</span>
+  <span class="k">=</span> <span class="m">3e-7</span><span class=" -Unit"> J</span>              <span class="c"># option in different unit of energy</span>
+
+<span class="n">energy</span> = <span class="m">3e-7</span><span class=" -Unit"> J</span>         <span class="c"># modification</span>
+<span class="c"># energy = 3 erg        # final value</span>
+</pre></div>
+</div>
+<p>If number of options is too large and it is not practical to write each option on a new line, it is also possible to use a shorthand <code class="docutils literal notranslate"><span class="pre">!options</span></code> option notation.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Schema of an option array</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">!options</span> <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="k">!options</span> <span class="s">&lt;value&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>The expected value of this clause is a list of values.
+It can be given explicitely or as a <a class="reference internal" href="references.html"><span class="doc">reference</span></a>.
+Similiarily as in the cases above, units are optional and must be of the same dimension as those given in a corresponding defininition.</p>
+<p>Several <code class="docutils literal notranslate"><span class="pre">!options</span></code> clauses are allowed for the same node (e.g. each with different units).
+They combine into a single array of options against which the node value is evaluated.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span> <span class=" -Type">str</span> = <span class="s">&#39;dog&#39;</span>
+<span class="k">  !options</span> [<span class="s">&#39;cat&#39;</span>,<span class="s">&#39;dog&#39;</span>,<span class="s">&#39;horse&#39;</span>]
+
+<span class="n">energy</span> <span class=" -Type">float</span> = <span class="m">23</span><span class=" -Unit"> J</span>
+<span class="k">  !options</span> [<span class="m">23</span>, <span class="m">45</span>, <span class="m">10</span>, <span class="m">234</span>, <span class="m">490</span>, <span class="m">1939</span>]<span class=" -Unit"> J</span>
+<span class="k">  !options</span> [<span class="m">34</span>, <span class="m">234</span>]<span class=" -Unit"> erg</span>
+<span class="c"># all options: [23, 45, 10, 234, 490, 1939, 3.4e-6, 2.34e-7] J</span>
+</pre></div>
+</div>
+</section>
+<section id="condition">
+<h2>Condition<a class="headerlink" href="#condition" title="Permalink to this heading"></a></h2>
+<p>Numerical values can usually have values ranging in some intervals.
+In order to restrict node values to some particular interval it is possible to set logical using <code class="docutils literal notranslate"><span class="pre">!condition</span></code> directive and logical expression.
+Given expression has to be evaluated as <cite>true</cite> after each definition or modification of a node.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Schema of a node condition requirement</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">!condition</span> (<span class=" -Expression">&#39;&lt;expression&gt;&#39;</span>)
+<span class=" -Indent">&lt;indent&gt;</span><span class="k">!condition</span> (<span class=" -Expression">&quot;&lt;expression&gt;&quot;</span>)
+<span class=" -Indent">&lt;indent&gt;</span><span class="k">!condition</span> (<span class=" -Expression">&quot;&quot;&quot;</span>
+<span class=" -Expression">&lt;expression&gt;</span>
+<span class=" -Expression">&quot;&quot;&quot;</span>)
+</pre></div>
+</div>
+</div>
+<p>In the example below node <cite>energy</cite> can have values in a range of 23 and 26 erg.
+Actual value of node <cite>energy</cite> is matched using a special self-reference sign <code class="docutils literal notranslate"><span class="pre">{?}</span></code>.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">energy</span> <span class=" -Type">float</span> = <span class="m">25</span><span class=" -Unit"> erg</span>
+<span class="k">  !condition</span> (<span class=" -Expression">&quot;23 &lt; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &amp;&amp; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &lt; 26&quot;</span>)
+</pre></div>
+</div>
+</section>
+<section id="format">
+<h2>Format<a class="headerlink" href="#format" title="Permalink to this heading"></a></h2>
+<p>In general, string values wrapped into quotemarks can contain all characters and can be arbitrary long.
+This can be restricted by defining their <code class="docutils literal notranslate"><span class="pre">!format</span></code> using standard (Python based) regular expressions.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Schema of a node format requirement</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">!format</span> <span class="s">&lt;value&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>In the following example node ‘name’ can contain only small and capital letters:</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&#39;Ferdinant&#39;</span>
+<span class="k">  !format</span> <span class="s">&#39;[a-zA-Z]+&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
+<p>Sometimes nodes have to stay constant and exclude all possible modifications.
+This can be achieved by a directive <code class="docutils literal notranslate"><span class="pre">!constant</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Schema of a constant node requirement</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">!constant</span>
+</pre></div>
+</div>
+</div>
+<p>Node <cite>name</cite> in the follwing expample cannot be further modified.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&#39;John&#39;</span>
+<span class="k">  !constant</span>
+
+<span class="n">name</span> = <span class="s">&#39;Mary&#39;</span>   <span class="c"># this modification will raise an error exception</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="units.html" class="btn btn-neutral float-left" title="Units" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="conditions.html" class="btn btn-neutral float-right" title="Conditions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

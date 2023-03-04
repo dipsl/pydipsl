@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Units &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Validation" href="validation.html" />
+    <link rel="prev" title="Expressions" href="expressions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../syntax.html">Syntax</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nodes.html">Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="values.html">Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.html">Expressions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Units</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#base-units">Base units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prefixes">Prefixes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#derived-units">Derived units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-units">Custom units</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditions.html">Conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../syntax.html">Syntax</a></li>
+      <li class="breadcrumb-item active">Units</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/syntax/units.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="units">
+<h1>Units<a class="headerlink" href="#units" title="Permalink to this heading"></a></h1>
+<p>Parsing of units in DIP and their conversion shares basic principles with <a class="reference external" href="http://web.mit.edu/mecheng/pml/spec_measure.htm">The Physical Markup Language</a> and adopts similar unit nomenclature (case sensitive) as described in <a class="reference external" href="https://ucum.org/ucum">The Unified Code for Units of Measure</a>.</p>
+<p>Each node has default units assigned at definition, or declaration.
+Subsequent modification without given units assume to be in default units.
+Values of modifications with different units (but same dimension) are converted to default units.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="c"># definitions</span>
+<span class="n">age</span> <span class=" -Type">int</span> = <span class="m">30</span><span class=" -Unit"> a</span>
+<span class="n">height</span> <span class=" -Type">float</span> = <span class="m">185</span><span class=" -Unit"> cm</span>
+<span class="n">weight</span> <span class=" -Type">float</span> = <span class="m">80</span><span class=" -Unit"> kg</span>
+
+<span class="c"># modifications</span>
+<span class="n">age</span> = <span class="m">35</span>
+<span class="n">height</span> = <span class="m">190</span><span class=" -Unit"> cm</span>
+<span class="n">weight</span> = <span class="m">90000</span><span class=" -Unit"> g</span>
+
+<span class="c"># Modified values:</span>
+<span class="c">#</span>
+<span class="c"># age = 35 a</span>
+<span class="c"># height = 190 cm</span>
+<span class="c"># weight = 90 kg</span>
+</pre></div>
+</div>
+<section id="base-units">
+<h2>Base units<a class="headerlink" href="#base-units" title="Permalink to this heading"></a></h2>
+<p><strong>Quantities</strong> in DIP are defined by a floating point numerical value (NV) and a measure array (MSR) with powers of base units.
+List of base units and their corresponding NV/MSR is summarized in the table below.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Base units</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 30%" />
+<col style="width: 9%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>NV</p></th>
+<th class="head"><p>MSR</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1e</p></td>
+<td><p>power-of-ten</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[1,0,0,0,0,0,0,0,0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>meter</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,1,0,0,0,0,0,0,0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>g</p></td>
+<td><p>gram</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,0,1,0,0,0,0,0,0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>s</p></td>
+<td><p>second</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,0,0,1,0,0,0,0,0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>K</p></td>
+<td><p>Kelvin</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,0,0,0,1,0,0,0,0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>C</p></td>
+<td><p>Coulomb</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,0,0,0,0,1,0,0,0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>cd</p></td>
+<td><p>candela</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,0,0,0,0,0,1,0,0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>mol</p></td>
+<td><p>mole</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,0,0,0,0,0,0,1,0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>rad</p></td>
+<td><p>radian</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,0,0,0,0,0,0,0,1]</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Dimension of a quantity</dt><dd><p>is determined by all but first (i.e. power-of-ten) MRS values.</p>
+</dd>
+<dt>Dimensional quantities</dt><dd><div class="line-block">
+<div class="line">can have arbitrary powers in MRS.</div>
+<div class="line">e.g. MSR of 1 Newton is <code class="docutils literal notranslate"><span class="pre">[3,1,1,-2,0,0,0,0,0]</span></code></div>
+</div>
+</dd>
+<dt>Dimensionless quantities</dt><dd><div class="line-block">
+<div class="line">have all powers of MSR zero, except powers-of-ten.</div>
+<div class="line">e.g. MSR of <span class="math notranslate nohighlight">\(10^{-3}\)</span> is <code class="docutils literal notranslate"><span class="pre">[-3,0,0,0,0,0,0,0,0]</span></code></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="prefixes">
+<h2>Prefixes<a class="headerlink" href="#prefixes" title="Permalink to this heading"></a></h2>
+<p>All dimensonal units can be raised on the power-of-ten using explicit notation <code class="docutils literal notranslate"><span class="pre">1e3*m</span></code> or standard prefix notation <code class="docutils literal notranslate"><span class="pre">km</span></code>. List of all supported prefixes with their coresponding NV and MRS is given in table below.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Unit prefixes</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 12%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>NV</p></th>
+<th class="head"><p>MRS</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Y</p></td>
+<td><p>yotta</p></td>
+<td><p>1e24</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">24,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Z</p></td>
+<td><p>zetta</p></td>
+<td><p>1e21</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">21,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>E</p></td>
+<td><p>exa</p></td>
+<td><p>1e18</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">18,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>P</p></td>
+<td><p>peta</p></td>
+<td><p>1e15</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">15,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>T</p></td>
+<td><p>tera</p></td>
+<td><p>1e12</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">12,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>G</p></td>
+<td><p>giga</p></td>
+<td><p>1e9</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span>&#160; <span class="pre">9,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>M</p></td>
+<td><p>mega</p></td>
+<td><p>1e6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span>&#160; <span class="pre">6,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>k</p></td>
+<td><p>kilo</p></td>
+<td><p>1e3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span>&#160; <span class="pre">3,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>h</p></td>
+<td><p>hecto</p></td>
+<td><p>1e2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span>&#160; <span class="pre">2,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>da</p></td>
+<td><p>deka</p></td>
+<td><p>1e1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span>&#160; <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>d</p></td>
+<td><p>deci</p></td>
+<td><p>1e-1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>c</p></td>
+<td><p>centi</p></td>
+<td><p>1e-2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">-2,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>milli</p></td>
+<td><p>1e-3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">-3,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>u</p></td>
+<td><p>micro</p></td>
+<td><p>1e-6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">-6,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>n</p></td>
+<td><p>nano</p></td>
+<td><p>1e-9</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">-9,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>p</p></td>
+<td><p>pico</p></td>
+<td><p>1e-12</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[-12,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>f</p></td>
+<td><p>femto</p></td>
+<td><p>1e-15</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[-15,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>a</p></td>
+<td><p>atto</p></td>
+<td><p>1e-18</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[-18,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>z</p></td>
+<td><p>zepto</p></td>
+<td><p>1e-21</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[-21,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>y</p></td>
+<td><p>yocto</p></td>
+<td><p>1e-24</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[-24,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="derived-units">
+<h2>Derived units<a class="headerlink" href="#derived-units" title="Permalink to this heading"></a></h2>
+<p>As already mentioned in previous chapter, units are foruth type of expressions in DIP.
+They play a prominent role in DIP in comparison to other three expressions (logical, numerical and templates), because they are directly integrated into node definitions.
+In this section we closely describe how they are formed and used in DIP.</p>
+<p>So far we described base units and their most simple derivates using prefixes.
+It is, however, possible to derive new units from already existing units using following operators.</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Unit operators</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PU</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">km</span></code></p></td>
+<td><p>unit U with a prefix P</p></td>
+</tr>
+<tr class="row-odd"><td><p>Up</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">s-1</span></code>, <code class="docutils literal notranslate"><span class="pre">rad2</span></code></p></td>
+<td><p>unit U raised on a power of integer number p</p></td>
+</tr>
+<tr class="row-even"><td><p>U*U</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">N*m</span></code></p></td>
+<td><p>multiplication of two units U</p></td>
+</tr>
+<tr class="row-odd"><td><p>N*U</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1e3*m</span></code></p></td>
+<td><p>multiplication of a unit U and a real number N</p></td>
+</tr>
+<tr class="row-even"><td><p>U/U</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">J/s</span></code></p></td>
+<td><p>division of two units U</p></td>
+</tr>
+<tr class="row-odd"><td><p>N/U</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1e3/m</span></code></p></td>
+<td><p>division of a unit U and a real number N</p></td>
+</tr>
+<tr class="row-even"><td><p>(&lt;expr&gt;)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">kg*(m2/s2)</span></code></p></td>
+<td><p>parenthesis operator with an expression</p></td>
+</tr>
+</tbody>
+</table>
+<p>Multiple operators can be combined into a single expression.
+Expressions are written in close form and thus cannot consist of empty spaces.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">pressure</span>  <span class=" -Type">float</span> = <span class="m">101</span><span class=" -Unit">   Pa</span>
+<span class="n">distance</span>  <span class=" -Type">float</span> = <span class="m">123</span><span class=" -Unit">   km</span>
+<span class="n">velocity</span>  <span class=" -Type">float</span> = <span class="m">60</span><span class=" -Unit">    km/h</span>
+<span class="n">energy</span>    <span class=" -Type">float</span> = <span class="m">234</span><span class=" -Unit">   kg*(m2/s2)</span>
+<span class="n">potential</span> <span class=" -Type">float</span> = <span class="m">8.3e2</span><span class=" -Unit"> kg*(m2/(s2*C))</span>
+</pre></div>
+</div>
+<p>MRS of derived quantities is simply a sum (when units are multiplied) or difference (when units are divided) of progenitor’s MRS. NVs are correspondingly multiplied, or divided and rebased to the power-of-ten.
+Powers of units multipy values of MRS, calculate power of NV and rebase it to the power-of-ten.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some natural, dimensionless and custom units have symbols wrapped in square brackets (e.g. <code class="docutils literal notranslate"><span class="pre">[c]</span></code> or <code class="docutils literal notranslate"><span class="pre">[m_p]</span></code>).
+This is to ensure that their notation does not coincide with symbols of standard units.</p>
+</div>
+<p>In the table below we summarize all derived units that can be used in DIP.
+Both base and derived units can be used in combination with prefixes and can serve as progenitors in unit expressions.</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Derived SI units</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sr</p></td>
+<td><p>steradian</p></td>
+<td><p>rad2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hz</p></td>
+<td><p>hertz</p></td>
+<td><p>s-1</p></td>
+</tr>
+<tr class="row-even"><td><p>N</p></td>
+<td><p>newton</p></td>
+<td><p>kg*m/s2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Pa</p></td>
+<td><p>pascal</p></td>
+<td><p>N/m2</p></td>
+</tr>
+<tr class="row-even"><td><p>J</p></td>
+<td><p>joule</p></td>
+<td><p>N*m</p></td>
+</tr>
+<tr class="row-odd"><td><p>W</p></td>
+<td><p>watt</p></td>
+<td><p>J/s</p></td>
+</tr>
+<tr class="row-even"><td><p>A</p></td>
+<td><p>ampere</p></td>
+<td><p>C/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>V</p></td>
+<td><p>volt</p></td>
+<td><p>J/C</p></td>
+</tr>
+<tr class="row-even"><td><p>F</p></td>
+<td><p>farad</p></td>
+<td><p>C/V</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ohm</p></td>
+<td><p>ohm</p></td>
+<td><p>V/A</p></td>
+</tr>
+<tr class="row-even"><td><p>S</p></td>
+<td><p>siemens</p></td>
+<td><p>Ohm-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Wb</p></td>
+<td><p>weber</p></td>
+<td><p>V*s</p></td>
+</tr>
+<tr class="row-even"><td><p>T</p></td>
+<td><p>tesla</p></td>
+<td><p>Wb/m2</p></td>
+</tr>
+<tr class="row-odd"><td><p>H</p></td>
+<td><p>henry</p></td>
+<td><p>Wb/A</p></td>
+</tr>
+<tr class="row-even"><td><p>lm</p></td>
+<td><p>lumen</p></td>
+<td><p>cd*sr</p></td>
+</tr>
+<tr class="row-odd"><td><p>lx</p></td>
+<td><p>lux</p></td>
+<td><p>lm/m2</p></td>
+</tr>
+<tr class="row-even"><td><p>Bq</p></td>
+<td><p>becquerel</p></td>
+<td><p>s-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gy</p></td>
+<td><p>gray</p></td>
+<td><p>J/kg</p></td>
+</tr>
+<tr class="row-even"><td><p>Sv</p></td>
+<td><p>sivert</p></td>
+<td><p>J/kg</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Derived CGS units</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dyn</p></td>
+<td><p>dyne</p></td>
+<td><p>g*cm/s2</p></td>
+</tr>
+<tr class="row-odd"><td><p>erg</p></td>
+<td><p>erg</p></td>
+<td><p>dyn*cm</p></td>
+</tr>
+<tr class="row-even"><td><p>G</p></td>
+<td><p>Gauss</p></td>
+<td><p>1e-4*T</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Other derived units</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>deg</p></td>
+<td><p>angle degree</p></td>
+<td><p>2*[pi]*rad/360</p></td>
+</tr>
+<tr class="row-odd"><td><p>‘</p></td>
+<td><p>angle minute</p></td>
+<td><p>deg/60</p></td>
+</tr>
+<tr class="row-even"><td><p>‘’</p></td>
+<td><p>angle second</p></td>
+<td><p>‘/60</p></td>
+</tr>
+<tr class="row-odd"><td><p>l</p></td>
+<td><p>liter</p></td>
+<td><p>dm3</p></td>
+</tr>
+<tr class="row-even"><td><p>L</p></td>
+<td><p>liter</p></td>
+<td><p>l</p></td>
+</tr>
+<tr class="row-odd"><td><p>ar</p></td>
+<td><p>are</p></td>
+<td><p>100*m2</p></td>
+</tr>
+<tr class="row-even"><td><p>min</p></td>
+<td><p>minute</p></td>
+<td><p>60*s</p></td>
+</tr>
+<tr class="row-odd"><td><p>h</p></td>
+<td><p>hour</p></td>
+<td><p>60*min</p></td>
+</tr>
+<tr class="row-even"><td><p>d</p></td>
+<td><p>day</p></td>
+<td><p>24*h</p></td>
+</tr>
+<tr class="row-odd"><td><p>a_t</p></td>
+<td><p>tropical year</p></td>
+<td><p>365.24219*d</p></td>
+</tr>
+<tr class="row-even"><td><p>a_j</p></td>
+<td><p>Julian year</p></td>
+<td><p>365.25*d</p></td>
+</tr>
+<tr class="row-odd"><td><p>a_g</p></td>
+<td><p>Gregorian year</p></td>
+<td><p>365.2425*d</p></td>
+</tr>
+<tr class="row-even"><td><p>a</p></td>
+<td><p>year</p></td>
+<td><p>a_j</p></td>
+</tr>
+<tr class="row-odd"><td><p>eV</p></td>
+<td><p>electronvolt</p></td>
+<td><p>[e]*V</p></td>
+</tr>
+<tr class="row-even"><td><p>au</p></td>
+<td><p>astr. unit</p></td>
+<td><p>149597.870691*Mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>AU</p></td>
+<td><p>astr. unit</p></td>
+<td><p>au</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Natural units</span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[c]</p></td>
+<td><p>velocity of light</p></td>
+<td><p>299792458*m/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>[h]</p></td>
+<td><p>Planck const.</p></td>
+<td><p>6.6260755e-34*J*s</p></td>
+</tr>
+<tr class="row-even"><td><p>[k]</p></td>
+<td><p>Boltzmann const.</p></td>
+<td><p>1.380658e-23*J/K</p></td>
+</tr>
+<tr class="row-odd"><td><p>[eps_0]</p></td>
+<td><p>permit. of vac.</p></td>
+<td><p>8.854187817e-12*F/m</p></td>
+</tr>
+<tr class="row-even"><td><p>[mu_0]</p></td>
+<td><p>permeab. of vac.</p></td>
+<td><p>4*[pi]*1e-7*N/A2</p></td>
+</tr>
+<tr class="row-odd"><td><p>[e]</p></td>
+<td><p>elem. charge</p></td>
+<td><p>1.60217733e-19*C</p></td>
+</tr>
+<tr class="row-even"><td><p>[m_e]</p></td>
+<td><p>electron mass</p></td>
+<td><p>9.1093897e-28*g</p></td>
+</tr>
+<tr class="row-odd"><td><p>[m_p]</p></td>
+<td><p>proton mass</p></td>
+<td><p>1.6726231e-24*g</p></td>
+</tr>
+<tr class="row-even"><td><p>[G]</p></td>
+<td><p>grav. const.</p></td>
+<td><p>6.67259e-11*m3/(kg*s2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>[g]</p></td>
+<td><p>grav. accel.</p></td>
+<td><p>9.80665*m/s2</p></td>
+</tr>
+<tr class="row-even"><td><p>atm</p></td>
+<td><p>atm. pressure</p></td>
+<td><p>101325*Pa</p></td>
+</tr>
+<tr class="row-odd"><td><p>ly</p></td>
+<td><p>light-year</p></td>
+<td><p>[c]*a_j</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Dimensionless units</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Definition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[pi]</p></td>
+<td><p>pi</p></td>
+<td><p>3.141593</p></td>
+</tr>
+<tr class="row-odd"><td><p>[euler]</p></td>
+<td><p>Euler’s num.</p></td>
+<td><p>2.718282</p></td>
+</tr>
+<tr class="row-even"><td><p>[N_A]</p></td>
+<td><p>Avogadro’s num.</p></td>
+<td><p>6.022137e23</p></td>
+</tr>
+<tr class="row-odd"><td><p>%</p></td>
+<td><p>percent</p></td>
+<td><p>1e-2</p></td>
+</tr>
+<tr class="row-even"><td><p>[ppth]</p></td>
+<td><p>promile</p></td>
+<td><p>1e-3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="custom-units">
+<h2>Custom units<a class="headerlink" href="#custom-units" title="Permalink to this heading"></a></h2>
+<p>Similarily as in case of references, it it is also possible to define new units directly in the DIP code. This can be achieved by a special node directive <code class="docutils literal notranslate"><span class="pre">$unit</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">Schema of a custom unit definition</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">$unit</span> <span class="n">&lt;name&gt;</span> = <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>  <span class="c"># if value is a number</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="k">$unit</span> <span class="n">&lt;name&gt;</span> = <span class="s">&lt;value&gt;</span>         <span class="c"># if value is reference, or expression</span>
+</pre></div>
+</div>
+</div>
+<p>Names of the custom units are automatically wrapped into square brackets.
+If name of a custom unit is already used, code will raise an error.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$unit</span> <span class="n">mass</span> = <span class="m">30</span><span class=" -Unit"> AU</span>
+<span class="k">$unit</span> <span class="n">length</span> = <span class="m">10</span><span class=" -Unit"> pc</span>
+<span class="k">$unit</span> <span class="n">time</span> = <span class="m">1</span><span class=" -Unit"> Gy</span>
+
+<span class="n">velocity</span> <span class=" -Type">float</span> = <span class="m">2</span><span class=" -Unit"> [length]/[time]</span>
+<span class="n">density</span> <span class=" -Type">float</span> = <span class="m">34</span><span class=" -Unit"> [mass]/[lenght]3</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="expressions.html" class="btn btn-neutral float-left" title="Expressions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="validation.html" class="btn btn-neutral float-right" title="Validation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

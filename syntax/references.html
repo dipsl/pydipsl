@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>References &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Expressions" href="expressions.html" />
+    <link rel="prev" title="Values" href="values.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../syntax.html">Syntax</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nodes.html">Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="values.html">Values</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">References</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#imports">Imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#injections">Injections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditions.html">Conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../syntax.html">Syntax</a></li>
+      <li class="breadcrumb-item active">References</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/syntax/references.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h1>
+<p>Node referencing is an important feature of DIP, because it enables to create reusable parts of a code.
+Reference is similar to a standard URL <strong>requests</strong>.
+It consist of a source name (path to a file) and a query (node path) part separated by a question mark.
+Sources are defined once using <code class="docutils literal notranslate"><span class="pre">$source</span></code> definition and can be referenced multiple times.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Schema of a source definition</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">$source</span> <span class="n">&lt;name&gt;</span> = <span class="s">&lt;path&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Depending on a context, <strong>sources</strong> can be either simple text files (references without query) or DIP files (references with, or without query).
+A local domain contains all nodes that were already parsed in the current DIP file.
+Remote domain is a completely separate DIP file that is processed independently.</p>
+<p><strong>Query</strong> part specifies which nodes from local or remote DIP files will be selected.
+Single node is querried by its full hierarchy path.
+An asterix at the end of the query selects children nodes:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Schema of reference requests</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class="c"># content of a source is returned</span>
+<span class=" -Reference">{&lt;source&gt;}</span>                     <span class="c"># remote</span>
+
+<span class="c"># single node is returned</span>
+<span class=" -Reference">{?&lt;query&gt;}</span>                     <span class="c"># local</span>
+<span class=" -Reference">{&lt;source&gt;?&lt;query&gt;}</span>             <span class="c"># remote</span>
+
+<span class="c"># children nodes are returned</span>
+<span class=" -Reference">{?&lt;query&gt;.*}</span>                   <span class="c"># local</span>
+<span class=" -Reference">{&lt;source&gt;?&lt;query&gt;.*}</span>           <span class="c"># remote</span>
+
+<span class="c"># all nodes are returned</span>
+<span class=" -Reference">{?*}</span>                           <span class="c"># local</span>
+<span class=" -Reference">{&lt;source&gt;?*}</span>                   <span class="c"># remote</span>
+
+<span class="c"># node self-reference</span>
+<span class=" -Reference">{?}</span>                            <span class="c"># local</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The last reference type <code class="docutils literal notranslate"><span class="pre">{?}</span></code> is used only in <a class="reference internal" href="validation.html"><span class="doc">validation conditions</span></a> to reference node’s own value.</p>
+</div>
+<p>References have two main applications.
+One can either import some already parsed DIP nodes into a new location, or inject other node values or contents of text files into a new node.
+Besides the two cases, references are also used in <a class="reference internal" href="conditions.html"><span class="doc">conditions</span></a> that are explained in a separate chapter.</p>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this heading"></a></h2>
+<p>Imports can be used to insert referenced nodes directly into current DIP hierarchy.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Schema of node imports</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class=" -Reference">{&lt;request&gt;}</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Reference">{&lt;request&gt;}</span>
+</pre></div>
+</div>
+</div>
+<p>Name paths of imported nodes are embedded into the current node hierarchy as shown in following examples.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">icecream</span>
+  <span class="n">waffle</span> <span class=" -Type">str</span> = <span class="s">&#39;standard&#39;</span>
+  <span class="n">scoops</span>
+    <span class="n">strawberry</span> <span class=" -Type">int</span> = <span class="m">1</span>
+    <span class="n">chocolate</span> <span class=" -Type">int</span> = <span class="m">2</span>
+
+<span class="n">bowl</span>
+  <span class=" -Reference">{?icecream.scoops.*}</span>      <span class="c"># select children nodes</span>
+<span class="n">plate</span> <span class=" -Reference">{?icecream.waffle}</span>    <span class="c"># select specific node</span>
+</pre></div>
+</div>
+<p>Code above will result in following final nodes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">icecream</span><span class="o">.</span><span class="n">waffle</span> <span class="o">=</span> <span class="s1">&#39;standard&#39;</span>
+<span class="n">icecream</span><span class="o">.</span><span class="n">scoops</span><span class="o">.</span><span class="n">strawberry</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">icecream</span><span class="o">.</span><span class="n">scoops</span><span class="o">.</span><span class="n">chocolate</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">bowl</span><span class="o">.</span><span class="n">strawberry</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">bowl</span><span class="o">.</span><span class="n">chocolate</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">plate</span><span class="o">.</span><span class="n">waffle</span> <span class="o">=</span> <span class="s1">&#39;standard&#39;</span>
+</pre></div>
+</div>
+<p>In the example above we import local nodes, however, it works the same also for external DIP files.
+One has to just add a source name in front of the question mark.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$source</span> <span class="n">nodes</span> = <span class="s">nodes.dip</span>
+
+<span class="n">bag</span> <span class=" -Reference">{nodes?*}</span>                <span class="c"># import all</span>
+<span class="n">bowl</span>
+  <span class=" -Reference">{nodes?fruits}</span>             <span class="c"># selecting a specific node</span>
+  <span class=" -Reference">{nodes?vegies.potato}</span>      <span class="c"># selecting a specific subnode</span>
+<span class="n">plate</span> <span class=" -Reference">{nodes?vegies.*}</span>       <span class="c"># selecting all subnodes</span>
+</pre></div>
+</div>
+<p>So far we shown how to import regular nodes from a local or remote source.
+It is, however, also possible to import sources and custom <a class="reference internal" href="units.html"><span class="doc">Units</span></a> in the similar way.
+The request can select either one <code class="docutils literal notranslate"><span class="pre">{&lt;source&gt;?&lt;query&gt;}</span></code> or all <code class="docutils literal notranslate"><span class="pre">{&lt;source&gt;?*}</span></code> sources/units.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Schema for importing sources and units</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">$source</span> <span class=" -Reference">{&lt;request&gt;}</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="k">$unit</span> <span class=" -Reference">{&lt;request&gt;}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Request query is in this case not a node path but name of a source/unit.</p>
+</div>
+<p>Importing sources/units enables users to dynamically modify numerical code units and setting scripts via their DIP.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$source</span> <span class="n">init</span> = <span class="s">initial/settings.dip</span>
+<span class="k">$source</span> <span class=" -Reference">{init?*}</span>           <span class="c"># all sources of &#39;init&#39; are imported</span>
+<span class="k">$unit</span> <span class=" -Reference">{units?*}</span>            <span class="c"># all units are imported from an imported source &#39;units&#39;</span>
+<span class="n">weight</span> <span class=" -Type">float</span> = <span class="m">23</span><span class=" -Unit"> [mass]</span>   <span class="c"># using imported unit</span>
+</pre></div>
+</div>
+</section>
+<section id="injections">
+<h2>Injections<a class="headerlink" href="#injections" title="Permalink to this heading"></a></h2>
+<p>Injections do not insert whole nodes.
+They are used in node definitions and modifications instead of a values.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Schema of node value injections</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span> = <span class=" -Reference">{&lt;request&gt;}</span> <span class=" -Unit">&lt;unit&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span> = <span class=" -Reference">{&lt;request&gt;}</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> = <span class=" -Reference">{&lt;request&gt;}</span> <span class=" -Unit">&lt;unit&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> = <span class=" -Reference">{&lt;request&gt;}</span>
+</pre></div>
+</div>
+</div>
+<p>A valid injection can reference only a single node or a text content of a file.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">size1</span> <span class=" -Type">float</span> = <span class="m">34</span><span class=" -Unit"> cm</span>       <span class="c"># standard definition</span>
+<span class="n">size2</span> <span class=" -Type">float</span> = <span class=" -Reference">{?size1}</span><span class=" -Unit"> m</span>  <span class="c"># definition using import with other units</span>
+<span class="n">size3</span> <span class=" -Type">float</span> = <span class=" -Reference">{?size2}</span>    <span class="c"># definition using import with same units</span>
+<span class="n">size1</span> = <span class=" -Reference">{?size2}</span>          <span class="c"># modifying by import</span>
+
+<span class="c"># Nodes above will have following values:</span>
+<span class="c">#</span>
+<span class="c"># size1 = 3400 cm</span>
+<span class="c"># size2 = 34 m</span>
+<span class="c"># size3 = 34 m</span>
+</pre></div>
+</div>
+<p>It is also possible to inject values from remote DIP files:</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$source</span> <span class="n">pressure</span> = <span class="s">pressures.dip</span>
+
+<span class="n">pressure</span> <span class=" -Type">float</span> = <span class=" -Reference">{pressure?magnetic}</span>
+</pre></div>
+</div>
+<p>Arrays can be imported either directly or can be sliced to match dimensions of a host node using following schemas:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">Schema of an array slice reference</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Reference">{?&lt;query&gt;}[</span><span class=" -Slice">&lt;slice&gt;</span><span class=" -Reference">]</span>            <span class="c"># node query from a local domain</span>
+<span class=" -Reference">{&lt;source&gt;?&lt;query&gt;}[</span><span class=" -Slice">&lt;slice&gt;</span><span class=" -Reference">]</span>    <span class="c"># node query from a remote domain</span>
+</pre></div>
+</div>
+</div>
+<p>Slicing of arrays and also strings adopts the same notation as used in Python.
+Example of sliced injected arrays is below:</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class=" -Type">str</span> = <span class="s">&quot;Will Smith&quot;</span>
+<span class="n">surname</span> <span class=" -Type">str</span> = <span class=" -Reference">{?person}[</span><span class=" -Slice">5:</span><span class=" -Reference">]</span>   <span class="c"># slicing a string</span>
+
+<span class="c"># selecting a single value</span>
+<span class="n">sizes</span> <span class=" -Type">float[</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [<span class="m">34</span>,<span class="m">23.34</span>,<span class="m">1e34</span>]<span class=" -Unit"> cm</span>
+<span class="n">mysize</span> <span class=" -Type">float</span> = <span class=" -Reference">{?sizes}[</span><span class=" -Slice">1</span><span class=" -Reference">]</span>
+
+<span class="c"># selecting range of values</span>
+<span class="n">masses</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = [[<span class="m">34</span>,<span class="m">23.34</span>],[<span class="m">1</span>,<span class="m">1e34</span>]]<span class=" -Unit"> cm</span>
+<span class="n">mymass</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">]</span> = <span class=" -Reference">{?masses}[</span><span class=" -Slice">:</span><span class=" -Reference">,</span><span class=" -Slice">1</span><span class=" -Reference">]</span>
+
+<span class="c"># Above nodes will have values:</span>
+<span class="c">#</span>
+<span class="c"># person = &quot;Will Smith&quot;</span>
+<span class="c"># surname = &quot;Smith&quot;</span>
+<span class="c"># sizes = [3.400e+01, 2.334e+01, 1.000e+34]</span>
+<span class="c"># mysize = [2.334e+01]</span>
+<span class="c"># masses = [[34,23.34],[1,1e34]]</span>
+<span class="c"># mymass = [23.34,1e34]</span>
+</pre></div>
+</div>
+<p>Value injection can be also used to keep large text blocks in external files.
+This makes both the code and text data more readable and easily editable.
+Note that when requests do not include question mark with a query, DIP imports files as a text and not as a node list.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$source</span> <span class="n">velocity</span> = <span class="s">velocity.txt</span>
+<span class="k">$source</span> <span class="n">outputs</span> = <span class="s">outputs.txt</span>
+<span class="k">$source</span> <span class="n">message</span> = <span class="s">message.txt</span>
+
+<span class="n">velocity</span> <span class=" -Type">int[</span><span class=" -Dimension">3</span><span class=" -Type">,</span><span class=" -Dimension">4</span><span class=" -Type">]</span> = <span class=" -Reference">{velocity}</span><span class=" -Unit"> km/s</span>   <span class="c"># import an array</span>
+<span class="n">outputs</span> <span class=" -Type">table</span> = <span class=" -Reference">{outputs}</span>             <span class="c"># import a table</span>
+<span class="n">message</span> <span class=" -Type">str</span> = <span class=" -Reference">{message}</span>               <span class="c"># import a text</span>
+</pre></div>
+</div>
+<p>Values of source and unit definitions can be also injected from other nodes.</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">Schema of node value injections</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">$unit</span> <span class="n">&lt;name&gt;</span> = <span class=" -Reference">{&lt;request&gt;}</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="k">$source</span> <span class="n">&lt;name&gt;</span> = <span class=" -Reference">{&lt;request&gt;}</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In comparison to imports, request query in injections is always path of a node.</p>
+</div>
+<p>This adds an aditional scalablility to the code.
+Referenced nodes by sources have to be strings and referenced nodes by units have to be floats or integers.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">refs</span> <span class=" -Type">str</span> = <span class="s">&quot;path/to/sources.dip&quot;</span>  <span class="c"># node named &#39;refs&#39;</span>
+<span class="k">$source</span> <span class="n">refs</span> = <span class=" -Reference">{?refs}</span>            <span class="c"># source named &#39;refs&#39;</span>
+
+<span class="n">mass</span> <span class=" -Type">float</span> = <span class="m">1</span><span class=" -Unit"> kg</span>                 <span class="c"># node named &#39;mass&#39;</span>
+<span class="k">$unit</span> <span class="n">mass</span> = <span class=" -Reference">{?mass}</span>              <span class="c"># unit named &#39;mass&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="values.html" class="btn btn-neutral float-left" title="Values" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="expressions.html" class="btn btn-neutral float-right" title="Expressions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About DIP &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation" href="install.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../intro.html">Introduction</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">About DIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example.html">Example of use</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../syntax.html">Syntax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../intro.html">Introduction</a></li>
+      <li class="breadcrumb-item active">About DIP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/intro/about.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="about-dip">
+<h1>About DIP<a class="headerlink" href="#about-dip" title="Permalink to this heading"></a></h1>
+<p>DIP is a minimalistic programming language that spetializes in parsing, managing and validation of dimensional initial parameters (DIP).
+It was originally developed as a subproject to a proprietary code used in fusion physics.
+Nevertheless, due to it’s potential also in other code development, we publish it as an open-source module.</p>
+<p>Numerical codes used in physics, astrophysics and engeneering usually depend on sets of compilation definitions, flags and initial settings.
+Description of these parameters is often poorly documented and codes are prone to errors due to wrong input units and lack of proper parameter validation.
+DIP is designed to adress these issues and provide a standardized and scalable interface between user and a code.
+In the long run, DIP aims to become a standard tool for any numerical code and flatten the learning curve for end users.</p>
+<p>Following features of DIP are already implemented in the current code version:</p>
+<ul class="simple">
+<li><p>parameter node definition, declaration and modification</p></li>
+<li><p>hierarchical structure of nodes</p></li>
+<li><p>value datatypes: boolean, integer, float, string</p></li>
+<li><p>parameter values: scalars, arrays, blocks and tables</p></li>
+<li><p>definitions of reference sources</p></li>
+<li><p>import of local/remote nodes</p></li>
+<li><p>injection of local/remote node values</p></li>
+<li><p>expressions</p>
+<ul>
+<li><p>numerical for integer and float datatypes (with scalar values only)</p></li>
+<li><p>logical for boolean datatypes</p></li>
+<li><p>templates for string datatypes</p></li>
+</ul>
+</li>
+<li><p>support for standard SI and CGS units</p></li>
+<li><p>definition of custom units</p></li>
+<li><p>automatic unit conversion during node modifications</p></li>
+<li><p>parameter validation: options, conditions, format and constants</p></li>
+<li><p>parameter branching using conditions</p></li>
+<li><p>syntax highlighter using “Pygments”</p></li>
+</ul>
+<p>Current version of DIP is still in a beta stage.
+Goles listed below are not implemented yet and need help from potential codevelopers:</p>
+<ul class="simple">
+<li><p>native implementation of DIP in C/C++ and Fortran</p></li>
+<li><p>numerical expressions support for calculations with arrays</p></li>
+<li><p>node values generated using native programming languages (C/C++, Fortran, Python)</p></li>
+<li><p>documentation generator and implementation into Sphinx</p></li>
+</ul>
+<p>Any kind of help, collaboration, suggestions and further development of this project is hearthly welcommed.</p>
+<p>DIP is published under MIT license. We kindly ask for a reference in projects that are based on this code.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

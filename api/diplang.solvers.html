@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>diplang.solvers package &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pygments lexer" href="../lexer.html" />
+    <link rel="prev" title="diplang.nodes package" href="diplang.nodes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syntax.html">Syntax</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">diplang</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="diplang.html">diplang package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="diplang.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.html#module-diplang.DIP_Environment">diplang.DIP_Environment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.html#module-diplang.DIP_Main">diplang.DIP_Main module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.html#module-diplang.DIP_Settings">diplang.DIP_Settings module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.html#module-diplang.DIP_Unit">diplang.DIP_Unit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.html#module-diplang.DIP_UnitList">diplang.DIP_UnitList module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.html#module-diplang">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">diplang</a></li>
+          <li class="breadcrumb-item"><a href="diplang.html">diplang package</a></li>
+      <li class="breadcrumb-item active">diplang.solvers package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/diplang.solvers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="diplang-solvers-package">
+<h1>diplang.solvers package<a class="headerlink" href="#diplang-solvers-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-diplang.solvers.DIP_Solver_Logical">
+<span id="diplang-solvers-dip-solver-logical-module"></span><h2>diplang.solvers.DIP_Solver_Logical module<a class="headerlink" href="#module-diplang.solvers.DIP_Solver_Logical" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Logical.LogicalSolver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diplang.solvers.DIP_Solver_Logical.</span></span><span class="sig-name descname"><span class="pre">LogicalSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="diplang.html#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Logical.LogicalSolver" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Logical.LogicalSolver.env">
+<span class="sig-name descname"><span class="pre">env</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="diplang.html#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Logical.LogicalSolver.env" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Logical.LogicalSolver.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Logical.LogicalSolver.solve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-diplang.solvers.DIP_Solver_Numerical">
+<span id="diplang-solvers-dip-solver-numerical-module"></span><h2>diplang.solvers.DIP_Solver_Numerical module<a class="headerlink" href="#module-diplang.solvers.DIP_Solver_Numerical" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Numerical.NumericalSolver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diplang.solvers.DIP_Solver_Numerical.</span></span><span class="sig-name descname"><span class="pre">NumericalSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="diplang.html#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Numerical.NumericalSolver" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Numerical.NumericalSolver.env">
+<span class="sig-name descname"><span class="pre">env</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="diplang.html#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Numerical.NumericalSolver.env" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Numerical.NumericalSolver.equal">
+<span class="sig-name descname"><span class="pre">equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expr2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Numerical.NumericalSolver.equal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Numerical.NumericalSolver.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Numerical.NumericalSolver.solve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-diplang.solvers.DIP_Solver_Templates">
+<span id="diplang-solvers-dip-solver-templates-module"></span><h2>diplang.solvers.DIP_Solver_Templates module<a class="headerlink" href="#module-diplang.solvers.DIP_Solver_Templates" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Templates.TemplateSolver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diplang.solvers.DIP_Solver_Templates.</span></span><span class="sig-name descname"><span class="pre">TemplateSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="diplang.html#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Templates.TemplateSolver" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Templates.TemplateSolver.env">
+<span class="sig-name descname"><span class="pre">env</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="diplang.html#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Templates.TemplateSolver.env" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Templates.TemplateSolver.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Templates.TemplateSolver.solve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-diplang.solvers.DIP_Solver_Units">
+<span id="diplang-solvers-dip-solver-units-module"></span><h2>diplang.solvers.DIP_Solver_Units module<a class="headerlink" href="#module-diplang.solvers.DIP_Solver_Units" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diplang.solvers.DIP_Solver_Units.</span></span><span class="sig-name descname"><span class="pre">UnitSolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="diplang.html#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nbase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npbase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefixes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">derivates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arbitrary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.arbitrary">
+<span class="sig-name descname"><span class="pre">arbitrary</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.arbitrary" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.base">
+<span class="sig-name descname"><span class="pre">base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.base" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.custom">
+<span class="sig-name descname"><span class="pre">custom</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.custom" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.derivates">
+<span class="sig-name descname"><span class="pre">derivates</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.derivates" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.nbase">
+<span class="sig-name descname"><span class="pre">nbase</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.nbase" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.npbase">
+<span class="sig-name descname"><span class="pre">npbase</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.npbase" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.prefixes">
+<span class="sig-name descname"><span class="pre">prefixes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.prefixes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">right</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expr_bak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.solve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.unit">
+<span class="sig-name descname"><span class="pre">unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.unit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.solvers.DIP_Solver_Units.UnitSolver.units">
+<span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#diplang.solvers.DIP_Solver_Units.UnitSolver.units" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-diplang.solvers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-diplang.solvers" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="diplang.nodes.html" class="btn btn-neutral float-left" title="diplang.nodes package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../lexer.html" class="btn btn-neutral float-right" title="Pygments lexer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

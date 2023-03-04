@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nodes &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Values" href="values.html" />
+    <link rel="prev" title="Syntax" href="../syntax.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../syntax.html">Syntax</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definition">Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modification">Modification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#declaration">Declaration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hierarchy">Hierarchy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="values.html">Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references.html">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expressions.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditions.html">Conditions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../syntax.html">Syntax</a></li>
+      <li class="breadcrumb-item active">Nodes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/syntax/nodes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nodes">
+<h1>Nodes<a class="headerlink" href="#nodes" title="Permalink to this heading"></a></h1>
+<section id="definition">
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Node definition schema</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span> = <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span> = <span class="s">&lt;value&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>All members of definition are separated with at least one empty space and their order is not interchangable.</p>
+<p><strong>Indentation</strong> is at the beginning of line and it determines node <a class="reference internal" href="#hierarchy"><span class="std std-ref">Hierarchy</span></a>.
+It can consist of zero or more empty spaces.</p>
+<p>Node <strong>names</strong> are formed from letters, numbers, underscores, hyphens and dots.
+Dots have special function, because they separate parent and child node names.</p>
+<p>There are four main <strong>data types</strong> in DIP that are based on data types used in Python language: boolean (<code class="docutils literal notranslate"><span class="pre">bool</span></code>), integer (<code class="docutils literal notranslate"><span class="pre">int</span></code>), float (<code class="docutils literal notranslate"><span class="pre">float</span></code>) and string (<code class="docutils literal notranslate"><span class="pre">str</span></code>).
+Nevertheless, one can in principle extend number of data types to match those of e.g. C-language.</p>
+<p>Node <strong>values</strong> are separated from left members by an equal sign.
+Values without quotes consists only from non empty characters.
+If values consists of empty spaces it must be wrapped into single or double quotes.
+If node value spans over multiple lines one can use <a class="reference internal" href="values.html#blocks"><span class="std std-ref">Blocks</span></a>.</p>
+<p>The two datatypes that support <strong>units</strong> are integers and floats.
+Units are written directly after a node value and are separated with an empty space.
+More detailed description of units is given in a chapter about <a class="reference internal" href="units.html"><span class="doc">Units</span></a>.
+In this subsection we only describe basic syntax with respect to the nodes.</p>
+<p><strong>Comments</strong> are always at the end of lines and start with a hash sign.
+It is also possible to use comments on empty lines to describe the code.</p>
+</section>
+<section id="modification">
+<h2>Modification<a class="headerlink" href="#modification" title="Permalink to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Node modification schema</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span> = <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span> = <span class="s">&lt;value&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> = <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> = <span class="s">&lt;value&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>First occurence of a node is called definition.
+All subsequent occurences of a node with the same name are called modifications.
+Data type of a node needs to be set in each definition, however it can be omitted in subsequented modifications.
+If node is a dimensional parameter, units have to be set in a definition.
+One can use different units of the same dimension in modifications, however, final value of the node will be always converted into units set by the definition.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class=" -Type">float</span> = <span class="m">70</span><span class=" -Unit"> cm</span>    <span class="c"># definition</span>
+<span class="n">size</span> <span class=" -Type">float</span> = <span class="m">80</span><span class=" -Unit"> cm</span>    <span class="c"># modifying only value</span>
+<span class="n">size</span> = <span class="m">90</span><span class=" -Unit"> cm</span>          <span class="c"># omitting datatype</span>
+<span class="n">size</span> = <span class="m">100</span>            <span class="c"># omitting units</span>
+<span class="n">size</span> = <span class="m">1</span><span class=" -Unit"> pc</span>           <span class="c"># using different units of length</span>
+
+<span class="c"># size = 3.086e18 cm  # final value</span>
+</pre></div>
+</div>
+</section>
+<section id="declaration">
+<h2>Declaration<a class="headerlink" href="#declaration" title="Permalink to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Node declaration schema</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>
+<span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Declaration in DIP is a special case of definition where equal sign and value is not specified.
+The value must be later set in subsequent DIP code using modifications, otherwise code will not be valid.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">weight</span> <span class=" -Type">float</span><span class=" -Unit"> kg</span>  <span class="c"># declaration</span>
+<span class="n">weight</span> = <span class="m">88</span>      <span class="c"># modification</span>
+</pre></div>
+</div>
+</section>
+<section id="hierarchy">
+<span id="id1"></span><h2>Hierarchy<a class="headerlink" href="#hierarchy" title="Permalink to this heading"></a></h2>
+<p>DIP nodes are organized in a hierarchical way using indentation, i.e. number of empty spaces before nodes.
+<strong>Parent</strong> nodes have lower indentation as their <strong>children</strong> nodes.
+<strong>Siblings</strong> are nodes which share a common parent and indentation level.
+Multiple levels of hierarchy are also allowed and there can be empty lines between the nodes.
+Number of empty spaces for each indentation level can vary, as long as indentation of all children nodes is consistent.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">grandfather</span> <span class=" -Type">str</span> = <span class="s">&#39;John&#39;</span>   <span class="c"># parent of Peter and Cintia</span>
+  <span class="n">father</span> <span class=" -Type">str</span> = <span class="s">&#39;Peter&#39;</span>     <span class="c"># John&#39;s child, Cintia&#39;s sibling</span>
+                           <span class="c"># Ben&#39;s and Lucia&#39;s parent</span>
+    <span class="n">son</span> <span class=" -Type">str</span> = <span class="s">&#39;Benjamin&#39;</span>   <span class="c"># Peter&#39;s child</span>
+    <span class="n">daughter</span> <span class=" -Type">str</span> = <span class="s">&#39;Lucia&#39;</span> <span class="c"># Peter&#39;s child</span>
+  <span class="n">aunt</span> <span class=" -Type">str</span> = <span class="s">&#39;Cintia&#39;</span>      <span class="c"># John&#39;s child, Peter&#39;s sibling</span>
+</pre></div>
+</div>
+<p>Both parent and children nodes can be either definitions, modifications or declarations.
+Besides that, nodes can be arranged using another type of node called <em>group</em> node.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Group node schema</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Group nodes do not carry any value, nor do they declare any parameter for further use.
+Their function is to group multiple child nodes into a logical structure and their name enters the final node path.</p>
+<p>After parsing of nodes their names are transformed into a path that consists of the original name plus all parent names in the hierarchy separated by a dot.
+The original node name can already be a path and will be parsed accordingly.</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">family</span>                          <span class="c"># group is not parsed</span>
+  <span class="n">father</span> <span class=" -Type">str</span> = <span class="s">&#39;Peter&#39;</span>
+    <span class="n">son</span> <span class=" -Type">str</span> = <span class="s">&#39;Benjamin&#39;</span>        <span class="c"># normal notation</span>
+  <span class="n">father.daughter</span> <span class=" -Type">str</span> = <span class="s">&#39;Lucia&#39;</span> <span class="c"># using both normal and path notation</span>
+<span class="n">family.aunt.dog</span> <span class=" -Type">str</span> = <span class="s">&#39;Lassie&#39;</span>  <span class="c"># using only path notation</span>
+</pre></div>
+</div>
+<p>The example above will result in following final parameters:</p>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">family.father</span> = <span class="s">&#39;Peter&#39;</span>
+<span class="n">family.father.son</span> = <span class="s">&#39;Benjamin&#39;</span>
+<span class="n">family.father.daughter</span> = <span class="s">&#39;Lucia&#39;</span>
+<span class="n">family.aunt.dog</span> = <span class="s">&#39;Lassie&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../syntax.html" class="btn btn-neutral float-left" title="Syntax" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="values.html" class="btn btn-neutral float-right" title="Values" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

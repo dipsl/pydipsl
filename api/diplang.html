@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>diplang package &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="diplang.datatypes package" href="diplang.datatypes.html" />
+    <link rel="prev" title="diplang" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syntax.html">Syntax</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">diplang</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">diplang package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-diplang.DIP_Environment">diplang.DIP_Environment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-diplang.DIP_Main">diplang.DIP_Main module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-diplang.DIP_Settings">diplang.DIP_Settings module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-diplang.DIP_Unit">diplang.DIP_Unit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-diplang.DIP_UnitList">diplang.DIP_UnitList module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-diplang">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">diplang</a></li>
+      <li class="breadcrumb-item active">diplang package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/diplang.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="diplang-package">
+<h1>diplang package<a class="headerlink" href="#diplang-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="diplang.datatypes.html">diplang.datatypes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="diplang.datatypes.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.datatypes.html#module-diplang.datatypes.DIP_Type">diplang.datatypes.DIP_Type module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type.Type"><code class="docutils literal notranslate"><span class="pre">Type</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type.Type.unit"><code class="docutils literal notranslate"><span class="pre">Type.unit</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type.Type.value"><code class="docutils literal notranslate"><span class="pre">Type.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.datatypes.html#module-diplang.datatypes.DIP_Type_Boolean">diplang.datatypes.DIP_Type_Boolean module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Boolean.BooleanType"><code class="docutils literal notranslate"><span class="pre">BooleanType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Boolean.BooleanType.dtype"><code class="docutils literal notranslate"><span class="pre">BooleanType.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Boolean.BooleanType.value"><code class="docutils literal notranslate"><span class="pre">BooleanType.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.datatypes.html#module-diplang.datatypes.DIP_Type_Float">diplang.datatypes.DIP_Type_Float module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Float.FloatType"><code class="docutils literal notranslate"><span class="pre">FloatType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Float.FloatType.dtype"><code class="docutils literal notranslate"><span class="pre">FloatType.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Float.FloatType.value"><code class="docutils literal notranslate"><span class="pre">FloatType.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.datatypes.html#module-diplang.datatypes.DIP_Type_Integer">diplang.datatypes.DIP_Type_Integer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Integer.IntegerType"><code class="docutils literal notranslate"><span class="pre">IntegerType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Integer.IntegerType.dtype"><code class="docutils literal notranslate"><span class="pre">IntegerType.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Integer.IntegerType.value"><code class="docutils literal notranslate"><span class="pre">IntegerType.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.datatypes.html#module-diplang.datatypes.DIP_Type_Number">diplang.datatypes.DIP_Type_Number module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Number.NumberType"><code class="docutils literal notranslate"><span class="pre">NumberType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_Number.NumberType.convert"><code class="docutils literal notranslate"><span class="pre">NumberType.convert()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.datatypes.html#module-diplang.datatypes.DIP_Type_String">diplang.datatypes.DIP_Type_String module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_String.StringType"><code class="docutils literal notranslate"><span class="pre">StringType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_String.StringType.dtype"><code class="docutils literal notranslate"><span class="pre">StringType.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.datatypes.html#diplang.datatypes.DIP_Type_String.StringType.value"><code class="docutils literal notranslate"><span class="pre">StringType.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.datatypes.html#module-diplang.datatypes">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="diplang.nodes.html">diplang.nodes package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node">diplang.nodes.DIP_Node module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.cast_value"><code class="docutils literal notranslate"><span class="pre">Node.cast_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.condition"><code class="docutils literal notranslate"><span class="pre">Node.condition</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.constant"><code class="docutils literal notranslate"><span class="pre">Node.constant</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.inject_value"><code class="docutils literal notranslate"><span class="pre">Node.inject_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.modify_value"><code class="docutils literal notranslate"><span class="pre">Node.modify_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.parse"><code class="docutils literal notranslate"><span class="pre">Node.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.set_option"><code class="docutils literal notranslate"><span class="pre">Node.set_option()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.set_value"><code class="docutils literal notranslate"><span class="pre">Node.set_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.slice_value"><code class="docutils literal notranslate"><span class="pre">Node.slice_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node.Node.value"><code class="docutils literal notranslate"><span class="pre">Node.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_NodeBase">diplang.nodes.DIP_NodeBase module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase"><code class="docutils literal notranslate"><span class="pre">NodeBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.code"><code class="docutils literal notranslate"><span class="pre">NodeBase.code</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.defined"><code class="docutils literal notranslate"><span class="pre">NodeBase.defined</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.dimension"><code class="docutils literal notranslate"><span class="pre">NodeBase.dimension</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.dtype"><code class="docutils literal notranslate"><span class="pre">NodeBase.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.indent"><code class="docutils literal notranslate"><span class="pre">NodeBase.indent</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.keyword"><code class="docutils literal notranslate"><span class="pre">NodeBase.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.line"><code class="docutils literal notranslate"><span class="pre">NodeBase.line</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.name"><code class="docutils literal notranslate"><span class="pre">NodeBase.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.options"><code class="docutils literal notranslate"><span class="pre">NodeBase.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.source"><code class="docutils literal notranslate"><span class="pre">NodeBase.source</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.units_raw"><code class="docutils literal notranslate"><span class="pre">NodeBase.units_raw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.value_expr"><code class="docutils literal notranslate"><span class="pre">NodeBase.value_expr</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.value_raw"><code class="docutils literal notranslate"><span class="pre">NodeBase.value_raw</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.value_ref"><code class="docutils literal notranslate"><span class="pre">NodeBase.value_ref</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_NodeBase.NodeBase.value_slice"><code class="docutils literal notranslate"><span class="pre">NodeBase.value_slice</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Boolean">diplang.nodes.DIP_Node_Boolean module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Boolean.BooleanNode"><code class="docutils literal notranslate"><span class="pre">BooleanNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Boolean.BooleanNode.dtype"><code class="docutils literal notranslate"><span class="pre">BooleanNode.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Boolean.BooleanNode.is_node"><code class="docutils literal notranslate"><span class="pre">BooleanNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Boolean.BooleanNode.keyword"><code class="docutils literal notranslate"><span class="pre">BooleanNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Boolean.BooleanNode.parse"><code class="docutils literal notranslate"><span class="pre">BooleanNode.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Boolean.BooleanNode.set_value"><code class="docutils literal notranslate"><span class="pre">BooleanNode.set_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Boolean.BooleanNode.value"><code class="docutils literal notranslate"><span class="pre">BooleanNode.value</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Case">diplang.nodes.DIP_Node_Case module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Case.CaseNode"><code class="docutils literal notranslate"><span class="pre">CaseNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Case.CaseNode.is_node"><code class="docutils literal notranslate"><span class="pre">CaseNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Case.CaseNode.keyword"><code class="docutils literal notranslate"><span class="pre">CaseNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Case.CaseNode.parse"><code class="docutils literal notranslate"><span class="pre">CaseNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Condition">diplang.nodes.DIP_Node_Condition module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Condition.ConditionNode"><code class="docutils literal notranslate"><span class="pre">ConditionNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Condition.ConditionNode.is_node"><code class="docutils literal notranslate"><span class="pre">ConditionNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Condition.ConditionNode.keyword"><code class="docutils literal notranslate"><span class="pre">ConditionNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Condition.ConditionNode.parse"><code class="docutils literal notranslate"><span class="pre">ConditionNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Constant">diplang.nodes.DIP_Node_Constant module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Constant.ConstantNode"><code class="docutils literal notranslate"><span class="pre">ConstantNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Constant.ConstantNode.is_node"><code class="docutils literal notranslate"><span class="pre">ConstantNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Constant.ConstantNode.keyword"><code class="docutils literal notranslate"><span class="pre">ConstantNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Constant.ConstantNode.parse"><code class="docutils literal notranslate"><span class="pre">ConstantNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Empty">diplang.nodes.DIP_Node_Empty module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Empty.EmptyNode"><code class="docutils literal notranslate"><span class="pre">EmptyNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Empty.EmptyNode.is_node"><code class="docutils literal notranslate"><span class="pre">EmptyNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Empty.EmptyNode.keyword"><code class="docutils literal notranslate"><span class="pre">EmptyNode.keyword</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Float">diplang.nodes.DIP_Node_Float module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode"><code class="docutils literal notranslate"><span class="pre">FloatNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode.dtype"><code class="docutils literal notranslate"><span class="pre">FloatNode.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode.is_node"><code class="docutils literal notranslate"><span class="pre">FloatNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode.keyword"><code class="docutils literal notranslate"><span class="pre">FloatNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode.options"><code class="docutils literal notranslate"><span class="pre">FloatNode.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode.parse"><code class="docutils literal notranslate"><span class="pre">FloatNode.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode.set_value"><code class="docutils literal notranslate"><span class="pre">FloatNode.set_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode.value"><code class="docutils literal notranslate"><span class="pre">FloatNode.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Float.FloatNode.value_expr"><code class="docutils literal notranslate"><span class="pre">FloatNode.value_expr</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Format">diplang.nodes.DIP_Node_Format module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Format.FormatNode"><code class="docutils literal notranslate"><span class="pre">FormatNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Format.FormatNode.is_node"><code class="docutils literal notranslate"><span class="pre">FormatNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Format.FormatNode.keyword"><code class="docutils literal notranslate"><span class="pre">FormatNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Format.FormatNode.parse"><code class="docutils literal notranslate"><span class="pre">FormatNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Group">diplang.nodes.DIP_Node_Group module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Group.GroupNode"><code class="docutils literal notranslate"><span class="pre">GroupNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Group.GroupNode.is_node"><code class="docutils literal notranslate"><span class="pre">GroupNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Group.GroupNode.keyword"><code class="docutils literal notranslate"><span class="pre">GroupNode.keyword</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Import">diplang.nodes.DIP_Node_Import module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Import.ImportNode"><code class="docutils literal notranslate"><span class="pre">ImportNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Import.ImportNode.inject_value"><code class="docutils literal notranslate"><span class="pre">ImportNode.inject_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Import.ImportNode.is_node"><code class="docutils literal notranslate"><span class="pre">ImportNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Import.ImportNode.keyword"><code class="docutils literal notranslate"><span class="pre">ImportNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Import.ImportNode.parse"><code class="docutils literal notranslate"><span class="pre">ImportNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Integer">diplang.nodes.DIP_Node_Integer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode"><code class="docutils literal notranslate"><span class="pre">IntegerNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode.dtype"><code class="docutils literal notranslate"><span class="pre">IntegerNode.dtype</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode.is_node"><code class="docutils literal notranslate"><span class="pre">IntegerNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode.keyword"><code class="docutils literal notranslate"><span class="pre">IntegerNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode.options"><code class="docutils literal notranslate"><span class="pre">IntegerNode.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode.parse"><code class="docutils literal notranslate"><span class="pre">IntegerNode.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode.set_value"><code class="docutils literal notranslate"><span class="pre">IntegerNode.set_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode.value"><code class="docutils literal notranslate"><span class="pre">IntegerNode.value</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Integer.IntegerNode.value_expr"><code class="docutils literal notranslate"><span class="pre">IntegerNode.value_expr</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Mod">diplang.nodes.DIP_Node_Mod module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Mod.ModNode"><code class="docutils literal notranslate"><span class="pre">ModNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Mod.ModNode.is_node"><code class="docutils literal notranslate"><span class="pre">ModNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Mod.ModNode.keyword"><code class="docutils literal notranslate"><span class="pre">ModNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Mod.ModNode.parse"><code class="docutils literal notranslate"><span class="pre">ModNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Option">diplang.nodes.DIP_Node_Option module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Option.OptionNode"><code class="docutils literal notranslate"><span class="pre">OptionNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Option.OptionNode.is_node"><code class="docutils literal notranslate"><span class="pre">OptionNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Option.OptionNode.keyword"><code class="docutils literal notranslate"><span class="pre">OptionNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Option.OptionNode.parse"><code class="docutils literal notranslate"><span class="pre">OptionNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Source">diplang.nodes.DIP_Node_Source module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Source.SourceNode"><code class="docutils literal notranslate"><span class="pre">SourceNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Source.SourceNode.is_node"><code class="docutils literal notranslate"><span class="pre">SourceNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Source.SourceNode.keyword"><code class="docutils literal notranslate"><span class="pre">SourceNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Source.SourceNode.parse"><code class="docutils literal notranslate"><span class="pre">SourceNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_String">diplang.nodes.DIP_Node_String module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_String.StringNode"><code class="docutils literal notranslate"><span class="pre">StringNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_String.StringNode.format"><code class="docutils literal notranslate"><span class="pre">StringNode.format</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_String.StringNode.is_node"><code class="docutils literal notranslate"><span class="pre">StringNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_String.StringNode.keyword"><code class="docutils literal notranslate"><span class="pre">StringNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_String.StringNode.options"><code class="docutils literal notranslate"><span class="pre">StringNode.options</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_String.StringNode.parse"><code class="docutils literal notranslate"><span class="pre">StringNode.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_String.StringNode.set_value"><code class="docutils literal notranslate"><span class="pre">StringNode.set_value()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Table">diplang.nodes.DIP_Node_Table module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Table.TableNode"><code class="docutils literal notranslate"><span class="pre">TableNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Table.TableNode.is_node"><code class="docutils literal notranslate"><span class="pre">TableNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Table.TableNode.keyword"><code class="docutils literal notranslate"><span class="pre">TableNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Table.TableNode.parse"><code class="docutils literal notranslate"><span class="pre">TableNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Node_Unit">diplang.nodes.DIP_Node_Unit module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Unit.UnitNode"><code class="docutils literal notranslate"><span class="pre">UnitNode</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Unit.UnitNode.is_node"><code class="docutils literal notranslate"><span class="pre">UnitNode.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Unit.UnitNode.keyword"><code class="docutils literal notranslate"><span class="pre">UnitNode.keyword</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Node_Unit.UnitNode.parse"><code class="docutils literal notranslate"><span class="pre">UnitNode.parse()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes.DIP_Parser">diplang.nodes.DIP_Parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser"><code class="docutils literal notranslate"><span class="pre">Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.ccode"><code class="docutils literal notranslate"><span class="pre">Parser.ccode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.comment"><code class="docutils literal notranslate"><span class="pre">Parser.comment</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.formating"><code class="docutils literal notranslate"><span class="pre">Parser.formating</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.is_empty"><code class="docutils literal notranslate"><span class="pre">Parser.is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.is_parsed"><code class="docutils literal notranslate"><span class="pre">Parser.is_parsed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.kwd_case"><code class="docutils literal notranslate"><span class="pre">Parser.kwd_case()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.kwd_condition"><code class="docutils literal notranslate"><span class="pre">Parser.kwd_condition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.kwd_constant"><code class="docutils literal notranslate"><span class="pre">Parser.kwd_constant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.kwd_format"><code class="docutils literal notranslate"><span class="pre">Parser.kwd_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.kwd_options"><code class="docutils literal notranslate"><span class="pre">Parser.kwd_options()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.kwd_source"><code class="docutils literal notranslate"><span class="pre">Parser.kwd_source()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.kwd_unit"><code class="docutils literal notranslate"><span class="pre">Parser.kwd_unit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.parsed"><code class="docutils literal notranslate"><span class="pre">Parser.parsed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_comment"><code class="docutils literal notranslate"><span class="pre">Parser.part_comment()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_dimension"><code class="docutils literal notranslate"><span class="pre">Parser.part_dimension()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_equal"><code class="docutils literal notranslate"><span class="pre">Parser.part_equal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_expression"><code class="docutils literal notranslate"><span class="pre">Parser.part_expression()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_format"><code class="docutils literal notranslate"><span class="pre">Parser.part_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_indent"><code class="docutils literal notranslate"><span class="pre">Parser.part_indent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_name"><code class="docutils literal notranslate"><span class="pre">Parser.part_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_reference"><code class="docutils literal notranslate"><span class="pre">Parser.part_reference()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_slice"><code class="docutils literal notranslate"><span class="pre">Parser.part_slice()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_type"><code class="docutils literal notranslate"><span class="pre">Parser.part_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_units"><code class="docutils literal notranslate"><span class="pre">Parser.part_units()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.nodes.html#diplang.nodes.DIP_Parser.Parser.part_value"><code class="docutils literal notranslate"><span class="pre">Parser.part_value()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.nodes.html#module-diplang.nodes">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="diplang.solvers.html">diplang.solvers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="diplang.solvers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.solvers.html#module-diplang.solvers.DIP_Solver_Logical">diplang.solvers.DIP_Solver_Logical module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Logical.LogicalSolver"><code class="docutils literal notranslate"><span class="pre">LogicalSolver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Logical.LogicalSolver.env"><code class="docutils literal notranslate"><span class="pre">LogicalSolver.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Logical.LogicalSolver.solve"><code class="docutils literal notranslate"><span class="pre">LogicalSolver.solve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.solvers.html#module-diplang.solvers.DIP_Solver_Numerical">diplang.solvers.DIP_Solver_Numerical module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Numerical.NumericalSolver"><code class="docutils literal notranslate"><span class="pre">NumericalSolver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Numerical.NumericalSolver.env"><code class="docutils literal notranslate"><span class="pre">NumericalSolver.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Numerical.NumericalSolver.equal"><code class="docutils literal notranslate"><span class="pre">NumericalSolver.equal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Numerical.NumericalSolver.solve"><code class="docutils literal notranslate"><span class="pre">NumericalSolver.solve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.solvers.html#module-diplang.solvers.DIP_Solver_Templates">diplang.solvers.DIP_Solver_Templates module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Templates.TemplateSolver"><code class="docutils literal notranslate"><span class="pre">TemplateSolver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Templates.TemplateSolver.env"><code class="docutils literal notranslate"><span class="pre">TemplateSolver.env</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Templates.TemplateSolver.solve"><code class="docutils literal notranslate"><span class="pre">TemplateSolver.solve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.solvers.html#module-diplang.solvers.DIP_Solver_Units">diplang.solvers.DIP_Solver_Units module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver"><code class="docutils literal notranslate"><span class="pre">UnitSolver</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.arbitrary"><code class="docutils literal notranslate"><span class="pre">UnitSolver.arbitrary</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.base"><code class="docutils literal notranslate"><span class="pre">UnitSolver.base</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.custom"><code class="docutils literal notranslate"><span class="pre">UnitSolver.custom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.derivates"><code class="docutils literal notranslate"><span class="pre">UnitSolver.derivates</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.nbase"><code class="docutils literal notranslate"><span class="pre">UnitSolver.nbase</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.npbase"><code class="docutils literal notranslate"><span class="pre">UnitSolver.npbase</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.prefixes"><code class="docutils literal notranslate"><span class="pre">UnitSolver.prefixes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.solve"><code class="docutils literal notranslate"><span class="pre">UnitSolver.solve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.unit"><code class="docutils literal notranslate"><span class="pre">UnitSolver.unit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="diplang.solvers.html#diplang.solvers.DIP_Solver_Units.UnitSolver.units"><code class="docutils literal notranslate"><span class="pre">UnitSolver.units</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="diplang.solvers.html#module-diplang.solvers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-diplang.DIP_Environment">
+<span id="diplang-dip-environment-module"></span><h2>diplang.DIP_Environment module<a class="headerlink" href="#module-diplang.DIP_Environment" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diplang.DIP_Environment.</span></span><span class="sig-name descname"><span class="pre">Environment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">units</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">autoref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_indents</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[-1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_counts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">case_names</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.autoref">
+<span class="sig-name descname"><span class="pre">autoref</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#diplang.DIP_Environment.Environment.autoref" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.case_counts">
+<span class="sig-name descname"><span class="pre">case_counts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#diplang.DIP_Environment.Environment.case_counts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.case_names">
+<span class="sig-name descname"><span class="pre">case_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#diplang.DIP_Environment.Environment.case_names" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.data">
+<span class="sig-name descname"><span class="pre">data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'value'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.data" title="Permalink to this definition"></a></dt>
+<dd><p>Return parsed values as a dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>verbose</strong> (<em>bool</em>) – Display node values</p></li>
+<li><p><strong>format</strong> (<em>str</em>) – Return data as values only, DIP datatypes, or tuples</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.is_case">
+<span class="sig-name descname"><span class="pre">is_case</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.is_case" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if outside or inside of a valid case clause</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.nodes">
+<span class="sig-name descname"><span class="pre">nodes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span></em><a class="headerlink" href="#diplang.DIP_Environment.Environment.nodes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.parent_indents">
+<span class="sig-name descname"><span class="pre">parent_indents</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#diplang.DIP_Environment.Environment.parent_indents" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.parent_names">
+<span class="sig-name descname"><span class="pre">parent_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#diplang.DIP_Environment.Environment.parent_names" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.pop_node">
+<span class="sig-name descname"><span class="pre">pop_node</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.pop_node" title="Permalink to this definition"></a></dt>
+<dd><p>Pop first node out of the node list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.prepare_node">
+<span class="sig-name descname"><span class="pre">prepare_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.prepare_node" title="Permalink to this definition"></a></dt>
+<dd><p>Manage parameter nodes in a condition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node</strong> – Parameter node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.prepend_nodes">
+<span class="sig-name descname"><span class="pre">prepend_nodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.prepend_nodes" title="Permalink to this definition"></a></dt>
+<dd><p>Prepend new nodes to the node list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.query">
+<span class="sig-name descname"><span class="pre">query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'nodes'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.query" title="Permalink to this definition"></a></dt>
+<dd><p>Select local nodes according to a query</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – Node selection query</p></li>
+<li><p><strong>namespace</strong> (<em>str</em>) – Query namespace (nodes, sources, or units)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.request">
+<span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'nodes'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.request" title="Permalink to this definition"></a></dt>
+<dd><p>Request nodes from a path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – Request path</p></li>
+<li><p><strong>count</strong> (<em>int</em>) – Number of nodes that should be selected</p></li>
+<li><p><strong>namespace</strong> (<em>str</em>) – Query namespace (nodes, sources, or units)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.solve_case">
+<span class="sig-name descname"><span class="pre">solve_case</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.solve_case" title="Permalink to this definition"></a></dt>
+<dd><p>Manage condition nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node</strong> – Condition node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.sources">
+<span class="sig-name descname"><span class="pre">sources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span></em><a class="headerlink" href="#diplang.DIP_Environment.Environment.sources" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.units">
+<span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span></em><a class="headerlink" href="#diplang.DIP_Environment.Environment.units" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Environment.Environment.update_hierarchy">
+<span class="sig-name descname"><span class="pre">update_hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Environment.Environment.update_hierarchy" title="Permalink to this definition"></a></dt>
+<dd><p>Register new node to the hierarchy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> – Node that should be added</p></li>
+<li><p><strong>excluded</strong> (<em>list</em>) – List of node keywords that should be excluded from the hierarchy</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-diplang.DIP_Main">
+<span id="diplang-dip-main-module"></span><h2>diplang.DIP_Main module<a class="headerlink" href="#module-diplang.DIP_Main" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="diplang.DIP_Main.DIP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diplang.DIP_Main.</span></span><span class="sig-name descname"><span class="pre">DIP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lines</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'inline'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Main.DIP" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>DIP parser class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> (<em>str</em>) – DIP code</p></li>
+<li><p><strong>env</strong> (<em>DIP_Environment</em>) – DIP environment object</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Main.DIP.code">
+<span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Main.DIP.code" title="Permalink to this definition"></a></dt>
+<dd><p>Use code from a string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> (<em>str</em>) – DIP code</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Main.DIP.env">
+<span class="sig-name descname"><span class="pre">env</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#diplang.DIP_Environment.Environment" title="diplang.DIP_Environment.Environment"><span class="pre">Environment</span></a></em><a class="headerlink" href="#diplang.DIP_Main.DIP.env" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Main.DIP.lines">
+<span class="sig-name descname"><span class="pre">lines</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#diplang.DIP_Main.DIP.lines" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Main.DIP.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Main.DIP.load" title="Permalink to this definition"></a></dt>
+<dd><p>Load DIP code from a file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em>) – Path to a DIP file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Main.DIP.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Main.DIP.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse DIP nodes from code lines</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Main.DIP.source">
+<span class="sig-name descname"><span class="pre">source</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#diplang.DIP_Main.DIP.source" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-diplang.DIP_Settings">
+<span id="diplang-dip-settings-module"></span><h2>diplang.DIP_Settings module<a class="headerlink" href="#module-diplang.DIP_Settings" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-diplang.DIP_Unit">
+<span id="diplang-dip-unit-module"></span><h2>diplang.DIP_Unit module<a class="headerlink" href="#module-diplang.DIP_Unit" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diplang.DIP_Unit.</span></span><span class="sig-name descname"><span class="pre">Unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dfn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symbol_base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arbitrary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Unit.Unit" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.arbitrary">
+<span class="sig-name descname"><span class="pre">arbitrary</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#diplang.DIP_Unit.Unit.arbitrary" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.base">
+<span class="sig-name descname"><span class="pre">base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#diplang.DIP_Unit.Unit.base" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Unit.Unit.copy" title="Permalink to this definition"></a></dt>
+<dd><p>Duplicate a model, optionally choose which fields to include, exclude and change.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include</strong> – fields to include in new model</p></li>
+<li><p><strong>exclude</strong> – fields to exclude from new model, as with values this takes precedence over include</p></li>
+<li><p><strong>update</strong> – values to change/add in the new model. Note: the data is not validated before creating
+the new model: you should trust this data</p></li>
+<li><p><strong>deep</strong> – set to <cite>True</cite> to make a deep copy of the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new model instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.dfn">
+<span class="sig-name descname"><span class="pre">dfn</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#diplang.DIP_Unit.Unit.dfn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.dimension">
+<span class="sig-name descname"><span class="pre">dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Unit.Unit.dimension" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.eqdim">
+<span class="sig-name descname"><span class="pre">eqdim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Unit.Unit.eqdim" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.eqnum">
+<span class="sig-name descname"><span class="pre">eqnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Unit.Unit.eqnum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.inunitsof">
+<span class="sig-name descname"><span class="pre">inunitsof</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Unit.Unit.inunitsof" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.isnumeric">
+<span class="sig-name descname"><span class="pre">isnumeric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Unit.Unit.isnumeric" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#diplang.DIP_Unit.Unit.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.num">
+<span class="sig-name descname"><span class="pre">num</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#diplang.DIP_Unit.Unit.num" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.number">
+<span class="sig-name descname"><span class="pre">number</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_Unit.Unit.number" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.symbol">
+<span class="sig-name descname"><span class="pre">symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#diplang.DIP_Unit.Unit.symbol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diplang.DIP_Unit.Unit.symbol_base">
+<span class="sig-name descname"><span class="pre">symbol_base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#diplang.DIP_Unit.Unit.symbol_base" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-diplang.DIP_UnitList">
+<span id="diplang-dip-unitlist-module"></span><h2>diplang.DIP_UnitList module<a class="headerlink" href="#module-diplang.DIP_UnitList" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="diplang.DIP_UnitList.Convert_Arbitrary">
+<span class="sig-prename descclassname"><span class="pre">diplang.DIP_UnitList.</span></span><span class="sig-name descname"><span class="pre">Convert_Arbitrary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#diplang.DIP_UnitList.Convert_Arbitrary" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-diplang">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-diplang" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="diplang" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="diplang.datatypes.html" class="btn btn-neutral float-right" title="diplang.datatypes package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
