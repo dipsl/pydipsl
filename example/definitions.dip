@@ -1,0 +1,35 @@
+$source settings = ./settings.dip
+
+runtime
+  t_max float s
+    !condition ("{?} > 0")
+  timestep float s
+    !condition ("{?} < {?runtime.t_max} && {?} > 0")
+  {settings?runtime.*}
+
+box
+  geometry int = {settings?box.geometry}
+    = 1  # linear
+    = 2  # cylindrical
+    = 3  # spherical
+
+  size
+    x float cm
+      !condition ("{?} > 0")
+    @case ("{?box.geometry} > 1")
+      y float cm
+	= 3 cm
+	= 4 cm
+    @end
+    @case ("{?box.geometry} == 3")
+      z float = 23 cm
+	!constant
+    @end
+    {settings?box.size.*}
+  
+modules
+  hydrdynamics bool = true
+  heating bool
+  radiation bool
+  
+  {settings?modules.*}
