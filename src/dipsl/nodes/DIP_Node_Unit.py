@@ -1,5 +1,6 @@
-from .DIP_Node import Node
-from .DIP_Parser import Parser
+from . import Node
+from . import Parser
+from ..settings import Namespace
 from ..solvers import UnitSolver
 
 class UnitNode(Node):
@@ -21,11 +22,9 @@ class UnitNode(Node):
         # import a remote source
         parser.part_reference()
         if parser.is_parsed('part_reference'):
-            units = env.request(parser.value_ref, namespace="units")
+            units = env.request(parser.value_ref, namespace=Namespace.UNITS)
             for key,val in units.items():
-                if key in env.units:
-                    raise Exception("Reference unit alread exists:", parser.name)
-                env.units[key] = val
+                env.add_unit(key, val)
         else:
             # inject value of a node
             parser.part_name(path=False) # parse name
@@ -37,7 +36,5 @@ class UnitNode(Node):
             with UnitSolver(env) as s:
                 unit = s.solve(parser.units_raw) * s.unit(parser.value_raw)
                 unit.symbol = '['+parser.name+']'
-                if parser.name in env.units:
-                    raise Exception("Reference unit alread exists:", parser.name)
-                env.units[parser.name] = unit
+                env.add_unit(parser.name, unit)
         return None

@@ -57,7 +57,7 @@ def test_functions():
 
 def test_references():
     with DIP() as dip:
-        dip.code("""
+        dip.from_string("""
 a float = 10 m
 b float = 300 cm
         """)

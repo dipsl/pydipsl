@@ -5,7 +5,6 @@ from .DIP_Solver_Units import UnitSolver
 from ..nodes.DIP_Parser import Parser
 from ..DIP_Environment import Environment
 from ..DIP_Unit import Unit
-from ..DIP_Settings import *
 
 class NumericalSolver(BaseModel):
 

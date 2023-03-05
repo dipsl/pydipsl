@@ -4,12 +4,13 @@ import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'src'))
 from dipsl import DIP
+from dipsl.settings import Format
 from dipsl.datatypes import FloatType, IntegerType, StringType
 
 def parse(code):
     with DIP() as p:
-        p.code(code)
-        return p.parse().data(verbose=True,format="type")
+        p.from_string(code)
+        return p.parse().data(verbose=True,format=Format.TYPE)
 
 def test_option():
     data = parse('''

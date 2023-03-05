@@ -2,7 +2,7 @@ import numpy as np
 from typing import List, Dict
 from pydantic import BaseModel
 
-from .DIP_Settings import *
+from .settings import Format, Sign, Keyword, Namespace
 from .datatypes import NumberType
 
 class Environment(BaseModel):
@@ -44,7 +44,7 @@ class Environment(BaseModel):
                 self.parent_names.pop()
             self.parent_names.append(node.name)
             self.parent_indents.append(node.indent)
-            node.name = SGN_SEPARATOR.join(self.parent_names)
+            node.name = Sign.SEPARATOR.join(self.parent_names)
 
     def is_case(self):
         """ Checks if outside or inside of a valid case clause
@@ -61,15 +61,15 @@ class Environment(BaseModel):
         :param node: Condition node
         """
         casename = self.case_names[-1]
-        if node.name.endswith(SGN_CONDITION + KWD_CASE):
-            if casename+KWD_CASE!=node.name:   # register new case
+        if node.name.endswith(Sign.CONDITION + Keyword.CASE):
+            if casename+Keyword.CASE!=node.name:   # register new case
                 self.case_names.append(node.name[:-4])
                 self.case_counts.append(0)
             if node.value or self.case_counts[-1]==1:
                 self.case_counts[-1] += 1
-        elif node.name==casename + KWD_ELSE:
+        elif node.name==casename + Keyword.ELSE:
             self.case_counts[-1] += 1
-        elif node.name==casename + KWD_END:    # end case using a keyword
+        elif node.name==casename + Keyword.END:    # end case using a keyword
             self._end_case()
         else:
             raise Exception(f"Invalid condition:", node.name)
@@ -84,23 +84,43 @@ class Environment(BaseModel):
         if not node.name.startswith(self.case_names[-1]): # ending case at lower indent
             self._end_case()
         node.name = node.name.replace(
-            SGN_CONDITION + KWD_CASE + SGN_SEPARATOR,''
+            Sign.CONDITION + Keyword.CASE + Sign.SEPARATOR,''
         )
         node.name = node.name.replace(
-            SGN_CONDITION + KWD_ELSE + SGN_SEPARATOR,''
+            Sign.CONDITION + Keyword.ELSE + Sign.SEPARATOR,''
         )
 
-    def query(self, query:str, namespace:str="nodes"):
+    def add_unit(self, name:str, expr:str):
+        """ Add a new source
+
+        :param str name: Name of a new unit
+        :param str expr: Unit expression
+        """
+        if name in self.units:
+            raise Exception("Reference unit alread exists:", name)
+        self.units[name] = expr
+        
+    def add_source(self, name:str, path:str):
+        """ Add a new source
+
+        :param str name: Name of a new source
+        :param str path: Path to a DIP file
+        """
+        if name in self.sources:
+            raise Exception("Reference source alread exists:", name)
+        self.sources[name] = path
+        
+    def query(self, query:str, namespace:int=Namespace.NODES):
         """ Select local nodes according to a query
 
         :param str query: Node selection query
         :param str namespace: Query namespace (nodes, sources, or units)
         """
-        if namespace=="nodes":
+        if namespace==Namespace.NODES:
             nodes = []
-            if query==SGN_WILDCARD:
+            if query==Sign.WILDCARD:
                 return [node.copy() for node in self.nodes]
-            elif query[-2:]==SGN_SEPARATOR + SGN_WILDCARD:
+            elif query[-2:]==Sign.SEPARATOR + Sign.WILDCARD:
                 for node in self.nodes:
                     if node.name.startswith(query[:-1]):
                         node = node.copy()
@@ -110,18 +130,18 @@ class Environment(BaseModel):
                 for node in self.nodes:
                     if node.name==query:
                         node = node.copy()
-                        node.name = node.name.split(SGN_SEPARATOR)[-1]
+                        node.name = node.name.split(Sign.SEPARATOR)[-1]
                         nodes.append(node.copy())
             return nodes
-        elif namespace=="sources":
-            if query==SGN_WILDCARD:   # return all sources
+        elif namespace==Namespace.SOURCES:
+            if query==Sign.WILDCARD:   # return all sources
                 return self.sources
             else:                     # return particular source
                 if query not in self.sources:
                     raise Exception("Requested source does not exists:", query)
                 return {query: self.sources[query]}
-        elif namespace=="units":
-            if query==SGN_WILDCARD:   # return all units
+        elif namespace==Namespace.UNITS:
+            if query==Sign.WILDCARD:   # return all units
                 return self.units
             else:                     # return particular unit
                 if query not in self.units:
@@ -130,19 +150,19 @@ class Environment(BaseModel):
         else:
             raise Exception("Invalid query namespace selected:", namespace)
         
-    def request(self, path:str, count:int=None, namespace:str="nodes"):
+    def request(self, path:str, count:int=None, namespace:str=Namespace.NODES):
         """ Request nodes from a path
 
         :param str path: Request path
         :param int count: Number of nodes that should be selected
         :param str namespace: Query namespace (nodes, sources, or units)
         """
-        if self.autoref and path == SGN_QUERY: # reference type {?}
+        if self.autoref and path == Sign.QUERY: # reference type {?}
             filename,query = '', self.autoref
-        elif SGN_QUERY in path:                    # reference type {source?query}
-            filename,query = path.split(SGN_QUERY)
+        elif Sign.QUERY in path:                    # reference type {source?query}
+            filename,query = path.split(Sign.QUERY)
         else:                                      # reference type {source}
-            filename,query = path,SGN_WILDCARD
+            filename,query = path,Sign.WILDCARD
         if filename:  # use external source to parse the values
             source =self.sources[filename]
             if isinstance(source, str):
@@ -160,7 +180,7 @@ class Environment(BaseModel):
                 raise Exception(f"Path returned invalid number of nodes:", path, count, len(nodes))
         return nodes
 
-    def data(self, verbose=False, format="value"):
+    def data(self, verbose=False, format=Format.VALUE):
         """ Return parsed values as a dictionary
 
         :param bool verbose: Display node values
@@ -168,11 +188,11 @@ class Environment(BaseModel):
         """
         data = {}
         for node in self.nodes:
-            if format=="value":
+            if format==Format.VALUE:
                 data[node.name] = node.value.value
-            elif format=="type":
+            elif format==Format.TYPE:
                 data[node.name] = node.value
-            elif format=="tuple":
+            elif format==Format.TUPLE:
                 if isinstance(node.value, NumberType) and node.value.unit is not None:
                     data[node.name] = (node.value.value, node.value.unit)
                 else:

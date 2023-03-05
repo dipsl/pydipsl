@@ -4,16 +4,17 @@ import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'src'))
 from dipsl import DIP
+from dipsl.settings import Format
 from dipsl.datatypes import FloatType, IntegerType, StringType
 
 def parse(code):
     with DIP() as p:
-        p.code(code)
-        return p.parse().data(verbose=True,format="type")
+        p.from_string(code)
+        return p.parse().data(verbose=True,format=Format.TYPE)
     
 def test_inline_matrix():
     with DIP() as p:
-        p.code('''
+        p.from_string('''
 velocity int[1:,3] = """
 [[42,34,35],
  [23,34,64],
@@ -21,7 +22,7 @@ velocity int[1:,3] = """
 """ km/s
         ''')
         env = p.parse()
-    np.testing.assert_equal(env.data(verbose=True,format="type"),{
+    np.testing.assert_equal(env.data(verbose=True,format=Format.TYPE),{
         'velocity': IntegerType([[42,   34,   35],[ 23,   34,  64],[ 35, 23,  23]], 'km/s'),
     })
 

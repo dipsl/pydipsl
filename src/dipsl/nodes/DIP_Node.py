@@ -4,7 +4,7 @@ import json
 from .DIP_NodeBase import NodeBase
 from ..datatypes import Type, IntegerType, FloatType, StringType, BooleanType
 from ..DIP_Environment import Environment
-from ..DIP_Settings import *
+from ..settings import Keyword
 
 class Node(NodeBase):
     
@@ -72,9 +72,9 @@ class Node(NodeBase):
                 # casting string as boolean returns true always if string is non-empty
                 # that's why we need to convert it expicitely
                 if self.keyword=='bool':
-                    if value==KWD_TRUE:
+                    if value==Keyword.TRUE:
                         value = True
-                    elif value==KWD_FALSE:
+                    elif value==Keyword.FALSE:
                         value = False
                     elif not isinstance(value,(BooleanType,bool,np.bool_)):
                         raise Exception("Could not convert raw value to boolean type:",value)

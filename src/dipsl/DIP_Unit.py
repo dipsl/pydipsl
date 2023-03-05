@@ -4,7 +4,7 @@ import numpy as np
 from math import isclose
 
 from .DIP_UnitList import *
-from .DIP_Settings import *
+from .settings import Numeric
 
 class Unit(BaseModel):
     num: float         # number value
@@ -62,7 +62,7 @@ class Unit(BaseModel):
         return Unit(num, base)
 
     def __eq__(self, other):
-        if not isclose(self.num, other.num, rel_tol=EQUAL_PRECISION):
+        if not isclose(self.num, other.num, rel_tol=Numeric.PRECISION):
             return False
         if self.base!=other.base:
             return False
@@ -86,7 +86,7 @@ class Unit(BaseModel):
     
     def eqnum(self, other):
         return self.base[0]==other.base[0] and \
-            isclose(self.num, other.num, rel_tol=EQUAL_PRECISION)
+            isclose(self.num, other.num, rel_tol=Numeric.PRECISION)
     
     def eqdim(self, other):
         return self.dimension()==other.dimension()

@@ -3,7 +3,7 @@ import csv
 from .DIP_Node import Node
 from .DIP_Parser import Parser
 from . import BooleanNode, IntegerNode, FloatNode, StringNode
-from ..DIP_Settings import *
+from ..settings import Sign
 
 class TableNode(Node):
     keyword: str = 'table'
@@ -70,7 +70,7 @@ class TableNode(Node):
         for node in table:
             nvalues = len(node.value_raw)
             node.dimension = [(nvalues,nvalues)]
-            node.name = self.name + SGN_SEPARATOR + node.name
+            node.name = self.name + Sign.SEPARATOR + node.name
             node.indent = self.indent
             nodes_new.append(node)
         return nodes_new

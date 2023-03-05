@@ -1,6 +1,6 @@
 from .DIP_Node import Node
 from ..DIP_Environment import Environment
-from ..DIP_Settings import *
+from ..settings import Sign
 
 class ImportNode(Node):
     keyword: str = 'import'
@@ -18,12 +18,12 @@ class ImportNode(Node):
         # Parse import code
         nodes_new = []
         for node in env.request(self.value_ref):
-            path = self.name.split(SGN_SEPARATOR + '{')
+            path = self.name.split(Sign.SEPARATOR + '{')
             path.pop()
             path.append(node.name)                
             node.source = self.source
             node.line = self.line
-            node.name = SGN_SEPARATOR.join(path)
+            node.name = Sign.SEPARATOR.join(path)
             node.indent = self.indent
             nodes_new.append(node)
         return nodes_new

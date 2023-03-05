@@ -2,7 +2,7 @@ from typing import List
 from pydantic import BaseModel
 import re
 
-from ..DIP_Settings import *
+from ..settings import Keyword, Sign
 from .DIP_NodeBase import NodeBase
 
 class Parser(NodeBase):
@@ -35,7 +35,7 @@ class Parser(NodeBase):
     def kwd_case(self):
         m=re.match(
             r'^(([a-zA-Z0-9_.-]*'+
-            re.escape(SGN_CONDITION) + KWD_CASE +
+            re.escape(Sign.CONDITION) + Keyword.CASE +
             r')\s+)',
             self.ccode
         )
@@ -46,8 +46,8 @@ class Parser(NodeBase):
         else:
             m=re.match(
                 r'^([a-zA-Z0-9_.-]*('+
-                re.escape(SGN_CONDITION) + KWD_ELSE +'|'+
-                re.escape(SGN_CONDITION) + KWD_END +'))',
+                re.escape(Sign.CONDITION) + Keyword.ELSE +'|'+
+                re.escape(Sign.CONDITION) + Keyword.END +'))',
                 self.ccode
             )
             if m:
@@ -58,7 +58,7 @@ class Parser(NodeBase):
     def kwd_unit(self):
         m=re.match(
             r'^(([a-zA-Z0-9_.-]*'+
-            re.escape(SGN_VARIABLE) + KWD_UNIT +
+            re.escape(Sign.VARIABLE) + Keyword.UNIT +
             r')\s+([^#]*))',
             self.ccode
         )
@@ -71,7 +71,7 @@ class Parser(NodeBase):
     def kwd_source(self):
         m=re.match(
             r'^(([a-zA-Z0-9_.-]*'+
-            re.escape(SGN_VARIABLE) + KWD_SOURCE +
+            re.escape(Sign.VARIABLE) + Keyword.SOURCE +
             r')\s+([^#]*))',
             self.ccode
         )
@@ -83,7 +83,7 @@ class Parser(NodeBase):
 
     def kwd_options(self):
         m=re.match(
-            r'^(('+re.escape(SGN_VALIDATION)+KWD_OPTIONS+r')\s+)',
+            r'^(('+re.escape(Sign.VALIDATION)+Keyword.OPTIONS+r')\s+)',
             self.ccode
         )
         if m:
@@ -93,7 +93,7 @@ class Parser(NodeBase):
 
     def kwd_constant(self):
         m=re.match(
-            r'^('+re.escape(SGN_VALIDATION)+KWD_CONSTANT+r')',
+            r'^('+re.escape(Sign.VALIDATION)+Keyword.CONSTANT+r')',
             self.ccode
         )
         if m:
@@ -102,7 +102,7 @@ class Parser(NodeBase):
 
     def kwd_format(self):
         m=re.match(
-            r'^(('+re.escape(SGN_VALIDATION)+KWD_FORMAT+r')\s*)',
+            r'^(('+re.escape(Sign.VALIDATION)+Keyword.FORMAT+r')\s*)',
             self.ccode
         )
         if m:
@@ -111,7 +111,7 @@ class Parser(NodeBase):
             
     def kwd_condition(self):
         m=re.match(
-            r'^(('+re.escape(SGN_VALIDATION)+KWD_CONDITION+r')\s*)',
+            r'^(('+re.escape(Sign.VALIDATION)+Keyword.CONDITION+r')\s*)',
             self.ccode
         )
         if m:
@@ -214,8 +214,8 @@ class Parser(NodeBase):
             self.parsed.append('part_reference')
             self.value_ref = m.group(3)
             self.value_raw = '' 
-            if SGN_QUERY in m.group(3):
-                filename,query = m.group(3).split(SGN_QUERY)
+            if Sign.QUERY in m.group(3):
+                filename,query = m.group(3).split(Sign.QUERY)
                 self.source = filename
             else:
                 self.source = m.group(3)

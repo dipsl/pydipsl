@@ -6,7 +6,6 @@ from pydantic import BaseModel
 from ..DIP_Unit import Unit
 from ..DIP_Environment import Environment
 from ..DIP_UnitList import *
-from ..DIP_Settings import *
 
 class UnitSolver(BaseModel):
 

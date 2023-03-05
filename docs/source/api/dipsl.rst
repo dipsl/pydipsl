@@ -10,6 +10,7 @@ Subpackages
    dipsl.datatypes
    dipsl.nodes
    dipsl.pygments
+   dipsl.settings
    dipsl.solvers
 
 Submodules
@@ -27,14 +28,6 @@ dipsl.DIP\_Main module
 ----------------------
 
 .. automodule:: dipsl.DIP_Main
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-dipsl.DIP\_Settings module
---------------------------
-
-.. automodule:: dipsl.DIP_Settings
    :members:
    :undoc-members:
    :show-inheritance:

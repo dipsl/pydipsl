@@ -4,6 +4,7 @@ import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'src'))
 from dipsl import DIP, Environment
+from dipsl.settings import Format
 from dipsl.datatypes import IntegerType, FloatType, StringType, BooleanType
 from dipsl.solvers import TemplateSolver
 
@@ -14,7 +15,7 @@ def test_path():
 def test_example_of_use(test_path):
 
     with DIP() as dip:
-        dip.code("""
+        dip.from_string("""
         mpi
           nodes int = 36
           cores int = 96
@@ -22,7 +23,7 @@ def test_example_of_use(test_path):
         env1 = dip.parse()                 # parse the code
 
     with DIP(env1) as dip:                 # pass environment to a new DIP instance
-        dip.load(test_path+"settings.dip") # add new parameter
+        dip.from_file(test_path+"settings.dip") # add new parameter
         env2 = dip.parse()                 # parse new parameters
 
     nodes = env2.query("mpi.*")            # select nodes using a query
@@ -45,7 +46,7 @@ def test_example_of_use(test_path):
         'modules.radiation': True,
     })
 
-    data = env2.data(verbose=True, format="tuple")
+    data = env2.data(verbose=True, format=Format.TUPLE)
     np.testing.assert_equal(data,{
         'mpi.nodes': 36,
         'mpi.cores': 96,
@@ -58,7 +59,7 @@ def test_example_of_use(test_path):
         'modules.radiation': True,
     })
     
-    data = env2.data(verbose=True, format="type")
+    data = env2.data(verbose=True, format=Format.TYPE)
     np.testing.assert_equal(data,{
         'mpi.nodes':         IntegerType(36),
         'mpi.cores':         IntegerType(96),
@@ -74,9 +75,9 @@ def test_example_of_use(test_path):
 def test_definition_template(test_path):
     
     with DIP() as dip:
-        dip.load(test_path+'definitions.dip')
+        dip.from_file(test_path+'definitions.dip')
         env3 = dip.parse()
-        data = env3.data(format="type")
+        data = env3.data(format=Format.TYPE)
     np.testing.assert_equal(data,{
         'runtime.t_max':        FloatType(1e-08, 's'),
         'runtime.timestep':     FloatType(1e-11, 's'),
@@ -91,3 +92,20 @@ def test_definition_template(test_path):
     with TemplateSolver(env3) as ts:
         text = ts.template(test_path+'template.txt', test_path+'processed.txt')
     assert text == "Geometry: 3\nBox size: [1e-06, 3.0, 23.0]\n"
+
+def test_units_sources(test_path):
+
+    with DIP() as dip:
+        dip.add_source("settings", test_path+'settings.dip')
+        dip.add_unit("length", 1, "m")
+        dip.from_string("""
+        width float = 23 [length]
+        x_size float = {settings?box.size.x}
+        """)
+        env = dip.parse()
+        data = env.data(format=Format.TYPE)
+    np.testing.assert_equal(data,{
+        'width':  FloatType(23, '[length]'),
+        'x_size': FloatType(10, 'nm'),
+    })
+        

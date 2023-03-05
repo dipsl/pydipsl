@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from ..DIP_Environment import Environment
 from ..nodes.DIP_Parser import Parser
 from ..datatypes import NumberType, BooleanType, FloatType, IntegerType, StringType
-from ..DIP_Settings import *
+from ..settings import Keyword, Sign, Numeric
 
 class LogicalSolver(BaseModel):
 
@@ -29,10 +29,10 @@ class LogicalSolver(BaseModel):
         if expr=='':
             return None
         flags = []
-        if expr[0]==SGN_NEGATE:
+        if expr[0]==Sign.NEGATE:
             flags.append('negate')
             expr = expr[1:]
-        if expr[0]==SGN_DEFINED:
+        if expr[0]==Sign.DEFINED:
             flags.append('defined')
             expr = expr[1:]
         # parse node from the code
@@ -51,9 +51,9 @@ class LogicalSolver(BaseModel):
                     node = BooleanType(False)
                 else:
                     node = None
-        elif p.value_raw==KWD_TRUE:
+        elif p.value_raw==Keyword.TRUE:
             node = BooleanType(True)
-        elif p.value_raw==KWD_FALSE:
+        elif p.value_raw==Keyword.FALSE:
             node = BooleanType(False)
         else:            # create anonymous node
             p.part_units()
@@ -75,13 +75,13 @@ class LogicalSolver(BaseModel):
             if isinstance(a,str) and isinstance(b,str):
                 return a==b
             else:
-                return isclose(a, b, rel_tol=EQUAL_PRECISION)            
+                return isclose(a, b, rel_tol=Numeric.PRECISION)            
         comps = [
             # neglect python rounding errors using 'isclose' function
             ('==', _equal_operation),  
             ('!=', lambda a,b: a!=b),
-            ('>=', lambda a,b: (a>b)|isclose(a, b, rel_tol=EQUAL_PRECISION)),
-            ('<=', lambda a,b: (a<b)|isclose(a, b, rel_tol=EQUAL_PRECISION)),
+            ('>=', lambda a,b: (a>b)|isclose(a, b, rel_tol=Numeric.PRECISION)),
+            ('<=', lambda a,b: (a<b)|isclose(a, b, rel_tol=Numeric.PRECISION)),
             ('>',  lambda a,b: a>b ),
             ('<',  lambda a,b: a<b ),
         ]

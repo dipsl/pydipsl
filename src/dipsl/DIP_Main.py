@@ -6,7 +6,7 @@ from pydantic import BaseModel
 
 from .DIP_Environment import Environment
 from .DIP_Unit import Unit
-from .DIP_Settings import *
+from .settings import Keyword, Sign
 from .nodes.DIP_Parser import Parser
 from .nodes import EmptyNode, ImportNode, UnitNode, SourceNode, CaseNode
 from .nodes import OptionNode, ConstantNode, FormatNode, ConditionNode
@@ -38,7 +38,7 @@ class DIP(BaseModel):
     def __exit__(self, type, value, traceback):
         pass
         
-    def load(self, filepath:str):
+    def from_file(self, filepath:str):
         """ Load DIP code from a file
 
         :param str filepath: Path to a DIP file
@@ -47,14 +47,23 @@ class DIP(BaseModel):
         with open(filepath,'r') as f:           
             self.lines += f.read().split('\n')
 
-    def code(self, code:str):
-        """ Use code from a string
+    def from_string(self, code:str):
+        """ Use DIP code from a string
 
         :param str code: DIP code
         """
         self.source = 'inline'
         self.lines += code.split('\n')
-                            
+
+    def add_source(self, name:str, path:str):
+        self.lines += [f"{Sign.VARIABLE}{Keyword.SOURCE} {name} = {path}"]
+        
+    def add_unit(self, name:str, value:float, unit:str=None):
+        if unit:
+            self.lines += [f"{Sign.VARIABLE}{Keyword.UNIT} {name} = {value} {unit}"]
+        else:
+            self.lines += [f"{Sign.VARIABLE}{Keyword.UNIT} {name} = {value}"]
+
     def parse(self):
         """ Parse DIP nodes from code lines
         """

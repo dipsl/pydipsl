@@ -5,13 +5,14 @@ from math import isclose
 
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'src'))
 from dipsl import DIP, Unit
+from dipsl.settings import Format, Keyword
 from dipsl.solvers import UnitSolver
 from dipsl.datatypes import FloatType, StringType
 
 def parse(code):
     with DIP() as p:
-        p.code(code)
-        return p.parse().data(verbose=True,format="type")
+        p.from_string(code)
+        return p.parse().data(verbose=True,format=Format.TYPE)
 
 def test_conditions():
     data = parse("""

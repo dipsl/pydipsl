@@ -4,7 +4,6 @@ from pydantic import BaseModel
 from ..DIP_Environment import Environment
 from ..nodes.DIP_Parser import Parser
 from ..datatypes import Type
-from ..DIP_Settings import *
 
 class TemplateSolver(BaseModel):
 
