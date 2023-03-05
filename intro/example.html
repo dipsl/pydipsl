@@ -51,6 +51,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Example of use</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#parsing-dip-code">Parsing DIP code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#getting-parsed-data">Getting parsed data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#definitions">Definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#templates">Templates</a></li>
 </ul>
 </li>
 </ul>
@@ -186,8 +188,97 @@ Variable <code class="docutils literal notranslate"><span class="pre">geom</span
 <span class="c1">#     &#39;modules.heating&#39;: BooleanType(False),</span>
 <span class="c1">#     &#39;modules.radiation&#39;: BooleanType(True),</span>
 <span class="c1"># }</span>
+</pre></div>
+</div>
+</section>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading"></a></h2>
+<p>Often code users can modify initial settings in order to choose functionality of a code to what they currently need.
+DIP gives code developers a tool to manage such input parameter lists and control what parameters are compulsory or mandatory and what is their format.
+In the following example we first create a definition file with description of all imput parameter of a fictional numerical code:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">definitions.dip</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$source</span> <span class="n">settings</span> = <span class="s">settings.dip</span>
 
-<span class="c1"># Values are returned as tuples</span>
+<span class="n">runtime</span>
+  <span class="n">t_max</span> <span class=" -Type">float</span><span class=" -Unit"> s</span>                 <span class="c"># mandatory</span>
+<span class="k">    !condition</span> (<span class=" -Expression">&quot;</span><span class=" -Reference">{?}</span><span class=" -Expression"> &gt; 0&quot;</span>)
+  <span class="n">timestep</span> <span class=" -Type">float</span><span class=" -Unit"> s</span>
+<span class="k">    !condition</span> (<span class=" -Expression">&quot;</span><span class=" -Reference">{?}</span><span class=" -Expression"> &lt; </span><span class=" -Reference">{?runtime.t_max}</span><span class=" -Expression"> &amp;&amp; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &gt; 0&quot;</span>)  <span class="c"># mandatory</span>
+  <span class=" -Reference">{settings?runtime.*}</span>
+
+<span class="n">box</span>
+  <span class="n">geometry</span> <span class=" -Type">int</span> = <span class=" -Reference">{settings?box.geometry}</span>  <span class="c"># mandatory</span>
+    <span class="k">=</span> <span class="m">1</span>  <span class="c"># linear</span>
+    <span class="k">=</span> <span class="m">2</span>  <span class="c"># cylindrical</span>
+    <span class="k">=</span> <span class="m">3</span>  <span class="c"># spherical</span>
+
+  <span class="n">size</span>
+    <span class="n">x</span> <span class=" -Type">float</span><span class=" -Unit"> cm</span>                  <span class="c"># mandatory</span>
+<span class="k">      !condition</span> (<span class=" -Expression">&quot;</span><span class=" -Reference">{?}</span><span class=" -Expression"> &gt; 0&quot;</span>)
+<span class="k">    @case</span> (<span class=" -Expression">&quot;</span><span class=" -Reference">{?box.geometry}</span><span class=" -Expression"> &gt; 1&quot;</span>)
+      <span class="n">y</span> <span class=" -Type">float</span><span class=" -Unit"> cm</span>                <span class="c"># mandatory if geometry is non-linear</span>
+        <span class="k">=</span> <span class="m">3</span><span class=" -Unit"> cm</span>
+        <span class="k">=</span> <span class="m">4</span><span class=" -Unit"> cm</span>
+<span class="k">    @end</span>
+<span class="k">    @case</span> (<span class=" -Expression">&quot;</span><span class=" -Reference">{?box.geometry}</span><span class=" -Expression"> == 3&quot;</span>)
+      <span class="n">z</span> <span class=" -Type">float</span> = <span class="m">23</span><span class=" -Unit"> cm</span>           <span class="c"># constant</span>
+<span class="k">        !constant</span>
+<span class="k">    @end</span>
+    <span class=" -Reference">{settings?box.size.*}</span>
+
+<span class="n">modules</span>
+  <span class="n">hydrdynamics</span> <span class=" -Type">bool</span> = <span class=" -Boolean">true</span>      <span class="c"># optional</span>
+  <span class="n">heating</span> <span class=" -Type">bool</span>                  <span class="c"># mandatory</span>
+  <span class="n">radiation</span> <span class=" -Type">bool</span>                <span class="c"># mandatory</span>
+
+  <span class=" -Reference">{settings?modules.*}</span>
+</pre></div>
+</div>
+</div>
+<p>Some nodes in <code class="docutils literal notranslate"><span class="pre">definitions.dip</span></code> are constant and some can be modified by user via <code class="docutils literal notranslate"><span class="pre">settings.dip</span></code>.
+Parsing of such DIP code will result in following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DIP</span><span class="p">()</span> <span class="k">as</span> <span class="n">dip</span><span class="p">:</span>
+    <span class="n">dip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;definitions.dip&#39;</span><span class="p">)</span>
+    <span class="n">env3</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;type&quot;</span><span class="p">)</span>
+
+<span class="c1"># data = {</span>
+<span class="c1">#     &#39;runtime.t_max&#39;:        FloatType(1e-08, &#39;s&#39;),</span>
+<span class="c1">#     &#39;runtime.timestep&#39;:     FloatType(1e-11, &#39;s&#39;),</span>
+<span class="c1">#     &#39;box.geometry&#39;:         IntegerType(3),</span>
+<span class="c1">#     &#39;box.size.x&#39;:           FloatType(1e-06, &#39;cm&#39;),</span>
+<span class="c1">#     &#39;box.size.y&#39;:           FloatType(3.0, &#39;cm&#39;),</span>
+<span class="c1">#     &#39;box.size.z&#39;:           FloatType(23.0, &#39;cm&#39;),</span>
+<span class="c1">#     &#39;modules.hydrdynamics&#39;: BooleanType(True),</span>
+<span class="c1">#     &#39;modules.heating&#39;:      BooleanType(False),</span>
+<span class="c1">#     &#39;modules.radiation&#39;:    BooleanType(True)</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</section>
+<section id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this heading"></a></h2>
+<p>Sometimes numerical codes require additional input parameter files with a special format or even defined in another programming language.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">template.txt</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Geometry: {{?box.geometry}}
+Box size: [{{?box.size.x}}, {{?box.size.y}}, {{?box.size.z}}]
+</pre></div>
+</div>
+</div>
+<p>Such files can be easily generated by processing of a DIP environment with a template solver.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is especially useful when using DIP with codes written in other programming languages, since DIP currently natively supports only programms written in Python.
+Nevertheless, support of other programming languages will be added later.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dipsl.solvers</span> <span class="kn">import</span> <span class="n">TemplateSolver</span>
+
+<span class="k">with</span> <span class="n">TemplateSolver</span><span class="p">(</span><span class="n">env3</span><span class="p">)</span> <span class="k">as</span> <span class="n">ts</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;template.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># text = &quot;Geometry: 3\nBox size: [1e-06, 3.0, 23.0]\n&quot;</span>
 </pre></div>
 </div>
 </section>

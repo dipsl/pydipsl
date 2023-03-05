@@ -5,33 +5,33 @@ Conditions
    :caption: Schemas of condition directives
 
    # condition with only one case
-   @case <expression>
+   @case ("<expression>")
      ...
    @end                 # end is optional
    
    # condition with multiple cases
-   @case <expression>
+   @case ("<expression>")
      ...
-   @case <expression>
+   @case ("<expression>")
      ...
    @else                # else is optional
      ...
    @end                 # end is optional
 
    # consecutive conditions
-   @case <expression>   # first condition
+   @case ("<expression>")   # first condition
      ...
    @else
      ...
    @end                 # end is necessary
-   @case <expression>   # second condition
+   @case ("<expression>")   # second condition
      ...
 
 Parameters in DIP can be also branched using conditions.
 There are 3 clauses used in conditions.
 Child nodes must have higher indent than the parent clause.
 
-``@case <expression>``
+``@case ("<expression>")``
   is a starting clause of each condition and requires as an argument result of a logical expression.
   If expression is evaluated as true, child nodes of the corresponding ``@case`` will be taken and condition is terminated.
   If expression is false, its child nodes are skipped and subsequent clauses are evaluated.

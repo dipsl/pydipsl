@@ -90,26 +90,26 @@
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Schemas of condition directives</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class="c"># condition with only one case</span>
-<span class="k">@case</span> <span class="nt">&lt;expression&gt;</span>
+<span class="k">@case</span> (<span class=" -Expression">&quot;&lt;expression&gt;&quot;</span>)
   ...
 <span class="k">@end</span>                 <span class="c"># end is optional</span>
 
 <span class="c"># condition with multiple cases</span>
-<span class="k">@case</span> <span class="nt">&lt;expression&gt;</span>
+<span class="k">@case</span> (<span class=" -Expression">&quot;&lt;expression&gt;&quot;</span>)
   ...
-<span class="k">@case</span> <span class="nt">&lt;expression&gt;</span>
+<span class="k">@case</span> (<span class=" -Expression">&quot;&lt;expression&gt;&quot;</span>)
   ...
 <span class="k">@else</span>                <span class="c"># else is optional</span>
   ...
 <span class="k">@end</span>                 <span class="c"># end is optional</span>
 
 <span class="c"># consecutive conditions</span>
-<span class="k">@case</span> <span class="nt">&lt;expression&gt;</span>   <span class="c"># first condition</span>
+<span class="k">@case</span> (<span class=" -Expression">&quot;&lt;expression&gt;&quot;</span>)   <span class="c"># first condition</span>
   ...
 <span class="k">@else</span>
   ...
 <span class="k">@end</span>                 <span class="c"># end is necessary</span>
-<span class="k">@case</span> <span class="nt">&lt;expression&gt;</span>   <span class="c"># second condition</span>
+<span class="k">@case</span> (<span class=" -Expression">&quot;&lt;expression&gt;&quot;</span>)   <span class="c"># second condition</span>
   ...
 </pre></div>
 </div>
@@ -118,7 +118,7 @@
 There are 3 clauses used in conditions.
 Child nodes must have higher indent than the parent clause.</p>
 <dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">&#64;case</span> <span class="pre">&lt;expression&gt;</span></code></dt><dd><p>is a starting clause of each condition and requires as an argument result of a logical expression.
+<dt><code class="docutils literal notranslate"><span class="pre">&#64;case</span> <span class="pre">(&quot;&lt;expression&gt;&quot;)</span></code></dt><dd><p>is a starting clause of each condition and requires as an argument result of a logical expression.
 If expression is evaluated as true, child nodes of the corresponding <code class="docutils literal notranslate"><span class="pre">&#64;case</span></code> will be taken and condition is terminated.
 If expression is false, its child nodes are skipped and subsequent clauses are evaluated.
 For testing purpouses, one can also use direct <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> keywords instead of expressions.</p>
