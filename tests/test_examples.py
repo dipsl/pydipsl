@@ -89,5 +89,5 @@ def test_definition_template(test_path):
         'modules.radiation':    BooleanType(True)
     })
     with TemplateSolver(env3) as ts:
-        text = ts.template(test_path+'template.txt', test_path+'template.processed.txt')
+        text = ts.template(test_path+'template.txt', test_path+'processed.txt')
     assert text == "Geometry: 3\nBox size: [1e-06, 3.0, 23.0]\n"
