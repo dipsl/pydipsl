@@ -1,8 +1,8 @@
 Schema highliter
 ================
 
-DIP schema highliter is design to highlight only most basic concepts of DIP language.
-Definition of the schema highlighter is in file `dipsl/pygments/DIP_Lexer_Schema.py`. Following block sumarizes all highliter posibilities.
+DIP schema highliter is design to highlight only the most basic concepts of DIP language.
+Definition of the schema highlighter is in file `dipsl/pygments/DIP_Lexer_Schema.py`. The following block summarizes all highliter possibilities.
 
 .. code-block:: DIPSchema
 

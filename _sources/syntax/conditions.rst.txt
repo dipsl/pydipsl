@@ -27,15 +27,15 @@ Conditions
    @case ("<expression>")   # second condition
      ...
 
-Parameters in DIP can be also branched using conditions.
+Parameters in DIP can also be branched using conditions.
 There are 3 clauses used in conditions.
 Child nodes must have higher indent than the parent clause.
 
 ``@case ("<expression>")``
   is a starting clause of each condition and requires as an argument result of a logical expression.
-  If expression is evaluated as true, child nodes of the corresponding ``@case`` will be taken and condition is terminated.
-  If expression is false, its child nodes are skipped and subsequent clauses are evaluated.
-  For testing purpouses, one can also use direct ``true`` or ``false`` keywords instead of expressions.
+  If the expression is evaluated as true, child nodes of the corresponding ``@case`` will be taken and the condition is terminated.
+  If the expression is false, its child nodes are skipped and subsequent clauses are evaluated.
+  For testing purposes, one can also use direct ``true`` or ``false`` keywords instead of expressions.
 
 ``@else``
   is a special, optional, clause that is at the very end of conditions and does not require any expression.
@@ -43,7 +43,7 @@ Child nodes must have higher indent than the parent clause.
   If all previous ``@case``-s are evaluated as false, child nodes of ``@else`` are taken.
 
 ``@end``
-  is a terminating clause whose main purpouse is to separate two consecutive conditions.
+  is a terminating clause whose main purpose is to separate two consecutive conditions.
   If omitted, a single condition terminates after last ``@case`` or ``@else``.
       
 .. code-block:: DIP
@@ -63,7 +63,7 @@ Child nodes must have higher indent than the parent clause.
    @else
      toy str = "robot"
 
-Nested conditions are also posible, provided that each child condition has indent higher than parent condition.
+Nested conditions are also possible, provided that each child condition has indent higher than the parent condition.
 
 .. code-block:: DIP
 
@@ -90,4 +90,4 @@ Nested conditions are also posible, provided that each child condition has inden
 
 .. note::
 
-   Even though children nodes have higher indent than their parent clauses, this does not have an effect on name hierarchy. 
+   Even though children nodes have higher indent than their parent clauses, this does not have an effect on naming hierarchy. 

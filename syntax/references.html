@@ -93,7 +93,7 @@
 <h1>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h1>
 <p>Node referencing is an important feature of DIP, because it enables to create reusable parts of a code.
 Reference is similar to a standard URL <strong>requests</strong>.
-It consist of a source name (path to a file) and a query (node path) part separated by a question mark.
+It consist of a source name (path to a file) and a query (node path) part, separated by a question mark.
 Sources are defined once using <code class="docutils literal notranslate"><span class="pre">$source</span></code> definition and can be referenced multiple times.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Schema of a source definition</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
@@ -105,7 +105,7 @@ Sources are defined once using <code class="docutils literal notranslate"><span 
 A local domain contains all nodes that were already parsed in the current DIP file.
 Remote domain is a completely separate DIP file that is processed independently.</p>
 <p><strong>Query</strong> part specifies which nodes from local or remote DIP files will be selected.
-Single node is querried by its full hierarchy path.
+A single node is queried by its full hierarchy path.
 An asterix at the end of the query selects children nodes:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Schema of reference requests</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
@@ -131,14 +131,14 @@ An asterix at the end of the query selects children nodes:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The last reference type <code class="docutils literal notranslate"><span class="pre">{?}</span></code> is used only in <a class="reference internal" href="validation.html"><span class="doc">validation conditions</span></a> to reference node’s own value.</p>
+<p>The last reference type <code class="docutils literal notranslate"><span class="pre">{?}</span></code> is used only in <a class="reference internal" href="validation.html"><span class="doc">validation conditions</span></a> to reference the node’s own value.</p>
 </div>
 <p>References have two main applications.
 One can either import some already parsed DIP nodes into a new location, or inject other node values or contents of text files into a new node.
 Besides the two cases, references are also used in <a class="reference internal" href="conditions.html"><span class="doc">conditions</span></a> that are explained in a separate chapter.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this heading"></a></h2>
-<p>Imports can be used to insert referenced nodes directly into current DIP hierarchy.</p>
+<p>Imports can be used to insert referenced nodes directly into the current DIP hierarchy.</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Schema of node imports</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class=" -Reference">{&lt;request&gt;}</span>
@@ -146,7 +146,7 @@ Besides the two cases, references are also used in <a class="reference internal"
 </pre></div>
 </div>
 </div>
-<p>Name paths of imported nodes are embedded into the current node hierarchy as shown in following examples.</p>
+<p>Name paths of imported nodes are embedded into the current node hierarchy as shown in the following examples.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">icecream</span>
   <span class="n">waffle</span> <span class=" -Type">str</span> = <span class="s">&#39;standard&#39;</span>
   <span class="n">scoops</span>
@@ -158,7 +158,7 @@ Besides the two cases, references are also used in <a class="reference internal"
 <span class="n">plate</span> <span class=" -Reference">{?icecream.waffle}</span>    <span class="c"># select specific node</span>
 </pre></div>
 </div>
-<p>Code above will result in following final nodes:</p>
+<p>Code above will result in the following final nodes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">icecream</span><span class="o">.</span><span class="n">waffle</span> <span class="o">=</span> <span class="s1">&#39;standard&#39;</span>
 <span class="n">icecream</span><span class="o">.</span><span class="n">scoops</span><span class="o">.</span><span class="n">strawberry</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">icecream</span><span class="o">.</span><span class="n">scoops</span><span class="o">.</span><span class="n">chocolate</span> <span class="o">=</span> <span class="mi">2</span>
@@ -178,7 +178,7 @@ One has to just add a source name in front of the question mark.</p>
 <span class="n">plate</span> <span class=" -Reference">{nodes?vegies.*}</span>       <span class="c"># selecting all subnodes</span>
 </pre></div>
 </div>
-<p>So far we shown how to import regular nodes from a local or remote source.
+<p>So far, we have shown how to import regular nodes from a local or remote source.
 It is, however, also possible to import sources and custom <a class="reference internal" href="units.html"><span class="doc">Units</span></a> in the similar way.
 The request can select either one <code class="docutils literal notranslate"><span class="pre">{&lt;source&gt;?&lt;query&gt;}</span></code> or all <code class="docutils literal notranslate"><span class="pre">{&lt;source&gt;?*}</span></code> sources/units.</p>
 <div class="literal-block-wrapper docutils container" id="id4">
@@ -203,7 +203,7 @@ The request can select either one <code class="docutils literal notranslate"><sp
 <section id="injections">
 <h2>Injections<a class="headerlink" href="#injections" title="Permalink to this heading"></a></h2>
 <p>Injections do not insert whole nodes.
-They are used in node definitions and modifications instead of a values.</p>
+They are used in node definitions and modifications instead of values.</p>
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-text">Schema of node value injections</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="n">&lt;name&gt;</span> <span class=" -Type">&lt;type&gt;</span> = <span class=" -Reference">{&lt;request&gt;}</span> <span class=" -Unit">&lt;unit&gt;</span>
@@ -219,7 +219,7 @@ They are used in node definitions and modifications instead of a values.</p>
 <span class="n">size3</span> <span class=" -Type">float</span> = <span class=" -Reference">{?size2}</span>    <span class="c"># definition using import with same units</span>
 <span class="n">size1</span> = <span class=" -Reference">{?size2}</span>          <span class="c"># modifying by import</span>
 
-<span class="c"># Nodes above will have following values:</span>
+<span class="c"># Nodes above will have the following values:</span>
 <span class="c">#</span>
 <span class="c"># size1 = 3400 cm</span>
 <span class="c"># size2 = 34 m</span>
@@ -232,7 +232,7 @@ They are used in node definitions and modifications instead of a values.</p>
 <span class="n">pressure</span> <span class=" -Type">float</span> = <span class=" -Reference">{pressure?magnetic}</span>
 </pre></div>
 </div>
-<p>Arrays can be imported either directly or can be sliced to match dimensions of a host node using following schemas:</p>
+<p>Arrays can be imported either directly or can be sliced to match dimensions of a host node using the following schemas:</p>
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">Schema of an array slice reference</span><a class="headerlink" href="#id6" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Reference">{?&lt;query&gt;}[</span><span class=" -Slice">&lt;slice&gt;</span><span class=" -Reference">]</span>            <span class="c"># node query from a local domain</span>
@@ -241,7 +241,7 @@ They are used in node definitions and modifications instead of a values.</p>
 </div>
 </div>
 <p>Slicing of arrays and also strings adopts the same notation as used in Python.
-Example of sliced injected arrays is below:</p>
+An example of sliced injected arrays is below:</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class=" -Type">str</span> = <span class="s">&quot;Will Smith&quot;</span>
 <span class="n">surname</span> <span class=" -Type">str</span> = <span class=" -Reference">{?person}[</span><span class=" -Slice">5:</span><span class=" -Reference">]</span>   <span class="c"># slicing a string</span>
 
@@ -263,9 +263,9 @@ Example of sliced injected arrays is below:</p>
 <span class="c"># mymass = [23.34,1e34]</span>
 </pre></div>
 </div>
-<p>Value injection can be also used to keep large text blocks in external files.
+<p>Value injection can also be used to keep large text blocks in external files.
 This makes both the code and text data more readable and easily editable.
-Note that when requests do not include question mark with a query, DIP imports files as a text and not as a node list.</p>
+Note that when requests do not include a question mark with a query, DIP imports files as a text and not as a node list.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$source</span> <span class="n">velocity</span> = <span class="s">velocity.txt</span>
 <span class="k">$source</span> <span class="n">outputs</span> = <span class="s">outputs.txt</span>
 <span class="k">$source</span> <span class="n">message</span> = <span class="s">message.txt</span>
@@ -275,7 +275,7 @@ Note that when requests do not include question mark with a query, DIP imports f
 <span class="n">message</span> <span class=" -Type">str</span> = <span class=" -Reference">{message}</span>               <span class="c"># import a text</span>
 </pre></div>
 </div>
-<p>Values of source and unit definitions can be also injected from other nodes.</p>
+<p>Values of source and unit definitions can also be injected from other nodes.</p>
 <div class="literal-block-wrapper docutils container" id="id7">
 <div class="code-block-caption"><span class="caption-text">Schema of node value injections</span><a class="headerlink" href="#id7" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">$unit</span> <span class="n">&lt;name&gt;</span> = <span class=" -Reference">{&lt;request&gt;}</span>
@@ -287,7 +287,7 @@ Note that when requests do not include question mark with a query, DIP imports f
 <p class="admonition-title">Note</p>
 <p>In comparison to imports, request query in injections is always path of a node.</p>
 </div>
-<p>This adds an aditional scalablility to the code.
+<p>This adds an additional scalability to the code.
 Referenced nodes by sources have to be strings and referenced nodes by units have to be floats or integers.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">refs</span> <span class=" -Type">str</span> = <span class="s">&quot;path/to/sources.dip&quot;</span>  <span class="c"># node named &#39;refs&#39;</span>
 <span class="k">$source</span> <span class="n">refs</span> = <span class=" -Reference">{?refs}</span>            <span class="c"># source named &#39;refs&#39;</span>

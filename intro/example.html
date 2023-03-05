@@ -90,13 +90,13 @@
   <section id="example-of-use">
 <h1>Example of use<a class="headerlink" href="#example-of-use" title="Permalink to this heading"></a></h1>
 <p>The main implementation of DIP is written in Python.
-For implementations in other languages look into corresponding documentations.</p>
+For implementations in other languages, look into corresponding documentations.</p>
 <p>A first step to parse a DIP code is to import its main class <code class="docutils literal notranslate"><span class="pre">DIP</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diplang</span> <span class="kn">import</span> <span class="n">DIP</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dipsl</span> <span class="kn">import</span> <span class="n">DIP</span>
 </pre></div>
 </div>
 <p>Multiple code sources (from strings, or files) can be loaded and combined into one parameter list.
-Files containing DIP code should have an extention <code class="docutils literal notranslate"><span class="pre">.dip</span></code>, otherwise they will be interpreted as normal text files.</p>
+Files containing DIP code should have an extension <code class="docutils literal notranslate"><span class="pre">.dip</span></code>, otherwise they will be interpreted as normal text files.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">settings.dip</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">runtime</span>
@@ -117,7 +117,7 @@ Files containing DIP code should have an extention <code class="docutils literal
 </div>
 <section id="parsing-dip-code">
 <h2>Parsing DIP code<a class="headerlink" href="#parsing-dip-code" title="Permalink to this heading"></a></h2>
-<p>It is recommendet to create DIP objects using <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
+<p>It is recommended to create DIP objects using <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DIP</span><span class="p">()</span> <span class="k">as</span> <span class="n">dip</span><span class="p">:</span>            <span class="c1"># create DIP object</span>
     <span class="n">dip</span><span class="o">.</span><span class="n">code</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    mpi</span>
@@ -127,7 +127,7 @@ Files containing DIP code should have an extention <code class="docutils literal
     <span class="n">env1</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>        <span class="c1"># parse the code</span>
 </pre></div>
 </div>
-<p>Parsed nodes, sources and units are stored in an environment object of class <code class="docutils literal notranslate"><span class="pre">Environment</span></code>. This object can be easily transferred into a new instance of <code class="docutils literal notranslate"><span class="pre">DIP</span></code> and immediatelly used without additional parsing.</p>
+<p>Parsed nodes, sources and units are stored in an environment object of class <code class="docutils literal notranslate"><span class="pre">Environment</span></code>. This object can be easily transferred into a new instance of <code class="docutils literal notranslate"><span class="pre">DIP</span></code> and immediately used without additional parsing.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DIP</span><span class="p">(</span><span class="n">env1</span><span class="p">)</span> <span class="k">as</span> <span class="n">dip</span><span class="p">:</span>              <span class="c1"># pass environment to a new DIP instance</span>
     <span class="n">dip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;settings.dip&quot;</span><span class="p">)</span>        <span class="c1"># add new parameter</span>
     <span class="n">env2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>              <span class="c1"># parse new parameters</span>
@@ -141,8 +141,8 @@ Files containing DIP code should have an extention <code class="docutils literal
 <span class="n">geom</span> <span class="o">=</span> <span class="n">env2</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;?box.geometry&quot;</span><span class="p">)</span>   <span class="c1"># select a node using a request method</span>
 </pre></div>
 </div>
-<p>In the example above variable <code class="docutils literal notranslate"><span class="pre">nodes</span></code> is a list of two nodes: <code class="docutils literal notranslate"><span class="pre">mpi.nodes</span></code> and <code class="docutils literal notranslate"><span class="pre">mpi.cores</span></code>.
-Variable <code class="docutils literal notranslate"><span class="pre">geom</span></code> is a list with only one node <code class="docutils literal notranslate"><span class="pre">box.geometry</span></code> that was loaded from file <code class="docutils literal notranslate"><span class="pre">settings.dip</span></code>.</p>
+<p>In the example above, variable <code class="docutils literal notranslate"><span class="pre">nodes</span></code> is a list of two nodes: <code class="docutils literal notranslate"><span class="pre">mpi.nodes</span></code> and <code class="docutils literal notranslate"><span class="pre">mpi.cores</span></code>.
+The variable <code class="docutils literal notranslate"><span class="pre">geom</span></code> is a list with only one node <code class="docutils literal notranslate"><span class="pre">box.geometry</span></code> that was loaded from a file <code class="docutils literal notranslate"><span class="pre">settings.dip</span></code>.</p>
 <p>All environmental data can be parsed as a dictionary.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Values are returned as Python datatypes</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">env2</span><span class="o">.</span><span class="n">data</span><span class="p">()</span>
@@ -195,7 +195,7 @@ Variable <code class="docutils literal notranslate"><span class="pre">geom</span
 <h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading"></a></h2>
 <p>Often code users can modify initial settings in order to choose functionality of a code to what they currently need.
 DIP gives code developers a tool to manage such input parameter lists and control what parameters are compulsory or mandatory and what is their format.
-In the following example we first create a definition file with description of all imput parameter of a fictional numerical code:</p>
+In the following example, we first create a definition file with description of all input parameter of a fictional numerical code:</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">definitions.dip</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$source</span> <span class="n">settings</span> = <span class="s">settings.dip</span>
@@ -237,7 +237,7 @@ In the following example we first create a definition file with description of a
 </div>
 </div>
 <p>Some nodes in <code class="docutils literal notranslate"><span class="pre">definitions.dip</span></code> are constant and some can be modified by user via <code class="docutils literal notranslate"><span class="pre">settings.dip</span></code>.
-Parsing of such DIP code will result in following:</p>
+Parsing of such DIP code will result in the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DIP</span><span class="p">()</span> <span class="k">as</span> <span class="n">dip</span><span class="p">:</span>
     <span class="n">dip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;definitions.dip&#39;</span><span class="p">)</span>
     <span class="n">env3</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
@@ -278,7 +278,7 @@ Box size: [{{?box.size.x}}, {{?box.size.y}}, {{?box.size.z}}]
     <span class="n">text</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;template.txt&#39;</span><span class="p">,</span><span class="s1">&#39;processed.txt&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Template solver in the example above will use given environment <code class="docutils literal notranslate"><span class="pre">env3</span></code>, reads template from <code class="docutils literal notranslate"><span class="pre">template.txt</span></code> and parses corresponding node values into file <code class="docutils literal notranslate"><span class="pre">processed.txt</span></code>.</p>
+<p>Template solver in the example above will use the given environment <code class="docutils literal notranslate"><span class="pre">env3</span></code>, reads template from <code class="docutils literal notranslate"><span class="pre">template.txt</span></code> and parses corresponding node values into file <code class="docutils literal notranslate"><span class="pre">processed.txt</span></code>.</p>
 <div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">processed.txt</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Geometry: 3
@@ -288,7 +288,7 @@ Box size: [1e-06, 3.0, 23.0]
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is especially useful when using DIP with codes written in other programming languages, since DIP currently natively supports only programms written in Python.
+<p>This is especially useful when using DIP with codes written in other programming languages, since DIP currently natively supports only programs written in Python.
 Nevertheless, support of other programming languages will be added later.</p>
 </div>
 </section>

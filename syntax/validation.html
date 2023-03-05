@@ -94,13 +94,13 @@
   <section id="validation">
 <h1>Validation<a class="headerlink" href="#validation" title="Permalink to this heading"></a></h1>
 <p>Numerical codes usually require initial parameter values with a specific format.
-In this section we summarize validation tools that can be used in DIP to restrict node values.
-Each node validation directive is given on a new line immediatelly after node definitions, declarations or modification.
+In this section, we summarize validation tools that can be used in DIP to restrict node values.
+Each node validation directive is given on a new line immediately after node definitions, declarations or modification.
 All validation directives must have consistent indent, higher than their parent node.</p>
 <section id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this heading"></a></h2>
-<p>Initial code parameters often accept only a small number of discrete input values, also called options.
-These can be explicitely described during node definition or declaration.</p>
+<p>Initial code parameters often accept only a few discrete input values, also called options.
+These can be explicitly described during node definition or declaration.</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Schema of a node option</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span>= <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>
@@ -108,19 +108,19 @@ These can be explicitely described during node definition or declaration.</p>
 </pre></div>
 </div>
 </div>
-<p>Node options can be specified for all datatypes except boolean.
-In case of boolean the two options (<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>) are implicitely set.
+<p>Node options can be specified for all data types except boolean.
+In case of boolean, the two options (<code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>) are implicitly set.
 Individual options are specified directly under particular nodes starting with equal sign.
 Options cannot be separated from nodes by an empty line.
-All options corresponding to the same node must have same indent, higher than the node.</p>
+All options corresponding to the same node must have the same indent, higher than the node.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class=" -Type">int</span> = <span class="m">1</span>
   <span class="k">=</span> <span class="m">1</span>  <span class="c"># carthesian</span>
   <span class="k">=</span> <span class="m">2</span>  <span class="c"># polar</span>
   <span class="k">=</span> <span class="m">3</span>  <span class="c"># spherical</span>
 </pre></div>
 </div>
-<p>If node has other value than one of the options, DIP will throw an error message.</p>
-<p>Node definition and individual options can have different units, but they must have the same dimensionality. Final value of such modified node will be, however, converted into units specified in definition.</p>
+<p>If the node has an other value than one of the options, DIP will throw an error message.</p>
+<p>Node definition and individual options can have different units, but they must have the same dimensionality. The final value of such modified node will be, however, converted into units specified in the definition.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span> <span class=" -Type">str</span> = <span class="s">&#39;dog&#39;</span>
   <span class="k">=</span> <span class="s">cat</span>
   <span class="k">=</span> <span class="s">dog</span>
@@ -135,7 +135,7 @@ All options corresponding to the same node must have same indent, higher than th
 <span class="c"># energy = 3 erg        # final value</span>
 </pre></div>
 </div>
-<p>If number of options is too large and it is not practical to write each option on a new line, it is also possible to use a shorthand <code class="docutils literal notranslate"><span class="pre">!options</span></code> option notation.</p>
+<p>If the number of options is too large, and it is not practical to write each option on a new line, it is also possible to use a shorthand <code class="docutils literal notranslate"><span class="pre">!options</span></code> option notation.</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Schema of an option array</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">!options</span> <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>
@@ -144,8 +144,8 @@ All options corresponding to the same node must have same indent, higher than th
 </div>
 </div>
 <p>The expected value of this clause is a list of values.
-It can be given explicitely or as a <a class="reference internal" href="references.html"><span class="doc">reference</span></a>.
-Similiarily as in the cases above, units are optional and must be of the same dimension as those given in a corresponding defininition.</p>
+It can be given explicitly or as a <a class="reference internal" href="references.html"><span class="doc">reference</span></a>.
+Similiarly as in the cases above, units are optional and must be of the same dimension as those given in a corresponding definition.</p>
 <p>Several <code class="docutils literal notranslate"><span class="pre">!options</span></code> clauses are allowed for the same node (e.g. each with different units).
 They combine into a single array of options against which the node value is evaluated.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span> <span class=" -Type">str</span> = <span class="s">&#39;dog&#39;</span>
@@ -161,8 +161,8 @@ They combine into a single array of options against which the node value is eval
 <section id="condition">
 <h2>Condition<a class="headerlink" href="#condition" title="Permalink to this heading"></a></h2>
 <p>Numerical values can usually have values ranging in some intervals.
-In order to restrict node values to some particular interval it is possible to set logical using <code class="docutils literal notranslate"><span class="pre">!condition</span></code> directive and logical expression.
-Given expression has to be evaluated as <cite>true</cite> after each definition or modification of a node.</p>
+In order to restrict node values to some particular interval, it is possible to set logical using <code class="docutils literal notranslate"><span class="pre">!condition</span></code> directive and logical expression.
+A given expression has to be evaluated as <cite>true</cite> after each definition or modification of a node.</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">Schema of a node condition requirement</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">!condition</span> (<span class=" -Expression">&#39;&lt;expression&gt;&#39;</span>)
@@ -173,8 +173,8 @@ Given expression has to be evaluated as <cite>true</cite> after each definition 
 </pre></div>
 </div>
 </div>
-<p>In the example below node <cite>energy</cite> can have values in a range of 23 and 26 erg.
-Actual value of node <cite>energy</cite> is matched using a special self-reference sign <code class="docutils literal notranslate"><span class="pre">{?}</span></code>.</p>
+<p>In the example below, node <cite>energy</cite> can have values in a range of 23 and 26 erg.
+The actual value of node <cite>energy</cite> is matched using a special self-reference sign <code class="docutils literal notranslate"><span class="pre">{?}</span></code>.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">energy</span> <span class=" -Type">float</span> = <span class="m">25</span><span class=" -Unit"> erg</span>
 <span class="k">  !condition</span> (<span class=" -Expression">&quot;23 &lt; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &amp;&amp; </span><span class=" -Reference">{?}</span><span class=" -Expression"> &lt; 26&quot;</span>)
 </pre></div>
@@ -182,7 +182,7 @@ Actual value of node <cite>energy</cite> is matched using a special self-referen
 </section>
 <section id="format">
 <h2>Format<a class="headerlink" href="#format" title="Permalink to this heading"></a></h2>
-<p>In general, string values wrapped into quotemarks can contain all characters and can be arbitrary long.
+<p>In general, string values wrapped into quote marks can contain all characters and can be arbitrary long.
 This can be restricted by defining their <code class="docutils literal notranslate"><span class="pre">!format</span></code> using standard (Python based) regular expressions.</p>
 <div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">Schema of a node format requirement</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
@@ -190,7 +190,7 @@ This can be restricted by defining their <code class="docutils literal notransla
 </pre></div>
 </div>
 </div>
-<p>In the following example node ‘name’ can contain only small and capital letters:</p>
+<p>In the following example, node ‘name’ can contain only small and capital letters:</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&#39;Ferdinant&#39;</span>
 <span class="k">  !format</span> <span class="s">&#39;[a-zA-Z]+&#39;</span>
 </pre></div>
@@ -206,7 +206,7 @@ This can be achieved by a directive <code class="docutils literal notranslate"><
 </pre></div>
 </div>
 </div>
-<p>Node <cite>name</cite> in the follwing expample cannot be further modified.</p>
+<p>Node <cite>name</cite> in the following example cannot be further modified.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&#39;John&#39;</span>
 <span class="k">  !constant</span>
 

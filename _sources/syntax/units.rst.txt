@@ -1,7 +1,7 @@
 Units
 =====
 
-Parsing of units in DIP and their conversion shares basic principles with `The Physical Markup Language <http://web.mit.edu/mecheng/pml/spec_measure.htm>`_ and adopts similar unit nomenclature (case sensitive) as described in `The Unified Code for Units of Measure <https://ucum.org/ucum>`_.
+Parsing of units in DIP and their conversion shares basic principles with `The Physical Markup Language <http://web.mit.edu/mecheng/pml/spec_measure.htm>`_ and adopts similar unit nomenclature (case-sensitive) as described in `The Unified Code for Units of Measure <https://ucum.org/ucum>`_.
 
 Each node has default units assigned at definition, or declaration.
 Subsequent modification without given units assume to be in default units.
@@ -29,7 +29,7 @@ Base units
 ----------
    
 **Quantities** in DIP are defined by a floating point numerical value (NV) and a measure array (MSR) with powers of base units.
-List of base units and their corresponding NV/MSR is summarized in the table below.
+A list of base units and their corresponding NV/MSR is summarized in the table below.
    
 .. csv-table:: Base units
    :widths: 10 20 6 30
@@ -60,7 +60,8 @@ Dimensionless quantities
 Prefixes
 --------
   
-All dimensonal units can be raised on the power-of-ten using explicit notation ``1e3*m`` or standard prefix notation ``km``. List of all supported prefixes with their coresponding NV and MRS is given in table below.
+All dimensional units can be raised to the power-of-ten using explicit notation ``1e3*m`` or standard prefix notation ``km``.
+A list of all supported prefixes with their corresponding NV and MRS is given in table below.
 
 .. csv-table:: Unit prefixes
    :widths: 8 10 10 8 30
@@ -91,12 +92,12 @@ All dimensonal units can be raised on the power-of-ten using explicit notation `
 Derived units
 -------------
 
-As already mentioned in previous chapter, units are foruth type of expressions in DIP.
+As already mentioned in previous chapter, units are fourth type of expressions in DIP.
 They play a prominent role in DIP in comparison to other three expressions (logical, numerical and templates), because they are directly integrated into node definitions.
-In this section we closely describe how they are formed and used in DIP.
+In this section, we closely describe how they are formed and used in DIP.
 
 So far we described base units and their most simple derivates using prefixes.
-It is, however, possible to derive new units from already existing units using following operators.
+It is, however, possible to derive new units from already existing units using the following operators.
 
 .. csv-table:: Unit operators
    :widths: 10 20 30
@@ -123,14 +124,14 @@ Expressions are written in close form and thus cannot consist of empty spaces.
    potential float = 8.3e2 kg*(m2/(s2*C))
 
 MRS of derived quantities is simply a sum (when units are multiplied) or difference (when units are divided) of progenitor's MRS. NVs are correspondingly multiplied, or divided and rebased to the power-of-ten.
-Powers of units multipy values of MRS, calculate power of NV and rebase it to the power-of-ten.
+Powers of units multiply values of MRS, calculate power of NV and rebase it to the power-of-ten.
 
 .. note::
 
    Some natural, dimensionless and custom units have symbols wrapped in square brackets (e.g. ``[c]`` or ``[m_p]``).
    This is to ensure that their notation does not coincide with symbols of standard units.
 
-In the table below we summarize all derived units that can be used in DIP.
+In the table below, we summarize all derived units that can be used in DIP.
 Both base and derived units can be used in combination with prefixes and can serve as progenitors in unit expressions.
    
 .. csv-table:: Derived SI units
@@ -221,7 +222,7 @@ Both base and derived units can be used in combination with prefixes and can ser
 Custom units
 ------------
 
-Similarily as in case of references, it it is also possible to define new units directly in the DIP code. This can be achieved by a special node directive ``$unit``.
+Similarly as in case of references, it is also possible to define new units directly in the DIP code. This can be achieved by a special node directive ``$unit``.
 
 .. code-block:: DIPSchema
    :caption: Schema of a custom unit definition
@@ -230,7 +231,7 @@ Similarily as in case of references, it it is also possible to define new units 
    <indent>$unit <name> = <value>         # if value is reference, or expression
 
 Names of the custom units are automatically wrapped into square brackets.
-If name of a custom unit is already used, code will raise an error.
+If the name of a custom unit is already used, the code will raise an error.
 
 .. code-block:: DIP
 

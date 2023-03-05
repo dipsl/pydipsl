@@ -3,7 +3,7 @@ References
 
 Node referencing is an important feature of DIP, because it enables to create reusable parts of a code.
 Reference is similar to a standard URL **requests**.
-It consist of a source name (path to a file) and a query (node path) part separated by a question mark.
+It consist of a source name (path to a file) and a query (node path) part, separated by a question mark.
 Sources are defined once using ``$source`` definition and can be referenced multiple times.
 
 .. code-block:: DIPSchema
@@ -16,7 +16,7 @@ A local domain contains all nodes that were already parsed in the current DIP fi
 Remote domain is a completely separate DIP file that is processed independently.
    
 **Query** part specifies which nodes from local or remote DIP files will be selected.
-Single node is querried by its full hierarchy path.
+A single node is queried by its full hierarchy path.
 An asterix at the end of the query selects children nodes:
 
 .. code-block:: DIPSchema
@@ -42,7 +42,7 @@ An asterix at the end of the query selects children nodes:
    
 .. note::
    
-   The last reference type ``{?}`` is used only in :doc:`validation conditions <validation>` to reference node's own value.  
+   The last reference type ``{?}`` is used only in :doc:`validation conditions <validation>` to reference the node's own value.  
    
 References have two main applications.
 One can either import some already parsed DIP nodes into a new location, or inject other node values or contents of text files into a new node.
@@ -51,7 +51,7 @@ Besides the two cases, references are also used in :doc:`conditions <conditions>
 Imports
 -------
 
-Imports can be used to insert referenced nodes directly into current DIP hierarchy.
+Imports can be used to insert referenced nodes directly into the current DIP hierarchy.
 
 .. code-block:: DIPSchema
    :caption: Schema of node imports
@@ -59,7 +59,7 @@ Imports can be used to insert referenced nodes directly into current DIP hierarc
    <indent>{<request>}
    <indent><name> {<request>}
 
-Name paths of imported nodes are embedded into the current node hierarchy as shown in following examples.
+Name paths of imported nodes are embedded into the current node hierarchy as shown in the following examples.
 
 
 .. code-block:: DIP
@@ -74,7 +74,7 @@ Name paths of imported nodes are embedded into the current node hierarchy as sho
      {?icecream.scoops.*}      # select children nodes
    plate {?icecream.waffle}    # select specific node
 
-Code above will result in following final nodes::
+Code above will result in the following final nodes::
 
   icecream.waffle = 'standard'
   icecream.scoops.strawberry = 1
@@ -96,7 +96,7 @@ One has to just add a source name in front of the question mark.
      {nodes?vegies.potato}      # selecting a specific subnode
    plate {nodes?vegies.*}       # selecting all subnodes   
 
-So far we shown how to import regular nodes from a local or remote source.
+So far, we have shown how to import regular nodes from a local or remote source.
 It is, however, also possible to import sources and custom :doc:`units` in the similar way.
 The request can select either one ``{<source>?<query>}`` or all ``{<source>?*}`` sources/units.
 
@@ -123,7 +123,7 @@ Injections
 ----------
 
 Injections do not insert whole nodes.
-They are used in node definitions and modifications instead of a values.
+They are used in node definitions and modifications instead of values.
 
 .. code-block:: DIPSchema
    :caption: Schema of node value injections
@@ -142,7 +142,7 @@ A valid injection can reference only a single node or a text content of a file.
    size3 float = {?size2}    # definition using import with same units
    size1 = {?size2}          # modifying by import
 
-   # Nodes above will have following values:
+   # Nodes above will have the following values:
    #
    # size1 = 3400 cm
    # size2 = 34 m
@@ -156,7 +156,7 @@ It is also possible to inject values from remote DIP files:
    
    pressure float = {pressure?magnetic}
    
-Arrays can be imported either directly or can be sliced to match dimensions of a host node using following schemas:
+Arrays can be imported either directly or can be sliced to match dimensions of a host node using the following schemas:
 
 .. code-block:: DIPSchema
    :caption: Schema of an array slice reference
@@ -165,7 +165,7 @@ Arrays can be imported either directly or can be sliced to match dimensions of a
    {<source>?<query>}[<slice>]    # node query from a remote domain
 
 Slicing of arrays and also strings adopts the same notation as used in Python.
-Example of sliced injected arrays is below:
+An example of sliced injected arrays is below:
 
 .. code-block:: DIP
 
@@ -190,9 +190,9 @@ Example of sliced injected arrays is below:
    # mymass = [23.34,1e34]
 
 
-Value injection can be also used to keep large text blocks in external files.
+Value injection can also be used to keep large text blocks in external files.
 This makes both the code and text data more readable and easily editable.
-Note that when requests do not include question mark with a query, DIP imports files as a text and not as a node list.
+Note that when requests do not include a question mark with a query, DIP imports files as a text and not as a node list.
 
 .. code-block:: DIP
    
@@ -204,7 +204,7 @@ Note that when requests do not include question mark with a query, DIP imports f
    outputs table = {outputs}             # import a table
    message str = {message}               # import a text
 
-Values of source and unit definitions can be also injected from other nodes.
+Values of source and unit definitions can also be injected from other nodes.
 
 .. code-block:: DIPSchema
    :caption: Schema of node value injections
@@ -215,7 +215,7 @@ Values of source and unit definitions can be also injected from other nodes.
 .. note::
    In comparison to imports, request query in injections is always path of a node.
 
-This adds an aditional scalablility to the code.
+This adds an additional scalability to the code.
 Referenced nodes by sources have to be strings and referenced nodes by units have to be floats or integers.
 
 .. code-block:: DIP

@@ -5,7 +5,7 @@ Scalars
 -------
 
 Nodes with a single boolean, number or string value are called scalar nodes.
-If node is scalar at its definition, it can be modified only with one value.
+If a node is scalar at its definition, it can be modified only with one value.
 Below is an overview of possible scalar values for each data type:
 
 **Boolean** (``bool``)
@@ -40,9 +40,9 @@ Below is an overview of possible scalar values for each data type:
 Arrays
 ------
 
-Nodes can store also multiple values in arrays.
+Nodes can also store multiple values in arrays.
 Dimensionality of such arrays have to be specified next to the type using bracket notation.
-Parsing of array values is hanled by a standard JSON parser.
+Parsing of array values is handled by a standard JSON parser.
 Final values of nodes are automatically validated according to defined conditions.
 
 .. code-block:: DIP
@@ -61,7 +61,7 @@ If one wants to use loose notation with empty spaces in between individual value
    data1 bool[4]   = '[true, false, false, true]'
    data2 str[3:4]  = "['John', 'Peter', 'Simon']"
 
-Multidimensional arrays are defined in a similar way using nested bracket notation.
+Multidimensional arrays are defined similarly using nested bracket notation.
 
 .. code-block:: DIP
 
@@ -79,9 +79,9 @@ Node units apply to all values in an array.
 Blocks
 ------
 
-If node values are large or span over several lines it is possible to use block notation.
-Block notation wraps values into tripple quote marks, simiarily as in Python.
-For numerical data types units can be set after the end of a block.
+If node values are large or span over several lines, it is possible to use block notation.
+Block notation wraps values into triple quote marks, similarly as in Python.
+For numerical data types, units can be set after the end of a block.
 
 .. code-block:: DIP
 
@@ -107,14 +107,14 @@ For numerical data types units can be set after the end of a block.
 Tables
 ------
 
-Sometimes it is easier and comprendious to put large amount of data into a tabular format.
-For this reason there is a special type of node called ``table``.
+Sometimes it is easier and compendious to put large amount of data into a tabular format.
+For this reason, there is a special type of node called ``table``.
 This data type parses DIP nodes from tabulated data sets given as a block value.
-Table format is very similar to a standard CSV table format, with special header format.
+The table format is very similar to a standard CSV table format, with special header format.
 
 Table header consists of node declarations corresponding to each table column.
 Each declaration starts on a new line without indentation.
-Table values are separated by an empty line from the header and individual values are separated by an empty space.
+Table values are separated by an empty line from the header, and individual values are separated by an empty space.
 
 .. code-block:: DIP
 

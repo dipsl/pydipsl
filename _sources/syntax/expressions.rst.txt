@@ -1,7 +1,7 @@
 Expressions
 ===========
 
-Node values can be defined also indirectly using expressions.
+Node values can also be defined indirectly using expressions.
 Notation of expression values is similar to the string notation wrapped in additional parentheses:
 
 .. code-block:: DIPSchema
@@ -54,9 +54,9 @@ Logical
 -------
 
 Logical expressions are used to generate values for boolean nodes.
-The expressions can be composed of multiple nested logical operators that always return true or false value.
+The expressions can be composed of multiple nested logical operators that always return a true or false value.
 
-Example of a logical expression is given below.
+An example of a logical expression is given below.
        
 .. code-block:: DIP
    
@@ -68,7 +68,7 @@ Example of a logical expression is given below.
 
    # Node 'c' will be evaluated as 'true'
 
-Expression operators evaluate only boolean values either given directly or as a result of a nested expression.
+Expression operators evaluate only boolean values, either given directly or as a result of a nested expression.
 
 .. list-table:: Logical operators
    :widths: 35 20 100
@@ -95,11 +95,11 @@ Expression operators evaluate only boolean values either given directly or as a 
      - 2
      - Parentheses operator evaluates expression `A` in a separate thread and returns its value
 
-Numerical values with dimensions compared using comparison operations are automatically converted into same units. Result of such comparison is always a boolean value.
+Numerical values with dimensions compared using comparison operations are automatically converted into same units. The result of such comparison is always a boolean value.
 
 .. note::
 
-   At the moment it is possible to compare only scalar numerical values. Support for array comparison is planned to be provided in next versions of DIP.
+   At the moment, it is possible to compare only scalar numerical values. Support for array comparison is planned to be provided in next versions of DIP.
 
 .. list-table:: Comparison operators
    :widths: 35 20 100
@@ -148,7 +148,7 @@ Numerical
 ---------
 
 Numerical expressions are used to generate values for numerical node types.
-If given, expression result is automatically converted into node units.
+If given, the expression result is automatically converted into node units.
 
 .. code-block:: DIP
 
@@ -162,9 +162,9 @@ If given, expression result is automatically converted into node units.
 
 .. note::
    
-   DIP does not aim to substitue advanced numerical programming languages.
+   DIP does not aim to substitute advanced numerical programming languages.
    Numerical expressions in DIP are supposed to give a quick tool for generation of input values that can be easily derived from other parameters.
-   Therefore, it implements only most basic mathematical operations on scalar values.
+   Therefore, it implements only the most basic mathematical operations on scalar values.
    More advanced operations can be added in the future versions of DIP.
 
 Operators used in numerical expressions are summarized below:
@@ -267,9 +267,9 @@ Basic syntax of parsing operators is described below:
    * - {<ref>}
      - Default reference of a node value.
    * - {<ref>:<format>}
-     - Formated reference of a node value.
+     - Formatted reference of a node value.
 
-Arrays can be also parsed using templates, however without specifying a format.
+Arrays can also be parsed using templates, however, without specifying a format.
 The format depends on the default Python string casting functions:
 
 .. code-block:: DIP

@@ -92,7 +92,7 @@
              
   <section id="expressions">
 <h1>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading"></a></h1>
-<p>Node values can be defined also indirectly using expressions.
+<p>Node values can also be defined indirectly using expressions.
 Notation of expression values is similar to the string notation wrapped in additional parentheses:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Expression schema</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
@@ -153,8 +153,8 @@ Dimensional expressions, i.e. <a class="reference internal" href="units.html"><s
 <section id="logical">
 <h2>Logical<a class="headerlink" href="#logical" title="Permalink to this heading"></a></h2>
 <p>Logical expressions are used to generate values for boolean nodes.
-The expressions can be composed of multiple nested logical operators that always return true or false value.</p>
-<p>Example of a logical expression is given below.</p>
+The expressions can be composed of multiple nested logical operators that always return a true or false value.</p>
+<p>An example of a logical expression is given below.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class=" -Type">bool</span> = <span class=" -Boolean">true</span>
 <span class="n">b</span> <span class=" -Type">float</span> = <span class="m">23.43</span><span class=" -Unit"> cm</span>
 <span class="n">c</span> <span class=" -Type">bool</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
@@ -164,7 +164,7 @@ The expressions can be composed of multiple nested logical operators that always
 <span class="c"># Node &#39;c&#39; will be evaluated as &#39;true&#39;</span>
 </pre></div>
 </div>
-<p>Expression operators evaluate only boolean values either given directly or as a result of a nested expression.</p>
+<p>Expression operators evaluate only boolean values, either given directly or as a result of a nested expression.</p>
 <table class="docutils align-default" id="id3">
 <caption><span class="caption-text">Logical operators</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
 <colgroup>
@@ -209,10 +209,10 @@ The expressions can be composed of multiple nested logical operators that always
 </tr>
 </tbody>
 </table>
-<p>Numerical values with dimensions compared using comparison operations are automatically converted into same units. Result of such comparison is always a boolean value.</p>
+<p>Numerical values with dimensions compared using comparison operations are automatically converted into same units. The result of such comparison is always a boolean value.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>At the moment it is possible to compare only scalar numerical values. Support for array comparison is planned to be provided in next versions of DIP.</p>
+<p>At the moment, it is possible to compare only scalar numerical values. Support for array comparison is planned to be provided in next versions of DIP.</p>
 </div>
 <table class="docutils align-default" id="id5">
 <caption><span class="caption-text">Comparison operators</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
@@ -286,7 +286,7 @@ The expressions can be composed of multiple nested logical operators that always
 <section id="numerical">
 <h2>Numerical<a class="headerlink" href="#numerical" title="Permalink to this heading"></a></h2>
 <p>Numerical expressions are used to generate values for numerical node types.
-If given, expression result is automatically converted into node units.</p>
+If given, the expression result is automatically converted into node units.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">const</span>
    <span class="n">c</span> <span class=" -Type">float</span> = <span class="m">299792458</span><span class=" -Unit"> m/s</span>
 <span class="n">energy</span> <span class=" -Type">float</span> = (<span class=" -Expression">&quot;&quot;&quot;</span>
@@ -298,9 +298,9 @@ If given, expression result is automatically converted into node units.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>DIP does not aim to substitue advanced numerical programming languages.
+<p>DIP does not aim to substitute advanced numerical programming languages.
 Numerical expressions in DIP are supposed to give a quick tool for generation of input values that can be easily derived from other parameters.
-Therefore, it implements only most basic mathematical operations on scalar values.
+Therefore, it implements only the most basic mathematical operations on scalar values.
 More advanced operations can be added in the future versions of DIP.</p>
 </div>
 <p>Operators used in numerical expressions are summarized below:</p>
@@ -431,11 +431,11 @@ Single curly brackets are interpreted as a plain test.</p>
 <td><p>Default reference of a node value.</p></td>
 </tr>
 <tr class="row-odd"><td><p>{&lt;ref&gt;:&lt;format&gt;}</p></td>
-<td><p>Formated reference of a node value.</p></td>
+<td><p>Formatted reference of a node value.</p></td>
 </tr>
 </tbody>
 </table>
-<p>Arrays can be also parsed using templates, however without specifying a format.
+<p>Arrays can also be parsed using templates, however, without specifying a format.
 The format depends on the default Python string casting functions:</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class=" -Type">str</span> = <span class="s">&quot;Will Smith&quot;</span>
 <span class="n">widths</span> <span class=" -Type">float[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [[<span class="m">23.4</span>,<span class="m">235.4</span>,<span class="m">34</span>],[<span class="m">1e10</span>,<span class="m">2e23</span>,<span class="m">5e20</span>]]

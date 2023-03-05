@@ -10,26 +10,26 @@ Definition
    <indent><name> <type> = <value> <unit> 
    <indent><name> <type> = <value> 
 
-All members of definition are separated with at least one empty space and their order is not interchangable.
+All members of definition are separated with at least one empty space, and their order is not interchangeable.
 
-**Indentation** is at the beginning of line and it determines node :ref:`hierarchy`.
+**Indentation** is at the beginning of a line and it determines node :ref:`hierarchy`.
 It can consist of zero or more empty spaces.
 
 Node **names** are formed from letters, numbers, underscores, hyphens and dots.
-Dots have special function, because they separate parent and child node names.
+Dots have a special function, because they separate parent and child node names.
 
 There are four main **data types** in DIP that are based on data types used in Python language: boolean (``bool``), integer (``int``), float (``float``) and string (``str``).
-Nevertheless, one can in principle extend number of data types to match those of e.g. C-language.
+Nevertheless, one can in principle extend the number of data types to match those of e.g. C-language.
 
 Node **values** are separated from left members by an equal sign.
-Values without quotes consists only from non empty characters.
-If values consists of empty spaces it must be wrapped into single or double quotes.
-If node value spans over multiple lines one can use :ref:`blocks`.
+Values without quotes consists only from non-empty characters.
+If values consists of empty spaces, it must be wrapped into single or double quotes.
+If node value spans over multiple lines, one can use :ref:`blocks`.
 
-The two datatypes that support **units** are integers and floats.
+The two data types that support **units** are integers and floats.
 Units are written directly after a node value and are separated with an empty space.
 More detailed description of units is given in a chapter about :doc:`units`.
-In this subsection we only describe basic syntax with respect to the nodes.
+In this subsection, we only describe basic syntax with respect to the nodes.
 
 **Comments** are always at the end of lines and start with a hash sign.
 It is also possible to use comments on empty lines to describe the code.
@@ -46,11 +46,11 @@ Modification
    <indent><name> = <value> <unit> 
    <indent><name> = <value> 
 
-First occurence of a node is called definition.
-All subsequent occurences of a node with the same name are called modifications.
-Data type of a node needs to be set in each definition, however it can be omitted in subsequented modifications.
+The first occurrence of a node is called definition.
+All subsequent occurrences of a node with the same name are called modifications.
+The data type of node needs to be set in each definition, however it can be omitted in subsequent modifications.
 If node is a dimensional parameter, units have to be set in a definition.
-One can use different units of the same dimension in modifications, however, final value of the node will be always converted into units set by the definition.
+One can use different units of the same dimension in modifications, however, the final value of the node will always be converted into units set by the definition.
 
 .. code-block:: DIP
 
@@ -87,8 +87,8 @@ Hierarchy
 DIP nodes are organized in a hierarchical way using indentation, i.e. number of empty spaces before nodes.
 **Parent** nodes have lower indentation as their **children** nodes.
 **Siblings** are nodes which share a common parent and indentation level.
-Multiple levels of hierarchy are also allowed and there can be empty lines between the nodes.
-Number of empty spaces for each indentation level can vary, as long as indentation of all children nodes is consistent.
+Multiple levels of hierarchy are also allowed, and there can be empty lines between the nodes.
+The number of empty spaces for each indentation level can vary, as long as indentation of all children nodes is consistent.
 
 .. code-block:: DIP
 
@@ -110,7 +110,7 @@ Besides that, nodes can be arranged using another type of node called *group* no
 Group nodes do not carry any value, nor do they declare any parameter for further use.
 Their function is to group multiple child nodes into a logical structure and their name enters the final node path.
 
-After parsing of nodes their names are transformed into a path that consists of the original name plus all parent names in the hierarchy separated by a dot.
+After parsing of nodes, their names are transformed into a path that consists of the original name plus all parent names in the hierarchy separated by a dot.
 The original node name can already be a path and will be parsed accordingly.
 
 .. code-block:: DIP
@@ -121,7 +121,7 @@ The original node name can already be a path and will be parsed accordingly.
      father.daughter str = 'Lucia' # using both normal and path notation
    family.aunt.dog str = 'Lassie'  # using only path notation
    
-The example above will result in following final parameters:
+The example above will result in the following final parameters:
 
 .. code-block:: DIP
    

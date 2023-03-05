@@ -96,7 +96,7 @@
 <section id="scalars">
 <h2>Scalars<a class="headerlink" href="#scalars" title="Permalink to this heading"></a></h2>
 <p>Nodes with a single boolean, number or string value are called scalar nodes.
-If node is scalar at its definition, it can be modified only with one value.
+If a node is scalar at its definition, it can be modified only with one value.
 Below is an overview of possible scalar values for each data type:</p>
 <p><strong>Boolean</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">day</span> <span class=" -Type">bool</span> = <span class=" -Boolean">true</span>
@@ -122,9 +122,9 @@ Below is an overview of possible scalar values for each data type:</p>
 </section>
 <section id="arrays">
 <h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this heading"></a></h2>
-<p>Nodes can store also multiple values in arrays.
+<p>Nodes can also store multiple values in arrays.
 Dimensionality of such arrays have to be specified next to the type using bracket notation.
-Parsing of array values is hanled by a standard JSON parser.
+Parsing of array values is handled by a standard JSON parser.
 Final values of nodes are automatically validated according to defined conditions.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class=" -Type">bool[</span><span class=" -Dimension">4</span><span class=" -Type">]</span>   = [<span class=" -Boolean">true</span>,<span class=" -Boolean">false</span>,<span class=" -Boolean">false</span>,<span class=" -Boolean">true</span>]<span class=" -Unit">  </span><span class="c"># exactly four values</span>
 <span class="n">data2</span> <span class=" -Type">int[</span><span class=" -Dimension">:</span><span class=" -Type">]</span>    = [<span class="m">0</span>,<span class="m">1</span>,<span class="m">2</span>,<span class="m">3</span>,<span class="m">4</span>,<span class="m">5</span>,<span class="m">6</span>]<span class=" -Unit">          </span><span class="c"># any number of values</span>
@@ -139,7 +139,7 @@ If one wants to use loose notation with empty spaces in between individual value
 <span class="n">data2</span> <span class=" -Type">str[</span><span class=" -Dimension">3:4</span><span class=" -Type">]</span>  = <span class="s">&quot;[&#39;John&#39;, &#39;Peter&#39;, &#39;Simon&#39;]&quot;</span>
 </pre></div>
 </div>
-<p>Multidimensional arrays are defined in a similar way using nested bracket notation.</p>
+<p>Multidimensional arrays are defined similarly using nested bracket notation.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class=" -Type">int[</span><span class=" -Dimension">2</span><span class=" -Type">,</span><span class=" -Dimension">3</span><span class=" -Type">]</span> = [[<span class="m">0</span>,<span class="m">1</span>,<span class="m">2</span>],[<span class="m">3</span>,<span class="m">4</span>,<span class="m">5</span>]]
 </pre></div>
 </div>
@@ -150,9 +150,9 @@ If one wants to use loose notation with empty spaces in between individual value
 </section>
 <section id="blocks">
 <span id="id1"></span><h2>Blocks<a class="headerlink" href="#blocks" title="Permalink to this heading"></a></h2>
-<p>If node values are large or span over several lines it is possible to use block notation.
-Block notation wraps values into tripple quote marks, simiarily as in Python.
-For numerical data types units can be set after the end of a block.</p>
+<p>If node values are large or span over several lines, it is possible to use block notation.
+Block notation wraps values into triple quote marks, similarly as in Python.
+For numerical data types, units can be set after the end of a block.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="c"># velocity field</span>
 <span class="n">velocity</span> <span class=" -Type">int[</span><span class=" -Dimension">4</span><span class=" -Type">,</span><span class=" -Dimension">4</span><span class=" -Type">]</span> = <span class="s">&quot;&quot;&quot;</span>
 <span class="s">[[ 0, 1, 2, 4],</span>
@@ -176,13 +176,13 @@ For numerical data types units can be set after the end of a block.</p>
 </section>
 <section id="tables">
 <h2>Tables<a class="headerlink" href="#tables" title="Permalink to this heading"></a></h2>
-<p>Sometimes it is easier and comprendious to put large amount of data into a tabular format.
-For this reason there is a special type of node called <code class="docutils literal notranslate"><span class="pre">table</span></code>.
+<p>Sometimes it is easier and compendious to put large amount of data into a tabular format.
+For this reason, there is a special type of node called <code class="docutils literal notranslate"><span class="pre">table</span></code>.
 This data type parses DIP nodes from tabulated data sets given as a block value.
-Table format is very similar to a standard CSV table format, with special header format.</p>
+The table format is very similar to a standard CSV table format, with special header format.</p>
 <p>Table header consists of node declarations corresponding to each table column.
 Each declaration starts on a new line without indentation.
-Table values are separated by an empty line from the header and individual values are separated by an empty space.</p>
+Table values are separated by an empty line from the header, and individual values are separated by an empty space.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class=" -Type">table</span> = <span class="s">&quot;&quot;&quot;</span>
 <span class="s">snapshot int</span>
 <span class="s">time float s</span>

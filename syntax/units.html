@@ -94,7 +94,7 @@
              
   <section id="units">
 <h1>Units<a class="headerlink" href="#units" title="Permalink to this heading"></a></h1>
-<p>Parsing of units in DIP and their conversion shares basic principles with <a class="reference external" href="http://web.mit.edu/mecheng/pml/spec_measure.htm">The Physical Markup Language</a> and adopts similar unit nomenclature (case sensitive) as described in <a class="reference external" href="https://ucum.org/ucum">The Unified Code for Units of Measure</a>.</p>
+<p>Parsing of units in DIP and their conversion shares basic principles with <a class="reference external" href="http://web.mit.edu/mecheng/pml/spec_measure.htm">The Physical Markup Language</a> and adopts similar unit nomenclature (case-sensitive) as described in <a class="reference external" href="https://ucum.org/ucum">The Unified Code for Units of Measure</a>.</p>
 <p>Each node has default units assigned at definition, or declaration.
 Subsequent modification without given units assume to be in default units.
 Values of modifications with different units (but same dimension) are converted to default units.</p>
@@ -118,7 +118,7 @@ Values of modifications with different units (but same dimension) are converted 
 <section id="base-units">
 <h2>Base units<a class="headerlink" href="#base-units" title="Permalink to this heading"></a></h2>
 <p><strong>Quantities</strong> in DIP are defined by a floating point numerical value (NV) and a measure array (MSR) with powers of base units.
-List of base units and their corresponding NV/MSR is summarized in the table below.</p>
+A list of base units and their corresponding NV/MSR is summarized in the table below.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">Base units</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
@@ -199,7 +199,8 @@ List of base units and their corresponding NV/MSR is summarized in the table bel
 </section>
 <section id="prefixes">
 <h2>Prefixes<a class="headerlink" href="#prefixes" title="Permalink to this heading"></a></h2>
-<p>All dimensonal units can be raised on the power-of-ten using explicit notation <code class="docutils literal notranslate"><span class="pre">1e3*m</span></code> or standard prefix notation <code class="docutils literal notranslate"><span class="pre">km</span></code>. List of all supported prefixes with their coresponding NV and MRS is given in table below.</p>
+<p>All dimensional units can be raised to the power-of-ten using explicit notation <code class="docutils literal notranslate"><span class="pre">1e3*m</span></code> or standard prefix notation <code class="docutils literal notranslate"><span class="pre">km</span></code>.
+A list of all supported prefixes with their corresponding NV and MRS is given in table below.</p>
 <table class="docutils align-default" id="id2">
 <caption><span class="caption-text">Unit prefixes</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
 <colgroup>
@@ -343,11 +344,11 @@ List of base units and their corresponding NV/MSR is summarized in the table bel
 </section>
 <section id="derived-units">
 <h2>Derived units<a class="headerlink" href="#derived-units" title="Permalink to this heading"></a></h2>
-<p>As already mentioned in previous chapter, units are foruth type of expressions in DIP.
+<p>As already mentioned in previous chapter, units are fourth type of expressions in DIP.
 They play a prominent role in DIP in comparison to other three expressions (logical, numerical and templates), because they are directly integrated into node definitions.
-In this section we closely describe how they are formed and used in DIP.</p>
+In this section, we closely describe how they are formed and used in DIP.</p>
 <p>So far we described base units and their most simple derivates using prefixes.
-It is, however, possible to derive new units from already existing units using following operators.</p>
+It is, however, possible to derive new units from already existing units using the following operators.</p>
 <table class="docutils align-default" id="id3">
 <caption><span class="caption-text">Unit operators</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
 <colgroup>
@@ -402,13 +403,13 @@ Expressions are written in close form and thus cannot consist of empty spaces.</
 </pre></div>
 </div>
 <p>MRS of derived quantities is simply a sum (when units are multiplied) or difference (when units are divided) of progenitor’s MRS. NVs are correspondingly multiplied, or divided and rebased to the power-of-ten.
-Powers of units multipy values of MRS, calculate power of NV and rebase it to the power-of-ten.</p>
+Powers of units multiply values of MRS, calculate power of NV and rebase it to the power-of-ten.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Some natural, dimensionless and custom units have symbols wrapped in square brackets (e.g. <code class="docutils literal notranslate"><span class="pre">[c]</span></code> or <code class="docutils literal notranslate"><span class="pre">[m_p]</span></code>).
 This is to ensure that their notation does not coincide with symbols of standard units.</p>
 </div>
-<p>In the table below we summarize all derived units that can be used in DIP.
+<p>In the table below, we summarize all derived units that can be used in DIP.
 Both base and derived units can be used in combination with prefixes and can serve as progenitors in unit expressions.</p>
 <table class="docutils align-default" id="id4">
 <caption><span class="caption-text">Derived SI units</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
@@ -713,7 +714,7 @@ Both base and derived units can be used in combination with prefixes and can ser
 </section>
 <section id="custom-units">
 <h2>Custom units<a class="headerlink" href="#custom-units" title="Permalink to this heading"></a></h2>
-<p>Similarily as in case of references, it it is also possible to define new units directly in the DIP code. This can be achieved by a special node directive <code class="docutils literal notranslate"><span class="pre">$unit</span></code>.</p>
+<p>Similarly as in case of references, it is also possible to define new units directly in the DIP code. This can be achieved by a special node directive <code class="docutils literal notranslate"><span class="pre">$unit</span></code>.</p>
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-text">Schema of a custom unit definition</span><a class="headerlink" href="#id9" title="Permalink to this code"></a></div>
 <div class="highlight-DIPSchema notranslate"><div class="highlight"><pre><span></span><span class=" -Indent">&lt;indent&gt;</span><span class="k">$unit</span> <span class="n">&lt;name&gt;</span> = <span class="s">&lt;value&gt;</span> <span class=" -Unit">&lt;unit&gt;</span>  <span class="c"># if value is a number</span>
@@ -722,7 +723,7 @@ Both base and derived units can be used in combination with prefixes and can ser
 </div>
 </div>
 <p>Names of the custom units are automatically wrapped into square brackets.
-If name of a custom unit is already used, code will raise an error.</p>
+If the name of a custom unit is already used, the code will raise an error.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="k">$unit</span> <span class="n">mass</span> = <span class="m">30</span><span class=" -Unit"> AU</span>
 <span class="k">$unit</span> <span class="n">length</span> = <span class="m">10</span><span class=" -Unit"> pc</span>
 <span class="k">$unit</span> <span class="n">time</span> = <span class="m">1</span><span class=" -Unit"> Gy</span>
