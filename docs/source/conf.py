@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'DIP'
+project = 'PyDIPSL'
 copyright = '2023, Ondrej Pego Jaura'
 author = 'Ondrej Pego Jaura'
 release = 'v0.1'
