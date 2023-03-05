@@ -8,12 +8,12 @@
 
 DIPSL, or shorter DIP, is a serialization language for dimensional input parameters.
 PyDIPSL is an implementation of DIP language for Python.
-It was created in order to make initial conditions of physical codes easier and systematic.
-Among many interesting features, the most important characteristic are:
+It was created in order to make initial conditions of physical codes easy to manage for developers and clearer for users.
+The most important characteristic are:
 
-* hierarchical structure of the settings
-* clear description of parameters
+* hierarchical structure of parameters
 * validation of parameter values
-* support for physical units
+* parameter referencing and value generation using expressions
+* automatic conversion of physical units
 
 More information, examples and description can be found in [HTML documentation](https://dipsl.github.io/pydipsl).
