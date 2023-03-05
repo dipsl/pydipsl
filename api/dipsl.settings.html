@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dipsl.settings package &mdash; DIP v0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/sphinxdoc.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="dipsl.solvers package" href="dipsl.solvers.html" />
+    <link rel="prev" title="dipsl.pygments package" href="dipsl.pygments.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            DIP
+              <img src="../_static/dip_logo_64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syntax.html">Syntax</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">dipsl</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="dipsl.html">dipsl package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="dipsl.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dipsl.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dipsl.html#module-dipsl.DIP_Environment">dipsl.DIP_Environment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dipsl.html#module-dipsl.DIP_Main">dipsl.DIP_Main module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dipsl.html#module-dipsl.DIP_Unit">dipsl.DIP_Unit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dipsl.html#module-dipsl.DIP_UnitList">dipsl.DIP_UnitList module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dipsl.html#module-dipsl">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pygments.html">Pygments lexer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DIP</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">dipsl</a></li>
+          <li class="breadcrumb-item"><a href="dipsl.html">dipsl package</a></li>
+      <li class="breadcrumb-item active">dipsl.settings package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/dipsl.settings.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dipsl-settings-package">
+<h1>dipsl.settings package<a class="headerlink" href="#dipsl-settings-package" title="Permalink to this heading"></a></h1>
+<section id="module-dipsl.settings">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dipsl.settings" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dipsl.settings.Format">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dipsl.settings.</span></span><span class="sig-name descname"><span class="pre">Format</span></span><a class="headerlink" href="#dipsl.settings.Format" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Format.NODE">
+<span class="sig-name descname"><span class="pre">NODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#dipsl.settings.Format.NODE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Format.TUPLE">
+<span class="sig-name descname"><span class="pre">TUPLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#dipsl.settings.Format.TUPLE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Format.TYPE">
+<span class="sig-name descname"><span class="pre">TYPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#dipsl.settings.Format.TYPE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Format.VALUE">
+<span class="sig-name descname"><span class="pre">VALUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#dipsl.settings.Format.VALUE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dipsl.settings.</span></span><span class="sig-name descname"><span class="pre">Keyword</span></span><a class="headerlink" href="#dipsl.settings.Keyword" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.CASE">
+<span class="sig-name descname"><span class="pre">CASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'case'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.CASE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.CONDITION">
+<span class="sig-name descname"><span class="pre">CONDITION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'condition'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.CONDITION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.CONSTANT">
+<span class="sig-name descname"><span class="pre">CONSTANT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'constant'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.CONSTANT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.ELSE">
+<span class="sig-name descname"><span class="pre">ELSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'else'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.ELSE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.END">
+<span class="sig-name descname"><span class="pre">END</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'end'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.END" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.FALSE">
+<span class="sig-name descname"><span class="pre">FALSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'false'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.FALSE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.FORMAT">
+<span class="sig-name descname"><span class="pre">FORMAT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'format'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.FORMAT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.OPTIONS">
+<span class="sig-name descname"><span class="pre">OPTIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'options'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.OPTIONS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.SOURCE">
+<span class="sig-name descname"><span class="pre">SOURCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'source'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.SOURCE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.TRUE">
+<span class="sig-name descname"><span class="pre">TRUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'true'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.TRUE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Keyword.UNIT">
+<span class="sig-name descname"><span class="pre">UNIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'unit'</span></em><a class="headerlink" href="#dipsl.settings.Keyword.UNIT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dipsl.settings.Namespace">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dipsl.settings.</span></span><span class="sig-name descname"><span class="pre">Namespace</span></span><a class="headerlink" href="#dipsl.settings.Namespace" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Namespace.NODES">
+<span class="sig-name descname"><span class="pre">NODES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#dipsl.settings.Namespace.NODES" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Namespace.SOURCES">
+<span class="sig-name descname"><span class="pre">SOURCES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#dipsl.settings.Namespace.SOURCES" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Namespace.UNITS">
+<span class="sig-name descname"><span class="pre">UNITS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#dipsl.settings.Namespace.UNITS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dipsl.settings.Numeric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dipsl.settings.</span></span><span class="sig-name descname"><span class="pre">Numeric</span></span><a class="headerlink" href="#dipsl.settings.Numeric" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Numeric.PRECISION">
+<span class="sig-name descname"><span class="pre">PRECISION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-06</span></em><a class="headerlink" href="#dipsl.settings.Numeric.PRECISION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dipsl.settings.Sign">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dipsl.settings.</span></span><span class="sig-name descname"><span class="pre">Sign</span></span><a class="headerlink" href="#dipsl.settings.Sign" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Sign.CONDITION">
+<span class="sig-name descname"><span class="pre">CONDITION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'&#64;'</span></em><a class="headerlink" href="#dipsl.settings.Sign.CONDITION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Sign.DEFINED">
+<span class="sig-name descname"><span class="pre">DEFINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'!'</span></em><a class="headerlink" href="#dipsl.settings.Sign.DEFINED" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Sign.NEGATE">
+<span class="sig-name descname"><span class="pre">NEGATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'~'</span></em><a class="headerlink" href="#dipsl.settings.Sign.NEGATE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Sign.QUERY">
+<span class="sig-name descname"><span class="pre">QUERY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'?'</span></em><a class="headerlink" href="#dipsl.settings.Sign.QUERY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Sign.SEPARATOR">
+<span class="sig-name descname"><span class="pre">SEPARATOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'.'</span></em><a class="headerlink" href="#dipsl.settings.Sign.SEPARATOR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Sign.VALIDATION">
+<span class="sig-name descname"><span class="pre">VALIDATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'!'</span></em><a class="headerlink" href="#dipsl.settings.Sign.VALIDATION" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Sign.VARIABLE">
+<span class="sig-name descname"><span class="pre">VARIABLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'$'</span></em><a class="headerlink" href="#dipsl.settings.Sign.VARIABLE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dipsl.settings.Sign.WILDCARD">
+<span class="sig-name descname"><span class="pre">WILDCARD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'*'</span></em><a class="headerlink" href="#dipsl.settings.Sign.WILDCARD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dipsl.pygments.html" class="btn btn-neutral float-left" title="dipsl.pygments package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dipsl.solvers.html" class="btn btn-neutral float-right" title="dipsl.solvers package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ondrej Pego Jaura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -111,12 +111,12 @@ The most notable features of this language are:
      from DIP_Environment import DIP_Environment
 		  
      with DIP() as p:
-         p.code("""
+         p.from_string("""
 	 laser
 	   intensity float = 1e25 W/m2
          """)
-	 p.load('radiation.dip')
-	 p.load('gravitation.dip')
+	 p.from_file('radiation.dip')
+	 p.from_file('gravitation.dip')
 	 
          laser_settings = p.query('laser.*')
          radiation_pressure = p.query('radiation.pressure')

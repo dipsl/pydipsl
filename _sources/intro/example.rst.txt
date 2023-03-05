@@ -38,7 +38,7 @@ It is recommended to create DIP objects using ``with`` statement.
 .. code-block:: python
 
    with DIP() as dip:            # create DIP object
-       dip.code("""           
+       dip.from_string("""           
        mpi
 	 nodes int = 36
 	 cores int = 96
@@ -50,7 +50,7 @@ Parsed nodes, sources and units are stored in an environment object of class ``E
 .. code-block:: python
 
    with DIP(env1) as dip:              # pass environment to a new DIP instance
-       dip.load("settings.dip")        # add new parameter
+       dip.from_file("settings.dip")        # add new parameter
        env2 = dip.parse()              # parse new parameters
 
 Getting parsed data
@@ -167,7 +167,7 @@ Parsing of such DIP code will result in the following:
 .. code-block::
 
    with DIP() as dip:
-       dip.load('definitions.dip')
+       dip.from_file('definitions.dip')
        env3 = dip.parse()
        data = env.data(format="type")
 

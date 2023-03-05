@@ -191,12 +191,12 @@
 <span class="kn">from</span> <span class="nn">DIP_Environment</span> <span class="kn">import</span> <span class="n">DIP_Environment</span>
 
 <span class="k">with</span> <span class="n">DIP</span><span class="p">()</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">code</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    laser</span>
 <span class="s2">      intensity float = 1e25 W/m2</span>
 <span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;radiation.dip&#39;</span><span class="p">)</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;gravitation.dip&#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;radiation.dip&#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;gravitation.dip&#39;</span><span class="p">)</span>
 
     <span class="n">laser_settings</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;laser.*&#39;</span><span class="p">)</span>
     <span class="n">radiation_pressure</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;radiation.pressure&#39;</span><span class="p">)</span>

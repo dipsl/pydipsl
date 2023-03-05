@@ -119,7 +119,7 @@ Files containing DIP code should have an extension <code class="docutils literal
 <h2>Parsing DIP code<a class="headerlink" href="#parsing-dip-code" title="Permalink to this heading"></a></h2>
 <p>It is recommended to create DIP objects using <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DIP</span><span class="p">()</span> <span class="k">as</span> <span class="n">dip</span><span class="p">:</span>            <span class="c1"># create DIP object</span>
-    <span class="n">dip</span><span class="o">.</span><span class="n">code</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">dip</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    mpi</span>
 <span class="s2">      nodes int = 36</span>
 <span class="s2">      cores int = 96</span>
@@ -129,7 +129,7 @@ Files containing DIP code should have an extension <code class="docutils literal
 </div>
 <p>Parsed nodes, sources and units are stored in an environment object of class <code class="docutils literal notranslate"><span class="pre">Environment</span></code>. This object can be easily transferred into a new instance of <code class="docutils literal notranslate"><span class="pre">DIP</span></code> and immediately used without additional parsing.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DIP</span><span class="p">(</span><span class="n">env1</span><span class="p">)</span> <span class="k">as</span> <span class="n">dip</span><span class="p">:</span>              <span class="c1"># pass environment to a new DIP instance</span>
-    <span class="n">dip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;settings.dip&quot;</span><span class="p">)</span>        <span class="c1"># add new parameter</span>
+    <span class="n">dip</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;settings.dip&quot;</span><span class="p">)</span>        <span class="c1"># add new parameter</span>
     <span class="n">env2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>              <span class="c1"># parse new parameters</span>
 </pre></div>
 </div>
@@ -239,7 +239,7 @@ In the following example, we first create a definition file with description of 
 <p>Some nodes in <code class="docutils literal notranslate"><span class="pre">definitions.dip</span></code> are constant and some can be modified by user via <code class="docutils literal notranslate"><span class="pre">settings.dip</span></code>.
 Parsing of such DIP code will result in the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DIP</span><span class="p">()</span> <span class="k">as</span> <span class="n">dip</span><span class="p">:</span>
-    <span class="n">dip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;definitions.dip&#39;</span><span class="p">)</span>
+    <span class="n">dip</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;definitions.dip&#39;</span><span class="p">)</span>
     <span class="n">env3</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;type&quot;</span><span class="p">)</span>
 
