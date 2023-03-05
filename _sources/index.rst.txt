@@ -1,5 +1,5 @@
-DIP - Dimensional Input Parameters
-==================================
+PyDIPSL
+=======
 
 .. image:: _static/logo/dip_logo_128.png
 
@@ -14,15 +14,15 @@ DIP - Dimensional Input Parameters
    api
    pygments
 
-Welcome to DIP documentation!
+Welcome to PyDIPSL documentation!
 
-DIP is specifically designed as a parameter parser for massive parallel codes used in physics, mathematics and engeneering that are mostly written in C/C++ and Fortran. Such codes require parameter input of multiple quantities and compilation flags with precisely defined variable types and physical units. In large projects this can get quickly messy and confusing. Especially when code requires to set parameters using several different, code specific (C/C++ pre-processor constants, Bash/Shell environmental variables, CSV and data tables, or Json, YAML, TOML and similar), notations and adjustable units.
+PyDIPSL, or shorter DIP, is specifically designed as a parameter parser for massive parallel codes used in physics, mathematics and engineering that are mostly written in C/C++ and Fortran. Such codes require parameter input of multiple quantities and compilation flags with precisely defined variable types and physical units. In large projects, this can get quickly messy and confusing. Especially when code requires setting parameters using several different, code specific (C/C++ pre-processor constants, Bash/Shell environmental variables, CSV and data tables, or JSON, YAML, TOML and similar), notations and adjustable units.
 
-Using DIP dimensions, datatypes and options of parameters are explicitely defined, validated and converted into proper numerical values used by a code.
+Using DIP dimensions, data types and options of parameters are explicitly defined, validated and converted into proper numerical values used by a code.
 
 The most notable features of this language are:
 
-- Explicit definitions of parameter datatypes and units
+- Explicit definitions of parameter data types and units
 
   .. code-block:: DIP
 
@@ -123,7 +123,7 @@ The most notable features of this language are:
 	 
 - Native serialization in Python, C/C++ (TODO) and Fortran (TODO)
 - Template parsing (e.g. producing of pre-processor flag parameter files)
-- Support of tabular data intput (e.g. CSV format or similar)
+- Support of tabular data input (e.g. CSV format or similar)
 
 and many others...
 
