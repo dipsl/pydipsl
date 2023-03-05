@@ -8,7 +8,7 @@ version = "0.1.0"
 authors = [
   { name="Ondrej Pego Jaura", email="dipsl.vrtulka23@gmail.com" },
 ]
-description = "Dimensional Input Parameter Serialization Language"
+description = "Python implementation of Dimensional Input Parameter Serialization Language (DIPSL)"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [

@@ -1,4 +1,4 @@
-import diplang
+import dipsl
 from .DIP_Node import Node
 from .DIP_Parser import Parser
 
@@ -35,7 +35,7 @@ class SourceNode(Node):
                 self.inject_value(env, parser)
             if parser.name not in env.sources:
                 if parser.value_raw.endswith('dip'):
-                    p = diplang.DIP()
+                    p = dipsl.DIP()
                     p.load(parser.value_raw)
                     p.parse()
                     env.sources[parser.name] = p

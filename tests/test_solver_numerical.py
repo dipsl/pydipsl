@@ -3,8 +3,8 @@ import pytest
 import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'src'))
-from diplang import DIP
-from diplang.solvers import NumericalSolver
+from dipsl import DIP
+from dipsl.solvers import NumericalSolver
 
 def test_plus_minus():
     with NumericalSolver() as p:

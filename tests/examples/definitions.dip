@@ -1,4 +1,4 @@
-$source settings = ./settings.dip
+$source settings = tests/examples/settings.dip
 
 runtime
   t_max float s

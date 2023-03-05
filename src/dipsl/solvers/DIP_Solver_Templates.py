@@ -53,3 +53,12 @@ class TemplateSolver(BaseModel):
                 out += sign
         return out
 
+    def template(self, file_in, file_out=None):
+        with open(file_in,'r') as f:
+            template = f.read()
+        text = self.solve(template)
+        if file_out:
+            with open(file_out,'w') as f:
+                f.write(text)
+        return text
+            

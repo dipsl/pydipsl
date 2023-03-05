@@ -1,2 +1,0 @@
-Geometry: 4
-Box size: [1e-06, 3.0, 23.0]

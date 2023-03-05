@@ -45,7 +45,7 @@ It is recommendet to create DIP objects using ``with`` statement.
        """)                      # get code from a string
        env1 = dip.parse()        # parse the code
 
-Parsed nodes, sources and units are stored in an environment object of class ``DIP_Environment``. This object can be easily transferred into a new instance of ``DIP`` and immediatelly used without additional parsing. 
+Parsed nodes, sources and units are stored in an environment object of class ``Environment``. This object can be easily transferred into a new instance of ``DIP`` and immediatelly used without additional parsing. 
 
 .. code-block:: python
 

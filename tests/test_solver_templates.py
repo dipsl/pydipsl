@@ -3,8 +3,8 @@ import pytest
 import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'src'))
-from diplang import DIP
-from diplang.solvers import TemplateSolver
+from dipsl import DIP
+from dipsl.solvers import TemplateSolver
 
 def test_formatting():
     with DIP() as dip:

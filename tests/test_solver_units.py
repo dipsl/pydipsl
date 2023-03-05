@@ -4,9 +4,9 @@ import numpy as np
 from math import isclose
 
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'src'))
-from diplang import DIP, Unit
-from diplang.solvers import UnitSolver
-from diplang.datatypes import FloatType, StringType
+from dipsl import DIP, Unit
+from dipsl.solvers import UnitSolver
+from dipsl.datatypes import FloatType, StringType
 
 def parse(code):
     with DIP() as p:

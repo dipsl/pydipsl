@@ -5,6 +5,6 @@ Pygments lexer
    :maxdepth: 2
    :caption: Contents:
 
-   lexer/syntax_highliter
-   lexer/schema_highliter
+   pygments/syntax_highliter
+   pygments/schema_highliter
    

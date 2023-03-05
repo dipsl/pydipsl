@@ -3,8 +3,8 @@ import pytest
 import numpy as np
 
 sys.path.append(os.path.join(os.path.dirname(sys.path[0]),'src'))
-from diplang import DIP
-from diplang.datatypes import FloatType, IntegerType, StringType
+from dipsl import DIP
+from dipsl.datatypes import FloatType, IntegerType, StringType
 
 def parse(code):
     with DIP() as p:
