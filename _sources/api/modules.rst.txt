@@ -1,7 +1,7 @@
-diplang
-=======
+dipsl
+=====
 
 .. toctree::
    :maxdepth: 4
 
-   diplang
+   dipsl

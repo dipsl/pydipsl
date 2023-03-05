@@ -57,7 +57,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../syntax.html">Syntax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../lexer.html">Pygments lexer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pygments.html">Pygments lexer</a></li>
 </ul>
 
         </div>
@@ -125,7 +125,7 @@ Files containing DIP code should have an extention <code class="docutils literal
     <span class="n">env1</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>        <span class="c1"># parse the code</span>
 </pre></div>
 </div>
-<p>Parsed nodes, sources and units are stored in an environment object of class <code class="docutils literal notranslate"><span class="pre">DIP_Environment</span></code>. This object can be easily transferred into a new instance of <code class="docutils literal notranslate"><span class="pre">DIP</span></code> and immediatelly used without additional parsing.</p>
+<p>Parsed nodes, sources and units are stored in an environment object of class <code class="docutils literal notranslate"><span class="pre">Environment</span></code>. This object can be easily transferred into a new instance of <code class="docutils literal notranslate"><span class="pre">DIP</span></code> and immediatelly used without additional parsing.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DIP</span><span class="p">(</span><span class="n">env1</span><span class="p">)</span> <span class="k">as</span> <span class="n">dip</span><span class="p">:</span>              <span class="c1"># pass environment to a new DIP instance</span>
     <span class="n">dip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;settings.dip&quot;</span><span class="p">)</span>        <span class="c1"># add new parameter</span>
     <span class="n">env2</span> <span class="o">=</span> <span class="n">dip</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>              <span class="c1"># parse new parameters</span>

@@ -12,7 +12,7 @@ DIP - Dimensional Input Parameters
    intro
    syntax
    api
-   lexer
+   pygments
 
 Welcome to DIP documentation!
 
