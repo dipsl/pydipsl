@@ -42,6 +42,18 @@ Arrays
 
 Nodes can also store multiple values in arrays.
 Dimensionality of such arrays have to be specified next to the type using bracket notation.
+
+.. csv-table:: Dimensionality of arrays
+   :widths: 20 60
+   :header-rows: 1
+
+   Example,            Description
+   "``[:]``",          "Array can have arbitrary number of values"
+   "``[3:]``",         "Array must have minimum of 3 values"
+   "``[:5]``",         "Array must have maximum of 5 values"
+   "``[1:4]``",        "Array must have between 1 and 4 values"
+   "``[6:,:8,2:7]``",  "Settings of individual dimensions are separated by comma"
+
 Parsing of array values is handled by a standard JSON parser.
 Final values of nodes are automatically validated according to defined conditions.
 
