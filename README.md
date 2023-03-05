@@ -1,6 +1,6 @@
 # Welcome to PyDIPSL!
 
-![DIP](https://raw.githubusercontent.com/dipsl/dippy/main/docs/source/_static/logo/dip_logo_128.png)
+![DIP](https://raw.githubusercontent.com/dipsl/pydipsl/main/docs/source/_static/logo/dip_logo_128.png)
 
 “Make your code tastier and serve your parameters with a nice DIP!”
 
