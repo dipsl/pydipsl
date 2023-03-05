@@ -1,15 +1,15 @@
 Syntax highliter
 ================
 
-DIP language shares many commong programing concepts with other languages like Python and C.
-It's syntax is, however, different enough to cause problem for generic highliters.
+DIP language shares many common programming concepts with other languages like Python and C.
+It's syntax is, however, different enough to cause a problem for generic highliters.
 Therefore, DIP comes with its own `pygments <https://pygments.org>`_ lexer in `dipsl/pygments/DIP_Lexer_Syntax.py` and styles in `dipsl/pygments/DIP_Lexer_Style.py`.
 Below is an overview of all its highlighting capabilities:
 
 .. note::
 
    All starting curly brackets in expressions are interpreted as references.
-   In order to interpret starting curly bracket as a plain text one has to escape them with a slash sign.
+   In order to interpret a starting curly bracket as a plain text, one has to escape them with a slash sign.
    The slash sign will be automatically omitted by the lexer in the highlighted text.
 
 .. code-block:: DIP

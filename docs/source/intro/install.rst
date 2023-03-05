@@ -10,7 +10,7 @@ One can use this library directly from a source code by including the source cod
    git clone https://github.com/dipsl/dippy.git
    export PYTHONPATH=$PYTHONPATH:$HOME/dippy/src/
 
-One can import it also directly from a python script:
+One can also import it directly from a python script:
 
 .. code-block:: python
 
@@ -25,7 +25,7 @@ Nevertheless, it is recommended to install it from a PyPi repository:
    pip3 install dipsl
 
    
-Main DIP module can be imported into your Python project as follows:
+The main DIP module can be imported into your Python project as follows:
 
 .. code-block:: python
 

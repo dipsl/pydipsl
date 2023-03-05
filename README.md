@@ -10,7 +10,7 @@ Dimensional Initial Parameters (Serialization Language)
 
 DIPSL, or shorter DIP, is a serialization language for dimensional input parameters.
 It was created in order to make initial conditions of physical codes easier and systematic.
-Among many interesting features the most important characteristic are:
+Among many interesting features, the most important characteristic are:
 
 * hierarchical structure of the settings
 * clear description of parameters
