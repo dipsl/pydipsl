@@ -19,20 +19,20 @@ def test_example_of_use(test_path):
           nodes int = 36
           cores int = 96
         """)                               # get code from a string
-        enva = dip.parse()                 # parse the code
+        env1 = dip.parse()                 # parse the code
 
-    with DIP(enva) as dip:                 # pass environment to a new DIP instance
+    with DIP(env1) as dip:                 # pass environment to a new DIP instance
         dip.load(test_path+"settings.dip") # add new parameter
-        envb = dip.parse()                 # parse new parameters
+        env2 = dip.parse()                 # parse new parameters
 
-    nodes = envb.query("mpi.*")            # select nodes using a query
-    geom = envb.request("?box.geometry")   # select a node using a request
+    nodes = env2.query("mpi.*")            # select nodes using a query
+    geom = env2.request("?box.geometry")   # select a node using a request
     
     assert nodes[0].value == IntegerType(36)
     assert nodes[1].value == IntegerType(96)
     assert geom[0].value == IntegerType(3)
 
-    data = envb.data(verbose=True)
+    data = env2.data(verbose=True)
     np.testing.assert_equal(data,{
         'mpi.nodes': 36,
         'mpi.cores': 96,
@@ -45,7 +45,7 @@ def test_example_of_use(test_path):
         'modules.radiation': True,
     })
 
-    data = envb.data(verbose=True, format="tuple")
+    data = env2.data(verbose=True, format="tuple")
     np.testing.assert_equal(data,{
         'mpi.nodes': 36,
         'mpi.cores': 96,
@@ -58,7 +58,7 @@ def test_example_of_use(test_path):
         'modules.radiation': True,
     })
     
-    data = envb.data(verbose=True, format="type")
+    data = env2.data(verbose=True, format="type")
     np.testing.assert_equal(data,{
         'mpi.nodes':         IntegerType(36),
         'mpi.cores':         IntegerType(96),
@@ -75,8 +75,8 @@ def test_definition_template(test_path):
     
     with DIP() as dip:
         dip.load(test_path+'definitions.dip')
-        env = dip.parse()
-        data = env.data(format="type")
+        env3 = dip.parse()
+        data = env3.data(format="type")
     np.testing.assert_equal(data,{
         'runtime.t_max':        FloatType(1e-08, 's'),
         'runtime.timestep':     FloatType(1e-11, 's'),
@@ -88,6 +88,6 @@ def test_definition_template(test_path):
         'modules.heating':      BooleanType(False),
         'modules.radiation':    BooleanType(True)
     })
-    with TemplateSolver(env) as ts:
+    with TemplateSolver(env3) as ts:
         text = ts.template(test_path+'template.txt')
     assert text == "Geometry: 3\nBox size: [1e-06, 3.0, 23.0]\n"
