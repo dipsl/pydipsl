@@ -9,6 +9,7 @@ A first step to parse a DIP code is to import its main class ``DIP``.
 .. code-block:: python
 
    from dipsl import DIP
+   from dipsl.settings import Format
    
 Multiple code sources (from strings, or files) can be loaded and combined into one parameter list.
 Files containing DIP code should have an extension ``.dip``, otherwise they will be interpreted as normal text files.
@@ -86,7 +87,7 @@ All environmental data can be parsed as a dictionary.
    # }
 
    # Same as above, but umbers with units are returned as tuples
-   data = env2.data(format="tuple")
+   data = env2.data(format=Format.TUPLE)
 
    # data = {
    #     'mpi.nodes': 36,
@@ -101,7 +102,7 @@ All environmental data can be parsed as a dictionary.
    # }
    
    # Values are returned as DIP datatypes
-   data = env2.data(format="type")
+   data = env2.data(format=Format.TYPE)
 
    # data = {
    #     'mpi.nodes': IntegerType(36),
@@ -165,11 +166,11 @@ Some nodes in ``definitions.dip`` are constant and some can be modified by user 
 Parsing of such DIP code will result in the following:
 
 .. code-block::
-
+   
    with DIP() as dip:
        dip.from_file('definitions.dip')
        env3 = dip.parse()
-       data = env.data(format="type")
+       data = env.data(format=Format.TYPE)
 
    # data = {
    #     'runtime.t_max':        FloatType(1e-08, 's'),
