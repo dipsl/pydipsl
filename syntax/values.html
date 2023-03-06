@@ -123,8 +123,37 @@ Below is an overview of possible scalar values for each data type:</p>
 <section id="arrays">
 <h2>Arrays<a class="headerlink" href="#arrays" title="Permalink to this heading"></a></h2>
 <p>Nodes can also store multiple values in arrays.
-Dimensionality of such arrays have to be specified next to the type using bracket notation.
-Parsing of array values is handled by a standard JSON parser.
+Dimensionality of such arrays have to be specified next to the type using bracket notation.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Dimensionality of arrays</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[:]</span></code></p></td>
+<td><p>Array can have arbitrary number of values</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[3:]</span></code></p></td>
+<td><p>Array must have minimum of 3 values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[:5]</span></code></p></td>
+<td><p>Array must have maximum of 5 values</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[1:4]</span></code></p></td>
+<td><p>Array must have between 1 and 4 values</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[6:,:8,2:7]</span></code></p></td>
+<td><p>Settings of individual dimensions are separated by comma</p></td>
+</tr>
+</tbody>
+</table>
+<p>Parsing of array values is handled by a standard JSON parser.
 Final values of nodes are automatically validated according to defined conditions.</p>
 <div class="highlight-DIP notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class=" -Type">bool[</span><span class=" -Dimension">4</span><span class=" -Type">]</span>   = [<span class=" -Boolean">true</span>,<span class=" -Boolean">false</span>,<span class=" -Boolean">false</span>,<span class=" -Boolean">true</span>]<span class=" -Unit">  </span><span class="c"># exactly four values</span>
 <span class="n">data2</span> <span class=" -Type">int[</span><span class=" -Dimension">:</span><span class=" -Type">]</span>    = [<span class="m">0</span>,<span class="m">1</span>,<span class="m">2</span>,<span class="m">3</span>,<span class="m">4</span>,<span class="m">5</span>,<span class="m">6</span>]<span class=" -Unit">          </span><span class="c"># any number of values</span>
